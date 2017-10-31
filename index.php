@@ -1,5 +1,5 @@
 <?php
-	
+
 	/**
  * Main Search Page
  *
@@ -18,17 +18,58 @@ require_once __DIR__ . '/category.php';
 session_start();
 
 $htmlBody = <<<END
-<form method="GET" role="form" id="search-form" data-toggle="validator">
 	<div class="row">
-		<div class="col-lg-12">
-			<div class="input-group input-group-lg" data-toggle="tooltip" title="Enter phrase to search in YouTube Videos. Limited to 25 search results.">
-				<label class="sr-only" for="q">Search Term</label>
-				<input type="text" class="form-control input-lg" id="q" name="q" placeholder="Enter phrase to search" required />
-				<span class="input-group-btn">
-					<button class="btn btn-default btn-lg" type="submit" >Go!</button>
-				</span>
-			</div><!-- input-group -->
+		<div class="col-lg-8">
+			<form method="GET" role="form" id="search-form" data-toggle="validator">
+		 		<fieldset>
+					<!-- Form Name -->
+					<legend>Search</legend>
+					<div class="input-group input-group-lg" data-toggle="tooltip" title="Enter phrase to search in YouTube Videos. Limited to 25 search results.">
+						<label class="sr-only" for="q">Search Term</label>
+						<input type="text" class="form-control input-lg" id="q" name="q" placeholder="Enter phrase to search" required />
+						<span class="input-group-btn">
+							<button class="btn btn-default btn-lg" type="submit" >Go!</button>
+						</span>
+					</div><!-- input-group -->
+				</fieldset>
+			</form><!-- form -->
 		</div><!-- col -->
+		<div class="col-lg-4">
+			<form method="POST" role="form" id="login-form" data-toggle="validator" class="form-horizontal">
+				<!-- Form Name -->
+				<legend>Login</legend>
+				<fieldset>
+					<div class="form-group">
+						<div class="col-lg-10">
+							<input id="inputusername" name="inputusername" type="text" placeholder="Username" class="form-control" required="">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-10">
+							<input id="inputpassword" name="inputpassword" type="password" placeholder="Password" class="form-control" required="">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-10">
+							<div class="checkbox">
+								<label>
+									<input type="checkbox"> Remember me
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-10">
+							<button type="submit" class="btn btn-success btn-block">
+								Sign in
+							</button>
+						</div>
+					</div>
+				</fieldset><!-- fieldset 2 -->
+			</form><!-- form 2 -->
+			<a href="register.php" class="btn" type="button">Not a member? Register!</a>
+		</div>
+	</div>
 	</div><!-- row -->
 </form>
 END;
@@ -49,11 +90,11 @@ $youtube = new Google_Service_YouTube($client);
 
 if (isset($_GET['q']) && !empty($_GET['q'])) {
 	$query = '"' . $_GET['q'] . '"';
-	
+
 	$htmlBody = '<div class="alert alert-success">';
 	$htmlBody .= "<strong>Search Query:</strong> " .  $query;
 	$htmlBody .= '</div>';
-	
+
 	try {
 		$searchResponse = $youtube->search->listSearch('id,snippet', array(
 			'q' => $query,
@@ -68,9 +109,9 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
 
 		// Add each result to the appropriate list, and then display the lists of
 		// matching videos, channels, and playlists.
-		
+
 		$numResults = count($searchResponse->items);
-		
+
 		foreach ($searchResponse->items as $searchResult) {
 			if ('youtube#video' == $searchResult->id->kind) {
 				$videos .= '<div class="row">';
@@ -109,7 +150,7 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
 				$videos .= '		</div>';
 				$videos .= '	</div>';
 				$videos .= '</div>';
-				
+
 				// $jsonArray .= '{';
 				// $jsonArray .= '"thumbnail" : ' . json_encode($searchResult->snippet->thumbnails['modelData'], JSON_PRETTY_PRINT) . ',';
 				// $jsonArray .= '"id" : ' . json_encode($searchResult->id, JSON_PRETTY_PRINT) . ',';
@@ -121,13 +162,13 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
 		// $jsonArray = substr($jsonArray, 0, -1);
 		// $jsonArray .= ']}';
 		// file_put_contents(JSON_SEARCH_RESULTS_FILE, $jsonArray);
-		
+
 		$numResultsText = '';
 		if ($numResults == 25) {
 			$numResultsText = 'Top ';
 		}
 		$numResultsText .= $numResults;
-		
+
 		$htmlBody .= <<<END
 					<h2>$numResultsText Search Result(s)</h2>
 					<div class="container-fluid">$videos</div>
@@ -139,7 +180,7 @@ END;
 			$state = mt_rand();
 			$client->setState($state);
 			$_SESSION['state'] = $state;
-		
+
 			$authUrl = $client->createAuthUrl();
 			$htmlBody .= '<div class="alert alert-danger"><h3>Authorization Required</h3>' .
 			'<p>You need to <a href="' . $authUrl . '">authorize access</a> before proceeding.<p></div>';
@@ -148,7 +189,7 @@ END;
 				'<code>%s</code></div>', htmlspecialchars($e->getMessage()));
 		}
 	} catch (Google_Exception $e) {
-		$htmlBody .= sprintf('<div class="alert alert-danger"><strong>'. CLIENT_ERROR_MSG .'</strong> '. 
+		$htmlBody .= sprintf('<div class="alert alert-danger"><strong>'. CLIENT_ERROR_MSG .'</strong> '.
 			'<code>%s</code></div>',
 			htmlspecialchars($e->getMessage()));
 	} catch (\Exception $e) {
@@ -204,7 +245,7 @@ END;
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js"></script>
 	<script>
 		$(document).ready(function(){
-			$('[data-toggle="tooltip"]').tooltip(); 
+			$('[data-toggle="tooltip"]').tooltip();
 		});
 		$('#search-form').validator().on('submit', function (e) {
 		  if (e.isDefaultPrevented()) {
@@ -212,6 +253,13 @@ END;
 		  } else {
 			// everything looks good!
 		  }
+		})
+		$('#login-form').validator().on('submit', function (e) {
+			if (e.isDefaultPrevented()) {
+			// handle the invalid form...
+			} else {
+			// everything looks good!
+			}
 		})
 		if ($('input:empty').length == 0) {
 			$('.btn:enabled	').on('click', function() {
