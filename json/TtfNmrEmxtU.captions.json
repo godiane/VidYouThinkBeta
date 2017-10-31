@@ -1,0 +1,386 @@
+[
+    {
+        "number": "1",
+        "stopTime": "00:00:22,200",
+        "startTime": "00:00:18,200",
+        "text": "Robert's got a quick hand\n"
+    },
+    {
+        "number": "2",
+        "stopTime": "00:00:24,800",
+        "startTime": "00:00:22,200",
+        "text": "He will look around the room\n"
+    },
+    {
+        "number": "3",
+        "stopTime": "00:00:27,020",
+        "startTime": "00:00:24,800",
+        "text": "He won't tell you his plan\n"
+    },
+    {
+        "number": "4",
+        "stopTime": "00:00:29,400",
+        "startTime": "00:00:27,020",
+        "text": "He's got a rolled cigarette\n"
+    },
+    {
+        "number": "5",
+        "stopTime": "00:00:32,400",
+        "startTime": "00:00:30,900",
+        "text": "Hanging out his mouth\n"
+    },
+    {
+        "number": "6",
+        "stopTime": "00:00:34,400",
+        "startTime": "00:00:32,400",
+        "text": "He's a cowboy kid. Yeah!\n"
+    },
+    {
+        "number": "7",
+        "stopTime": "00:00:37,200",
+        "startTime": "00:00:34,400",
+        "text": "He found a six-shooter gun\n"
+    },
+    {
+        "number": "8",
+        "stopTime": "00:00:40,200",
+        "startTime": "00:00:38,020",
+        "text": "In his dad's closet, Yeh!\n"
+    },
+    {
+        "number": "9",
+        "stopTime": "00:00:42,200",
+        "startTime": "00:00:40,200",
+        "text": "In the box of fun things\n"
+    },
+    {
+        "number": "10",
+        "stopTime": "00:00:44,800",
+        "startTime": "00:00:42,200",
+        "text": "And I don't even know what...\n"
+    },
+    {
+        "number": "11",
+        "stopTime": "00:00:47,640",
+        "startTime": "00:00:45,620",
+        "text": "But he's coming for you\n"
+    },
+    {
+        "number": "12",
+        "stopTime": "00:00:49,640",
+        "startTime": "00:00:47,640",
+        "text": "Yeah, he's coming for you!\n"
+    },
+    {
+        "number": "13",
+        "stopTime": "00:00:53,100",
+        "startTime": "00:00:49,780",
+        "text": "All the other kids with the pumped up kicks\n"
+    },
+    {
+        "number": "14",
+        "stopTime": "00:00:55,380",
+        "startTime": "00:00:53,100",
+        "text": "You better run, better run\n"
+    },
+    {
+        "number": "15",
+        "stopTime": "00:00:57,280",
+        "startTime": "00:00:55,380",
+        "text": "Outrun my gun\n"
+    },
+    {
+        "number": "16",
+        "stopTime": "00:01:00,540",
+        "startTime": "00:00:57,280",
+        "text": "All the other kids with the pumped up kicks\n"
+    },
+    {
+        "number": "17",
+        "stopTime": "00:01:02,620",
+        "startTime": "00:01:00,540",
+        "text": "You better run, better run\n"
+    },
+    {
+        "number": "18",
+        "stopTime": "00:01:04,760",
+        "startTime": "00:01:02,620",
+        "text": "Faster than my bullet!\n"
+    },
+    {
+        "number": "19",
+        "stopTime": "00:01:08,100",
+        "startTime": "00:01:04,840",
+        "text": "All the other kids with the pumped up kicks\n"
+    },
+    {
+        "number": "20",
+        "stopTime": "00:01:10,100",
+        "startTime": "00:01:08,100",
+        "text": "You better run, better run\n"
+    },
+    {
+        "number": "21",
+        "stopTime": "00:01:12,100",
+        "startTime": "00:01:10,100",
+        "text": "Outrun my gun\n"
+    },
+    {
+        "number": "22",
+        "stopTime": "00:01:15,660",
+        "startTime": "00:01:12,160",
+        "text": "All the other kids with the pumped up kicks\n"
+    },
+    {
+        "number": "23",
+        "stopTime": "00:01:17,900",
+        "startTime": "00:01:15,660",
+        "text": "You better run, better run\n"
+    },
+    {
+        "number": "24",
+        "stopTime": "00:01:19,900",
+        "startTime": "00:01:17,900",
+        "text": "Faster than my bullet!\n"
+    },
+    {
+        "number": "25",
+        "stopTime": "00:01:22,100",
+        "startTime": "00:01:19,900",
+        "text": "Daddy works a long day\n"
+    },
+    {
+        "number": "26",
+        "stopTime": "00:01:25,060",
+        "startTime": "00:01:22,660",
+        "text": "He'll be coming home late\n"
+    },
+    {
+        "number": "27",
+        "stopTime": "00:01:27,060",
+        "startTime": "00:01:25,060",
+        "text": "Yeah, he's coming home late\n"
+    },
+    {
+        "number": "28",
+        "stopTime": "00:01:30,040",
+        "startTime": "00:01:27,060",
+        "text": "Yeah, and he's bringing me a surprise!\n"
+    },
+    {
+        "number": "29",
+        "stopTime": "00:01:34,420",
+        "startTime": "00:01:30,800",
+        "text": "'Cause dinner is in the kitchen and it's packed in ice\n"
+    },
+    {
+        "number": "30",
+        "stopTime": "00:01:37,140",
+        "startTime": "00:01:34,420",
+        "text": "I've waited for a long time\n"
+    },
+    {
+        "number": "31",
+        "stopTime": "00:01:39,900",
+        "startTime": "00:01:37,900",
+        "text": "Yeah, the sleight of my hand\n"
+    },
+    {
+        "number": "32",
+        "stopTime": "00:01:42,100",
+        "startTime": "00:01:39,900",
+        "text": "Is now a quick-pull trigger\n"
+    },
+    {
+        "number": "33",
+        "stopTime": "00:01:44,860",
+        "startTime": "00:01:42,100",
+        "text": "I reason with my cigarette\n"
+    },
+    {
+        "number": "34",
+        "stopTime": "00:01:49,680",
+        "startTime": "00:01:45,400",
+        "text": "Then say, \"your hair on fire, you must have lost your wits, yeah?\"\n"
+    },
+    {
+        "number": "35",
+        "stopTime": "00:01:53,220",
+        "startTime": "00:01:49,680",
+        "text": "All the other kids with the pumped up kicks\n"
+    },
+    {
+        "number": "36",
+        "stopTime": "00:01:55,220",
+        "startTime": "00:01:53,220",
+        "text": "You better run, better run\n"
+    },
+    {
+        "number": "37",
+        "stopTime": "00:01:57,280",
+        "startTime": "00:01:55,280",
+        "text": "Outrun my gun\n"
+    },
+    {
+        "number": "38",
+        "stopTime": "00:02:00,580",
+        "startTime": "00:01:57,280",
+        "text": "All the other kids with the pumped up kicks\n"
+    },
+    {
+        "number": "39",
+        "stopTime": "00:02:02,920",
+        "startTime": "00:02:00,580",
+        "text": "You better run, better run\n"
+    },
+    {
+        "number": "40",
+        "stopTime": "00:02:04,940",
+        "startTime": "00:02:02,920",
+        "text": "Faster than my bullet!\n"
+    },
+    {
+        "number": "41",
+        "stopTime": "00:02:08,060",
+        "startTime": "00:02:04,940",
+        "text": "All the other kids with the pumped up kicks\n"
+    },
+    {
+        "number": "42",
+        "stopTime": "00:02:10,060",
+        "startTime": "00:02:08,060",
+        "text": "You better run, better run\n"
+    },
+    {
+        "number": "43",
+        "stopTime": "00:02:12,260",
+        "startTime": "00:02:10,260",
+        "text": "Outrun my gun\n"
+    },
+    {
+        "number": "44",
+        "stopTime": "00:02:15,580",
+        "startTime": "00:02:12,260",
+        "text": "All the other kids with the pumped up kicks\n"
+    },
+    {
+        "number": "45",
+        "stopTime": "00:02:17,700",
+        "startTime": "00:02:15,580",
+        "text": "You better run, better run\n"
+    },
+    {
+        "number": "46",
+        "stopTime": "00:02:19,940",
+        "startTime": "00:02:17,700",
+        "text": "Faster than my bullet!\n"
+    },
+    {
+        "number": "47",
+        "stopTime": "00:02:53,060",
+        "startTime": "00:02:49,400",
+        "text": "All the other kids with the pumped up kicks\n"
+    },
+    {
+        "number": "48",
+        "stopTime": "00:02:55,320",
+        "startTime": "00:02:53,060",
+        "text": "You better run, better run\n"
+    },
+    {
+        "number": "49",
+        "stopTime": "00:02:57,400",
+        "startTime": "00:02:55,400",
+        "text": "Outrun my gun\n"
+    },
+    {
+        "number": "50",
+        "stopTime": "00:03:00,700",
+        "startTime": "00:02:57,400",
+        "text": "All the other kids with the pumped up kicks\n"
+    },
+    {
+        "number": "51",
+        "stopTime": "00:03:02,700",
+        "startTime": "00:03:00,700",
+        "text": "You better run, better run\n"
+    },
+    {
+        "number": "52",
+        "stopTime": "00:03:04,700",
+        "startTime": "00:03:02,700",
+        "text": "Faster than my bullet!\n"
+    },
+    {
+        "number": "53",
+        "stopTime": "00:03:08,160",
+        "startTime": "00:03:04,840",
+        "text": "All the other kids with the pumped up kicks\n"
+    },
+    {
+        "number": "54",
+        "stopTime": "00:03:10,160",
+        "startTime": "00:03:08,160",
+        "text": "You better run, better run\n"
+    },
+    {
+        "number": "55",
+        "stopTime": "00:03:12,260",
+        "startTime": "00:03:10,260",
+        "text": "Outrun my gun\n"
+    },
+    {
+        "number": "56",
+        "stopTime": "00:03:15,780",
+        "startTime": "00:03:12,260",
+        "text": "All the other kids with the pumped up kicks\n"
+    },
+    {
+        "number": "57",
+        "stopTime": "00:03:17,780",
+        "startTime": "00:03:15,780",
+        "text": "You better run, better run\n"
+    },
+    {
+        "number": "58",
+        "stopTime": "00:03:19,780",
+        "startTime": "00:03:17,780",
+        "text": "Faster than my bullet!\n"
+    },
+    {
+        "number": "59",
+        "stopTime": "00:03:23,120",
+        "startTime": "00:03:19,780",
+        "text": "All the other kids with the pumped up kicks\n"
+    },
+    {
+        "number": "60",
+        "stopTime": "00:03:25,120",
+        "startTime": "00:03:23,120",
+        "text": "You better run, better run\n"
+    },
+    {
+        "number": "61",
+        "stopTime": "00:03:27,260",
+        "startTime": "00:03:25,260",
+        "text": "Outrun my gun\n"
+    },
+    {
+        "number": "62",
+        "stopTime": "00:03:30,640",
+        "startTime": "00:03:27,260",
+        "text": "All the other kids with the pumped up kicks\n"
+    },
+    {
+        "number": "63",
+        "stopTime": "00:03:32,640",
+        "startTime": "00:03:30,640",
+        "text": "You better run, better run\n"
+    },
+    {
+        "number": "64",
+        "stopTime": "00:03:34,820",
+        "startTime": "00:03:32,640",
+        "text": "Faster than my bullet~\n"
+    }
+]

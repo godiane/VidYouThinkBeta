@@ -1,0 +1,674 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "ready",
+                    "topic": null,
+                    "score": 0.46377052838785,
+                    "original_text": "I get ready",
+                    "original_length": 11,
+                    "normalized_text": "I get ready",
+                    "normalized_length": 11,
+                    "offset": 493
+                },
+                {
+                    "sentiment": "isn't really too much",
+                    "topic": null,
+                    "score": 0.87684577655941,
+                    "original_text": "this isn't really too much",
+                    "original_length": 26,
+                    "normalized_text": "this isn't really too much",
+                    "normalized_length": 26,
+                    "offset": 506
+                },
+                {
+                    "sentiment": "kind of ",
+                    "topic": null,
+                    "score": 0.0016962376972446,
+                    "original_text": "that's kind of ",
+                    "original_length": 15,
+                    "normalized_text": "that's kind of ",
+                    "normalized_length": 15,
+                    "offset": 1081
+                },
+                {
+                    "sentiment": "pretty new ish",
+                    "topic": null,
+                    "score": 0.79233520429398,
+                    "original_text": "this is pretty new ish",
+                    "original_length": 22,
+                    "normalized_text": "this is pretty new ish",
+                    "normalized_length": 22,
+                    "offset": 1425
+                },
+                {
+                    "sentiment": "well right now so",
+                    "topic": null,
+                    "score": 0.86793034016765,
+                    "original_text": "that well right now so",
+                    "original_length": 22,
+                    "normalized_text": "that well right now so",
+                    "normalized_length": 22,
+                    "offset": 1494
+                },
+                {
+                    "sentiment": "yay for",
+                    "topic": "Pikachu",
+                    "score": 0.8265700636425,
+                    "original_text": "yay for Pikachu",
+                    "original_length": 15,
+                    "normalized_text": "yay for Pikachu",
+                    "normalized_length": 15,
+                    "offset": 1537
+                },
+                {
+                    "sentiment": "pretty",
+                    "topic": "addicting",
+                    "score": 0.62801457251814,
+                    "original_text": "pretty addicting",
+                    "original_length": 16,
+                    "normalized_text": "pretty addicting",
+                    "normalized_length": 16,
+                    "offset": 2008
+                },
+                {
+                    "sentiment": "pretty cool",
+                    "topic": null,
+                    "score": 0.92036506358378,
+                    "original_text": "it's pretty cool",
+                    "original_length": 16,
+                    "normalized_text": "it's pretty cool",
+                    "normalized_length": 16,
+                    "offset": 2538
+                },
+                {
+                    "sentiment": "yay",
+                    "topic": null,
+                    "score": 0.67003104828152,
+                    "original_text": "yay",
+                    "original_length": 3,
+                    "normalized_text": "yay",
+                    "normalized_length": 3,
+                    "offset": 2703
+                },
+                {
+                    "sentiment": "warm",
+                    "topic": null,
+                    "score": 0.79233520429398,
+                    "original_text": "they're warm",
+                    "original_length": 12,
+                    "normalized_text": "they're warm",
+                    "normalized_length": 12,
+                    "offset": 2855
+                },
+                {
+                    "sentiment": "really nice",
+                    "topic": null,
+                    "score": 0.90625640126623,
+                    "original_text": "they're really nice",
+                    "original_length": 19,
+                    "normalized_text": "they're really nice",
+                    "normalized_length": 19,
+                    "offset": 2868
+                },
+                {
+                    "sentiment": "kind of ",
+                    "topic": null,
+                    "score": 0.0016962376972446,
+                    "original_text": "it is kind of ",
+                    "original_length": 14,
+                    "normalized_text": "it is kind of ",
+                    "normalized_length": 14,
+                    "offset": 3148
+                },
+                {
+                    "sentiment": "these cool",
+                    "topic": "flowers",
+                    "score": 0.62801457251814,
+                    "original_text": "these cool flowers",
+                    "original_length": 18,
+                    "normalized_text": "these cool flowers",
+                    "normalized_length": 18,
+                    "offset": 3257
+                },
+                {
+                    "sentiment": "the coolest",
+                    "topic": "thing about this outfit",
+                    "score": 0.74700038636648,
+                    "original_text": "the coolest thing about this outfit",
+                    "original_length": 35,
+                    "normalized_text": "the coolest thing about this outfit",
+                    "normalized_length": 35,
+                    "offset": 3287
+                },
+                {
+                    "sentiment": "love",
+                    "topic": "hello kitty",
+                    "score": 0.8401344326865,
+                    "original_text": "love hello kitty",
+                    "original_length": 16,
+                    "normalized_text": "love hello kitty",
+                    "normalized_length": 16,
+                    "offset": 3369
+                },
+                {
+                    "sentiment": "like my favorite part",
+                    "topic": null,
+                    "score": 0.85825242038059,
+                    "original_text": "it's like my favorite part",
+                    "original_length": 26,
+                    "normalized_text": "it's like my favorite part",
+                    "normalized_length": 26,
+                    "offset": 3418
+                },
+                {
+                    "sentiment": "kind of ",
+                    "topic": null,
+                    "score": 0.0016962376972446,
+                    "original_text": "it's kind of ",
+                    "original_length": 13,
+                    "normalized_text": "it's kind of ",
+                    "normalized_length": 13,
+                    "offset": 3827
+                },
+                {
+                    "sentiment": "ready",
+                    "topic": null,
+                    "score": 0.38700997699244,
+                    "original_text": "get ready",
+                    "original_length": 9,
+                    "normalized_text": "get ready",
+                    "normalized_length": 9,
+                    "offset": 3925
+                },
+                {
+                    "sentiment": "like",
+                    "topic": null,
+                    "score": 0.67489840558231,
+                    "original_text": "but I like",
+                    "original_length": 10,
+                    "normalized_text": "but I like",
+                    "normalized_length": 10,
+                    "offset": 4255
+                },
+                {
+                    "sentiment": "always liked",
+                    "topic": "my hair",
+                    "score": 0.90258715778194,
+                    "original_text": "I always liked my hair",
+                    "original_length": 22,
+                    "normalized_text": "I always liked my hair",
+                    "normalized_length": 22,
+                    "offset": 4864
+                },
+                {
+                    "sentiment": "perfectly straight",
+                    "topic": null,
+                    "score": 0.85223807104944,
+                    "original_text": "be perfectly straight",
+                    "original_length": 21,
+                    "normalized_text": "be perfectly straight",
+                    "normalized_length": 21,
+                    "offset": 4891
+                },
+                {
+                    "sentiment": "the best",
+                    "topic": "hairspray",
+                    "score": 0.77868568173168,
+                    "original_text": "the best hairspray",
+                    "original_length": 18,
+                    "normalized_text": "the best hairspray",
+                    "normalized_length": 18,
+                    "offset": 5205
+                },
+                {
+                    "sentiment": "like my favorite",
+                    "topic": null,
+                    "score": 0.85825242038059,
+                    "original_text": "this is like my favorite",
+                    "original_length": 24,
+                    "normalized_text": "this is like my favorite",
+                    "normalized_length": 24,
+                    "offset": 5253
+                },
+                {
+                    "sentiment": "my favorite",
+                    "topic": null,
+                    "score": 0.85825242038059,
+                    "original_text": "this is my favorite",
+                    "original_length": 19,
+                    "normalized_text": "this is my favorite",
+                    "normalized_length": 19,
+                    "offset": 5451
+                },
+                {
+                    "sentiment": "super super good",
+                    "topic": null,
+                    "score": 1,
+                    "original_text": "it's super super good",
+                    "original_length": 21,
+                    "normalized_text": "it's super super good",
+                    "normalized_length": 21,
+                    "offset": 5482
+                },
+                {
+                    "sentiment": "a really good",
+                    "topic": "job",
+                    "score": 0.78466151696373,
+                    "original_text": "a really good job",
+                    "original_length": 17,
+                    "normalized_text": "a really good job",
+                    "normalized_length": 17,
+                    "offset": 5568
+                },
+                {
+                    "sentiment": "pretty",
+                    "topic": null,
+                    "score": 0.85612532535118,
+                    "original_text": "that's pretty much",
+                    "original_length": 18,
+                    "normalized_text": "that's pretty much",
+                    "normalized_length": 18,
+                    "offset": 5864
+                },
+                {
+                    "sentiment": "really cool",
+                    "topic": null,
+                    "score": 0.90258715778194,
+                    "original_text": "he's really cool",
+                    "original_length": 16,
+                    "normalized_text": "he's really cool",
+                    "normalized_length": 16,
+                    "offset": 6150
+                },
+                {
+                    "sentiment": "actually nice",
+                    "topic": null,
+                    "score": 0.90625640126623,
+                    "original_text": "he was actually nice",
+                    "original_length": 20,
+                    "normalized_text": "he was actually nice",
+                    "normalized_length": 20,
+                    "offset": 6229
+                },
+                {
+                    "sentiment": "give me these two amazing products",
+                    "topic": null,
+                    "score": 0.90625640126623,
+                    "original_text": "give me these two amazing products",
+                    "original_length": 34,
+                    "normalized_text": "give me these two amazing products",
+                    "normalized_length": 34,
+                    "offset": 6261
+                },
+                {
+                    "sentiment": "super good",
+                    "topic": null,
+                    "score": 0.95560984625062,
+                    "original_text": "it's super good",
+                    "original_length": 15,
+                    "normalized_text": "it's super good",
+                    "normalized_length": 15,
+                    "offset": 6343
+                },
+                {
+                    "sentiment": "just kind of",
+                    "topic": null,
+                    "score": 0.0018334946608492,
+                    "original_text": "it's just kind of",
+                    "original_length": 17,
+                    "normalized_text": "it's just kind of",
+                    "normalized_length": 17,
+                    "offset": 6359
+                },
+                {
+                    "sentiment": "just kind of like",
+                    "topic": null,
+                    "score": 0.56486499045794,
+                    "original_text": "you just kind of like",
+                    "original_length": 21,
+                    "normalized_text": "you just kind of like",
+                    "normalized_length": 21,
+                    "offset": 6396
+                },
+                {
+                    "sentiment": "super good",
+                    "topic": null,
+                    "score": 0.95560984625062,
+                    "original_text": "it's super good",
+                    "original_length": 15,
+                    "normalized_text": "it's super good",
+                    "normalized_length": 15,
+                    "offset": 6758
+                },
+                {
+                    "sentiment": "really nice",
+                    "topic": "your hair",
+                    "score": 0.90625640126623,
+                    "original_text": "your hair look really nice",
+                    "original_length": 26,
+                    "normalized_text": "your hair look really nice",
+                    "normalized_length": 26,
+                    "offset": 6784
+                },
+                {
+                    "sentiment": "really good",
+                    "topic": "job of doing",
+                    "score": 0.78466151696373,
+                    "original_text": "really good job of doing",
+                    "original_length": 24,
+                    "normalized_text": "really good job of doing",
+                    "normalized_length": 24,
+                    "offset": 6948
+                },
+                {
+                    "sentiment": "like",
+                    "topic": null,
+                    "score": 0.60858454666352,
+                    "original_text": "that like it",
+                    "original_length": 12,
+                    "normalized_text": "that like it",
+                    "normalized_length": 12,
+                    "offset": 7197
+                },
+                {
+                    "sentiment": "a really good job",
+                    "topic": null,
+                    "score": 0.90625640126623,
+                    "original_text": "it was a really good job",
+                    "original_length": 24,
+                    "normalized_text": "it was a really good job",
+                    "normalized_length": 24,
+                    "offset": 7236
+                },
+                {
+                    "sentiment": "the right",
+                    "topic": "place",
+                    "score": 0.41366197954986,
+                    "original_text": "the right place",
+                    "original_length": 15,
+                    "normalized_text": "the right place",
+                    "normalized_length": 15,
+                    "offset": 7313
+                },
+                {
+                    "sentiment": "the right",
+                    "topic": "place",
+                    "score": 0.41366197954986,
+                    "original_text": "the right place",
+                    "original_length": 15,
+                    "normalized_text": "the right place",
+                    "normalized_length": 15,
+                    "offset": 7332
+                },
+                {
+                    "sentiment": "super good",
+                    "topic": null,
+                    "score": 0.95560984625062,
+                    "original_text": "it's super good",
+                    "original_length": 15,
+                    "normalized_text": "it's super good",
+                    "normalized_length": 15,
+                    "offset": 7352
+                },
+                {
+                    "sentiment": "really good",
+                    "topic": "cuz",
+                    "score": 0.78466151696373,
+                    "original_text": "really good cuz",
+                    "original_length": 15,
+                    "normalized_text": "really good cuz",
+                    "normalized_length": 15,
+                    "offset": 7710
+                },
+                {
+                    "sentiment": "like",
+                    "topic": null,
+                    "score": 0.60858454666352,
+                    "original_text": "it like",
+                    "original_length": 7,
+                    "normalized_text": "it like",
+                    "normalized_length": 7,
+                    "offset": 7726
+                },
+                {
+                    "sentiment": "just kind of",
+                    "topic": null,
+                    "score": 0.0018334946608492,
+                    "original_text": "one is just kind of",
+                    "original_length": 19,
+                    "normalized_text": "one is just kind of",
+                    "normalized_length": 19,
+                    "offset": 7967
+                },
+                {
+                    "sentiment": "like",
+                    "topic": "fun",
+                    "score": 0.47300690287699,
+                    "original_text": "when you like fun",
+                    "original_length": 17,
+                    "normalized_text": "when you like fun",
+                    "normalized_length": 17,
+                    "offset": 8007
+                },
+                {
+                    "sentiment": "really shiny",
+                    "topic": "your hair",
+                    "score": 0.90258715778194,
+                    "original_text": "your hair is really shiny",
+                    "original_length": 25,
+                    "normalized_text": "your hair is really shiny",
+                    "normalized_length": 25,
+                    "offset": 8110
+                },
+                {
+                    "sentiment": "thank you",
+                    "topic": null,
+                    "score": 0.81406432882078,
+                    "original_text": "thank you",
+                    "original_length": 9,
+                    "normalized_text": "thank you",
+                    "normalized_length": 9,
+                    "offset": 8283
+                },
+                {
+                    "sentiment": "both awesome",
+                    "topic": null,
+                    "score": 0.86833620494807,
+                    "original_text": "because they're both awesome",
+                    "original_length": 28,
+                    "normalized_text": "because they're both awesome",
+                    "normalized_length": 28,
+                    "offset": 8383
+                },
+                {
+                    "sentiment": "both super good",
+                    "topic": null,
+                    "score": 0.92096059236928,
+                    "original_text": "are both super good",
+                    "original_length": 19,
+                    "normalized_text": "are both super good",
+                    "normalized_length": 19,
+                    "offset": 8575
+                },
+                {
+                    "sentiment": "recommend ease by",
+                    "topic": "the way guys",
+                    "score": 0.84944336528234,
+                    "original_text": "recommend ease by the way guys",
+                    "original_length": 30,
+                    "normalized_text": "recommend ease by the way guys",
+                    "normalized_length": 30,
+                    "offset": 8615
+                },
+                {
+                    "sentiment": "s not too bad ok",
+                    "topic": null,
+                    "score": 0.67489840558231,
+                    "original_text": "it's not too bad ok",
+                    "original_length": 19,
+                    "normalized_text": "it's not too bad ok",
+                    "normalized_length": 19,
+                    "offset": 8996
+                },
+                {
+                    "sentiment": "pretty",
+                    "topic": null,
+                    "score": 0.85612532535118,
+                    "original_text": "that is pretty much",
+                    "original_length": 19,
+                    "normalized_text": "that is pretty much",
+                    "normalized_length": 19,
+                    "offset": 9020
+                },
+                {
+                    "sentiment": "ready",
+                    "topic": null,
+                    "score": 0.46377052838785,
+                    "original_text": "I get ready",
+                    "original_length": 11,
+                    "normalized_text": "I get ready",
+                    "normalized_length": 11,
+                    "offset": 9072
+                },
+                {
+                    "sentiment": "enjoyed watching",
+                    "topic": "this video",
+                    "score": 0.83035851058597,
+                    "original_text": "enjoyed watching this video",
+                    "original_length": 27,
+                    "normalized_text": "enjoyed watching this video",
+                    "normalized_length": 27,
+                    "offset": 9097
+                },
+                {
+                    "sentiment": "thumbs up",
+                    "topic": null,
+                    "score": 0.45936438213232,
+                    "original_text": "thumbs up",
+                    "original_length": 9,
+                    "normalized_text": "thumbs up",
+                    "normalized_length": 9,
+                    "offset": 9153
+                },
+                {
+                    "sentiment": "liked",
+                    "topic": null,
+                    "score": 0.79233520429398,
+                    "original_text": "you liked it",
+                    "original_length": 12,
+                    "normalized_text": "you liked it",
+                    "normalized_length": 12,
+                    "offset": 9179
+                },
+                {
+                    "sentiment": "love",
+                    "topic": null,
+                    "score": 0.8401344326865,
+                    "original_text": "I love you",
+                    "original_length": 10,
+                    "normalized_text": "I love you",
+                    "normalized_length": 10,
+                    "offset": 9407
+                }
+            ],
+            "negative": [
+                {
+                    "sentiment": "very weird",
+                    "topic": "sleep schedule",
+                    "score": -0.55780685413922,
+                    "original_text": "very weird sleep schedule",
+                    "original_length": 25,
+                    "normalized_text": "very weird sleep schedule",
+                    "normalized_length": 25,
+                    "offset": 625
+                },
+                {
+                    "sentiment": "are like kind of a mess",
+                    "topic": null,
+                    "score": -0.65564097920318,
+                    "original_text": "right now are like kind of a mess",
+                    "original_length": 33,
+                    "normalized_text": "right now are like kind of a mess",
+                    "normalized_length": 33,
+                    "offset": 3487
+                },
+                {
+                    "sentiment": "tease",
+                    "topic": null,
+                    "score": -0.23826029083835,
+                    "original_text": "I tease my hair a little",
+                    "original_length": 24,
+                    "normalized_text": "I tease my hair a little",
+                    "normalized_length": 24,
+                    "offset": 5140
+                },
+                {
+                    "sentiment": "don't like",
+                    "topic": null,
+                    "score": -0.60858454666352,
+                    "original_text": "they don't like",
+                    "original_length": 15,
+                    "normalized_text": "they don't like",
+                    "normalized_length": 15,
+                    "offset": 5631
+                },
+                {
+                    "sentiment": "tease",
+                    "topic": null,
+                    "score": -0.57345066344102,
+                    "original_text": "it tease it",
+                    "original_length": 11,
+                    "normalized_text": "it tease it",
+                    "normalized_length": 11,
+                    "offset": 5727
+                },
+                {
+                    "sentiment": "a blow",
+                    "topic": null,
+                    "score": -0.79233520429398,
+                    "original_text": "this is a blow",
+                    "original_length": 14,
+                    "normalized_text": "this is a blow",
+                    "normalized_length": 14,
+                    "offset": 7403
+                },
+                {
+                    "sentiment": "a blow",
+                    "topic": null,
+                    "score": -0.79233520429398,
+                    "original_text": "it's a blow",
+                    "original_length": 11,
+                    "normalized_text": "it's a blow",
+                    "normalized_length": 11,
+                    "offset": 8502
+                },
+                {
+                    "sentiment": "sorry",
+                    "topic": null,
+                    "score": -0.79233520429398,
+                    "original_text": "I'm sorry",
+                    "original_length": 9,
+                    "normalized_text": "I'm sorry",
+                    "normalized_length": 9,
+                    "offset": 8725
+                },
+                {
+                    "sentiment": "so bad",
+                    "topic": "like wow your makeup",
+                    "score": -0.88132594945742,
+                    "original_text": "like wow your makeup is so bad",
+                    "original_length": 30,
+                    "normalized_text": "like wow your makeup is so bad",
+                    "normalized_length": 30,
+                    "offset": 8824
+                }
+            ],
+            "aggregate": {
+                "sentiment": "positive",
+                "score": 0.51826903812818
+            }
+        }
+    ]
+}

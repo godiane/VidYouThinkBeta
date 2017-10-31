@@ -1,0 +1,9 @@
+{
+    "require": {
+        "google/apiclient": "~2.0",
+		"sergeytsalkov/meekrodb": "*",
+		"nategood/httpful" : "*",
+		"camspiers/json-pretty": "1.0.*",
+		"havenondemand/havenondemand": "*",
+    }
+}

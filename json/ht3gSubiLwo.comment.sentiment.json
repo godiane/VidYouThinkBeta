@@ -1,0 +1,93 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [],
+            "negative": [
+                {
+                    "sentiment": "\ud83d\ude2d",
+                    "topic": null,
+                    "score": -0.87920443269923,
+                    "original_text": "\ud83d\ude2d",
+                    "original_length": 1,
+                    "normalized_text": "\ud83d\ude2d",
+                    "normalized_length": 1,
+                    "offset": 347
+                },
+                {
+                    "sentiment": "\ud83d\ude2d",
+                    "topic": null,
+                    "score": -0.87920443269923,
+                    "original_text": "\ud83d\ude2d",
+                    "original_length": 1,
+                    "normalized_text": "\ud83d\ude2d",
+                    "normalized_length": 1,
+                    "offset": 348
+                },
+                {
+                    "sentiment": "\ud83d\ude2d",
+                    "topic": null,
+                    "score": -0.87920443269923,
+                    "original_text": "\ud83d\ude2d",
+                    "original_length": 1,
+                    "normalized_text": "\ud83d\ude2d",
+                    "normalized_length": 1,
+                    "offset": 349
+                },
+                {
+                    "sentiment": "\ud83d\ude2d",
+                    "topic": null,
+                    "score": -0.87920443269923,
+                    "original_text": "\ud83d\ude2d",
+                    "original_length": 1,
+                    "normalized_text": "\ud83d\ude2d",
+                    "normalized_length": 1,
+                    "offset": 350
+                },
+                {
+                    "sentiment": "\ud83d\ude2d",
+                    "topic": null,
+                    "score": -0.87920443269923,
+                    "original_text": "\ud83d\ude2d",
+                    "original_length": 1,
+                    "normalized_text": "\ud83d\ude2d",
+                    "normalized_length": 1,
+                    "offset": 351
+                },
+                {
+                    "sentiment": "\ud83d\ude2d",
+                    "topic": null,
+                    "score": -0.87920443269923,
+                    "original_text": "\ud83d\ude2d",
+                    "original_length": 1,
+                    "normalized_text": "\ud83d\ude2d",
+                    "normalized_length": 1,
+                    "offset": 352
+                },
+                {
+                    "sentiment": "\ud83d\ude2d",
+                    "topic": null,
+                    "score": -0.87920443269923,
+                    "original_text": "\ud83d\ude2d",
+                    "original_length": 1,
+                    "normalized_text": "\ud83d\ude2d",
+                    "normalized_length": 1,
+                    "offset": 353
+                },
+                {
+                    "sentiment": "\ud83d\ude2d",
+                    "topic": null,
+                    "score": -0.87920443269923,
+                    "original_text": "\ud83d\ude2d",
+                    "original_length": 1,
+                    "normalized_text": "\ud83d\ude2d",
+                    "normalized_length": 1,
+                    "offset": 354
+                }
+            ],
+            "aggregate": {
+                "sentiment": "negative",
+                "score": -0.87920443269923
+            }
+        }
+    ]
+}

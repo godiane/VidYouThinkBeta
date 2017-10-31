@@ -1,0 +1,23 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [],
+            "negative": [
+                {
+                    "sentiment": "hate",
+                    "topic": "coke",
+                    "score": -0.90258715778194,
+                    "original_text": "i hate coke",
+                    "original_length": 11,
+                    "normalized_text": "i hate coke",
+                    "normalized_length": 11,
+                    "offset": 1
+                }
+            ],
+            "aggregate": {
+                "sentiment": "negative",
+                "score": -0.90258715778194
+            }
+        }
+    ]
+}

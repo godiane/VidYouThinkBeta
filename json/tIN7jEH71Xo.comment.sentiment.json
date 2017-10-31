@@ -1,0 +1,54 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "thumbs up",
+                    "topic": null,
+                    "score": 0.45936438213232,
+                    "original_text": "thumbs up",
+                    "original_length": 9,
+                    "normalized_text": "thumbs up",
+                    "normalized_length": 9,
+                    "offset": 30
+                },
+                {
+                    "sentiment": ":)",
+                    "topic": null,
+                    "score": 0.67003104828152,
+                    "original_text": ":)",
+                    "original_length": 2,
+                    "normalized_text": ":)",
+                    "normalized_length": 2,
+                    "offset": 112
+                },
+                {
+                    "sentiment": "healthy",
+                    "topic": "food",
+                    "score": 0.67489840558231,
+                    "original_text": "healthy food",
+                    "original_length": 12,
+                    "normalized_text": "healthy food",
+                    "normalized_length": 12,
+                    "offset": 208
+                }
+            ],
+            "negative": [
+                {
+                    "sentiment": "bad teethawesome",
+                    "topic": "bad guy",
+                    "score": -0.92036506358378,
+                    "original_text": "bad guy gets bad teethawesome",
+                    "original_length": 29,
+                    "normalized_text": "bad guy gets bad teethawesome",
+                    "normalized_length": 29,
+                    "offset": 225
+                }
+            ],
+            "aggregate": {
+                "sentiment": "positive",
+                "score": 0.22098219310309
+            }
+        }
+    ]
+}

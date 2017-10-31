@@ -1,0 +1,274 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "a quick",
+                    "topic": "Robert",
+                    "score": 0.79233520429398,
+                    "original_text": "Robert's got a quick",
+                    "original_length": 20,
+                    "normalized_text": "Robert's got a quick",
+                    "normalized_length": 20,
+                    "offset": 32
+                },
+                {
+                    "sentiment": "won't ",
+                    "topic": null,
+                    "score": 0.0016962376972446,
+                    "original_text": "He won't ",
+                    "original_length": 9,
+                    "normalized_text": "He won't ",
+                    "normalized_length": 9,
+                    "offset": 153
+                },
+                {
+                    "sentiment": "of fun",
+                    "topic": "things",
+                    "score": 0.65519654498811,
+                    "original_text": "of fun things",
+                    "original_length": 13,
+                    "normalized_text": "of fun things",
+                    "normalized_length": 13,
+                    "offset": 517
+                },
+                {
+                    "sentiment": "better run",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "You better run",
+                    "original_length": 14,
+                    "normalized_text": "You better run",
+                    "normalized_length": 14,
+                    "offset": 826
+                },
+                {
+                    "sentiment": "better run",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "You better run",
+                    "original_length": 14,
+                    "normalized_text": "You better run",
+                    "normalized_length": 14,
+                    "offset": 1013
+                },
+                {
+                    "sentiment": "Faster",
+                    "topic": null,
+                    "score": 0.52742155175979,
+                    "original_text": "Faster",
+                    "original_length": 6,
+                    "normalized_text": "Faster",
+                    "normalized_length": 6,
+                    "offset": 1074
+                },
+                {
+                    "sentiment": "better run",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "You better run",
+                    "original_length": 14,
+                    "normalized_text": "You better run",
+                    "normalized_length": 14,
+                    "offset": 1209
+                },
+                {
+                    "sentiment": "better run",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "You better run",
+                    "original_length": 14,
+                    "normalized_text": "You better run",
+                    "normalized_length": 14,
+                    "offset": 1396
+                },
+                {
+                    "sentiment": "Faster",
+                    "topic": null,
+                    "score": 0.52742155175979,
+                    "original_text": "Faster",
+                    "original_length": 6,
+                    "normalized_text": "Faster",
+                    "normalized_length": 6,
+                    "offset": 1457
+                },
+                {
+                    "sentiment": "now a quick",
+                    "topic": null,
+                    "score": 0.70933685150655,
+                    "original_text": "Is now a quick",
+                    "original_length": 14,
+                    "normalized_text": "Is now a quick",
+                    "normalized_length": 14,
+                    "offset": 1980
+                },
+                {
+                    "sentiment": "better run",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "You better run",
+                    "original_length": 14,
+                    "normalized_text": "You better run",
+                    "normalized_length": 14,
+                    "offset": 2282
+                },
+                {
+                    "sentiment": "better run",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "You better run",
+                    "original_length": 14,
+                    "normalized_text": "You better run",
+                    "normalized_length": 14,
+                    "offset": 2469
+                },
+                {
+                    "sentiment": "Faster",
+                    "topic": null,
+                    "score": 0.52742155175979,
+                    "original_text": "Faster",
+                    "original_length": 6,
+                    "normalized_text": "Faster",
+                    "normalized_length": 6,
+                    "offset": 2530
+                },
+                {
+                    "sentiment": "better run",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "You better run",
+                    "original_length": 14,
+                    "normalized_text": "You better run",
+                    "normalized_length": 14,
+                    "offset": 2665
+                },
+                {
+                    "sentiment": "better run",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "You better run",
+                    "original_length": 14,
+                    "normalized_text": "You better run",
+                    "normalized_length": 14,
+                    "offset": 2852
+                },
+                {
+                    "sentiment": "Faster",
+                    "topic": null,
+                    "score": 0.52742155175979,
+                    "original_text": "Faster",
+                    "original_length": 6,
+                    "normalized_text": "Faster",
+                    "normalized_length": 6,
+                    "offset": 2913
+                },
+                {
+                    "sentiment": "better run",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "You better run",
+                    "original_length": 14,
+                    "normalized_text": "You better run",
+                    "normalized_length": 14,
+                    "offset": 3048
+                },
+                {
+                    "sentiment": "better run",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "You better run",
+                    "original_length": 14,
+                    "normalized_text": "You better run",
+                    "normalized_length": 14,
+                    "offset": 3235
+                },
+                {
+                    "sentiment": "Faster",
+                    "topic": null,
+                    "score": 0.52742155175979,
+                    "original_text": "Faster",
+                    "original_length": 6,
+                    "normalized_text": "Faster",
+                    "normalized_length": 6,
+                    "offset": 3296
+                },
+                {
+                    "sentiment": "better run",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "You better run",
+                    "original_length": 14,
+                    "normalized_text": "You better run",
+                    "normalized_length": 14,
+                    "offset": 3431
+                },
+                {
+                    "sentiment": "better run",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "You better run",
+                    "original_length": 14,
+                    "normalized_text": "You better run",
+                    "normalized_length": 14,
+                    "offset": 3618
+                },
+                {
+                    "sentiment": "Faster",
+                    "topic": null,
+                    "score": 0.52742155175979,
+                    "original_text": "Faster",
+                    "original_length": 6,
+                    "normalized_text": "Faster",
+                    "normalized_length": 6,
+                    "offset": 3679
+                },
+                {
+                    "sentiment": "better run",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "You better run",
+                    "original_length": 14,
+                    "normalized_text": "You better run",
+                    "normalized_length": 14,
+                    "offset": 3814
+                },
+                {
+                    "sentiment": "better run",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "You better run",
+                    "original_length": 14,
+                    "normalized_text": "You better run",
+                    "normalized_length": 14,
+                    "offset": 4001
+                },
+                {
+                    "sentiment": "Faster",
+                    "topic": null,
+                    "score": 0.52742155175979,
+                    "original_text": "Faster",
+                    "original_length": 6,
+                    "normalized_text": "Faster",
+                    "normalized_length": 6,
+                    "offset": 4062
+                }
+            ],
+            "negative": [
+                {
+                    "sentiment": "must have lost",
+                    "topic": null,
+                    "score": -0.23826029083835,
+                    "original_text": "you must have lost your wits",
+                    "original_length": 28,
+                    "normalized_text": "you must have lost your wits",
+                    "normalized_length": 28,
+                    "offset": 2133
+                }
+            ],
+            "aggregate": {
+                "sentiment": "positive",
+                "score": 0.62586936246345
+            }
+        }
+    ]
+}

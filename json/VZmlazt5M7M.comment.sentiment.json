@@ -1,0 +1,64 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "love with",
+                    "topic": null,
+                    "score": 0.8401344326865,
+                    "original_text": "love with you",
+                    "original_length": 13,
+                    "normalized_text": "love with you",
+                    "normalized_length": 13,
+                    "offset": 279
+                },
+                {
+                    "sentiment": "still alive",
+                    "topic": null,
+                    "score": 0.036247922220124,
+                    "original_text": "if she's still alive ?",
+                    "original_length": 22,
+                    "normalized_text": "if she's still alive ?",
+                    "normalized_length": 22,
+                    "offset": 378
+                },
+                {
+                    "sentiment": "super",
+                    "topic": null,
+                    "score": 0.85825242038059,
+                    "original_text": "It's super",
+                    "original_length": 10,
+                    "normalized_text": "It's super",
+                    "normalized_length": 10,
+                    "offset": 583
+                }
+            ],
+            "negative": [
+                {
+                    "sentiment": "of fat",
+                    "topic": "tits",
+                    "score": -0.49318714068739,
+                    "original_text": "of fat tits!",
+                    "original_length": 12,
+                    "normalized_text": "of fat tits!",
+                    "normalized_length": 12,
+                    "offset": 322
+                },
+                {
+                    "sentiment": "don't even love",
+                    "topic": "yourself",
+                    "score": -0.89859545372727,
+                    "original_text": "you don't even love yourself!",
+                    "original_length": 29,
+                    "normalized_text": "you don't even love yourself!",
+                    "normalized_length": 29,
+                    "offset": 470
+                }
+            ],
+            "aggregate": {
+                "sentiment": "slightly positive",
+                "score": 0.068570436174512
+            }
+        }
+    ]
+}

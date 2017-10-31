@@ -1,0 +1,94 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "would gain like",
+                    "topic": null,
+                    "score": 0.32066267760135,
+                    "original_text": "when she would gain like 20 pounds",
+                    "original_length": 34,
+                    "normalized_text": "when she would gain like 20 pounds",
+                    "normalized_length": 34,
+                    "offset": 225
+                },
+                {
+                    "sentiment": "was not kidnapped",
+                    "topic": null,
+                    "score": 0.79233520429398,
+                    "original_text": "she was not kidnapped",
+                    "original_length": 21,
+                    "normalized_text": "she was not kidnapped",
+                    "normalized_length": 21,
+                    "offset": 395
+                },
+                {
+                    "sentiment": ":)",
+                    "topic": null,
+                    "score": 0.67003104828152,
+                    "original_text": ":)",
+                    "original_length": 2,
+                    "normalized_text": ":)",
+                    "normalized_length": 2,
+                    "offset": 820
+                }
+            ],
+            "negative": [
+                {
+                    "sentiment": "s gonna mess up",
+                    "topic": null,
+                    "score": -0.70933685150655,
+                    "original_text": "because it's gonna mess up her hair",
+                    "original_length": 35,
+                    "normalized_text": "because it's gonna mess up her hair",
+                    "normalized_length": 35,
+                    "offset": 26
+                },
+                {
+                    "sentiment": "So tired",
+                    "topic": null,
+                    "score": -0.74561521862386,
+                    "original_text": "So tired",
+                    "original_length": 8,
+                    "normalized_text": "So tired",
+                    "normalized_length": 8,
+                    "offset": 431
+                },
+                {
+                    "sentiment": "was kidnapped",
+                    "topic": null,
+                    "score": -0.79233520429398,
+                    "original_text": "I was kidnapped",
+                    "original_length": 15,
+                    "normalized_text": "I was kidnapped",
+                    "normalized_length": 15,
+                    "offset": 459
+                },
+                {
+                    "sentiment": "was actually kidnapped and sold into",
+                    "topic": "a sex trade",
+                    "score": -0.90258715778194,
+                    "original_text": "who was actually kidnapped and sold into a sex trade",
+                    "original_length": 52,
+                    "normalized_text": "who was actually kidnapped and sold into a sex trade",
+                    "normalized_length": 52,
+                    "offset": 536
+                },
+                {
+                    "sentiment": "is a big fat fucking steak grilled",
+                    "topic": null,
+                    "score": -0.83274562818914,
+                    "original_text": "is a big fat fucking steak grilled",
+                    "original_length": 34,
+                    "normalized_text": "is a big fat fucking steak grilled",
+                    "normalized_length": 34,
+                    "offset": 728
+                }
+            ],
+            "aggregate": {
+                "sentiment": "negative",
+                "score": -0.27494889127733
+            }
+        }
+    ]
+}

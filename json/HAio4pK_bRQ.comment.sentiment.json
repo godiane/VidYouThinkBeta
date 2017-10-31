@@ -1,0 +1,244 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "making fun",
+                    "topic": "gonna start",
+                    "score": 0.79233520429398,
+                    "original_text": "gonna start making fun",
+                    "original_length": 22,
+                    "normalized_text": "gonna start making fun",
+                    "normalized_length": 22,
+                    "offset": 39
+                },
+                {
+                    "sentiment": "help",
+                    "topic": null,
+                    "score": 0.40325111109508,
+                    "original_text": "get help",
+                    "original_length": 8,
+                    "normalized_text": "get help",
+                    "normalized_length": 8,
+                    "offset": 276
+                },
+                {
+                    "sentiment": "help",
+                    "topic": null,
+                    "score": 0.27111053842684,
+                    "original_text": "i should get help",
+                    "original_length": 17,
+                    "normalized_text": "i should get help",
+                    "normalized_length": 17,
+                    "offset": 520
+                },
+                {
+                    "sentiment": "to a healthy state",
+                    "topic": null,
+                    "score": 0.75357729701026,
+                    "original_text": "get to a healthy state",
+                    "original_length": 22,
+                    "normalized_text": "get to a healthy state",
+                    "normalized_length": 22,
+                    "offset": 717
+                },
+                {
+                    "sentiment": "help",
+                    "topic": null,
+                    "score": 0.048203501647367,
+                    "original_text": "if she gets help",
+                    "original_length": 16,
+                    "normalized_text": "if she gets help",
+                    "normalized_length": 16,
+                    "offset": 879
+                },
+                {
+                    "sentiment": "Well like a wise",
+                    "topic": "meme lord",
+                    "score": 0.8291546743629,
+                    "original_text": "Well like a wise meme lord",
+                    "original_length": 26,
+                    "normalized_text": "Well like a wise meme lord",
+                    "normalized_length": 26,
+                    "offset": 985
+                },
+                {
+                    "sentiment": "win",
+                    "topic": null,
+                    "score": 0.72022900590158,
+                    "original_text": "u win the lottery",
+                    "original_length": 17,
+                    "normalized_text": "u win the lottery",
+                    "normalized_length": 17,
+                    "offset": 1035
+                },
+                {
+                    "sentiment": "worthy",
+                    "topic": "things",
+                    "score": 0.67489840558231,
+                    "original_text": "worthy things",
+                    "original_length": 13,
+                    "normalized_text": "worthy things",
+                    "normalized_length": 13,
+                    "offset": 1655
+                }
+            ],
+            "negative": [
+                {
+                    "sentiment": "sick",
+                    "topic": null,
+                    "score": -0.8401344326865,
+                    "original_text": "sick motherf",
+                    "original_length": 12,
+                    "normalized_text": "sick motherf",
+                    "normalized_length": 12,
+                    "offset": 15
+                },
+                {
+                    "sentiment": "like a dead mother",
+                    "topic": null,
+                    "score": -0.57345066344102,
+                    "original_text": "you look like a dead mother",
+                    "original_length": 27,
+                    "normalized_text": "you look like a dead mother",
+                    "normalized_length": 27,
+                    "offset": 84
+                },
+                {
+                    "sentiment": "killed",
+                    "topic": null,
+                    "score": -0.79233520429398,
+                    "original_text": "that killed her children",
+                    "original_length": 24,
+                    "normalized_text": "that killed her children",
+                    "normalized_length": 24,
+                    "offset": 112
+                },
+                {
+                    "sentiment": "died of",
+                    "topic": null,
+                    "score": -0.46377052838785,
+                    "original_text": "died of food poisoningyou",
+                    "original_length": 25,
+                    "normalized_text": "died of food poisoningyou",
+                    "normalized_length": 25,
+                    "offset": 155
+                },
+                {
+                    "sentiment": "harassing and making fun of",
+                    "topic": null,
+                    "score": -0.84484659729366,
+                    "original_text": "you harassing and making fun of her",
+                    "original_length": 35,
+                    "normalized_text": "you harassing and making fun of her",
+                    "normalized_length": 35,
+                    "offset": 386
+                },
+                {
+                    "sentiment": "really does not help",
+                    "topic": "control",
+                    "score": -0.61547201629168,
+                    "original_text": "control really does not help",
+                    "original_length": 28,
+                    "normalized_text": "control really does not help",
+                    "normalized_length": 28,
+                    "offset": 448
+                },
+                {
+                    "sentiment": "disgusting",
+                    "topic": null,
+                    "score": -0.92918022736709,
+                    "original_text": "i look disgusting!",
+                    "original_length": 18,
+                    "normalized_text": "i look disgusting!",
+                    "normalized_length": 18,
+                    "offset": 559
+                },
+                {
+                    "sentiment": "brutal",
+                    "topic": "honesty",
+                    "score": -0.62801457251814,
+                    "original_text": "brutal honesty",
+                    "original_length": 14,
+                    "normalized_text": "brutal honesty",
+                    "normalized_length": 14,
+                    "offset": 782
+                },
+                {
+                    "sentiment": "hate on",
+                    "topic": "whoever",
+                    "score": -0.90258715778194,
+                    "original_text": "hate on whoever",
+                    "original_length": 15,
+                    "normalized_text": "hate on whoever",
+                    "normalized_length": 15,
+                    "offset": 814
+                },
+                {
+                    "sentiment": "die",
+                    "topic": null,
+                    "score": -0.46377052838785,
+                    "original_text": "die the next day and your daughter",
+                    "original_length": 34,
+                    "normalized_text": "die the next day and your daughter",
+                    "normalized_length": 34,
+                    "offset": 1057
+                },
+                {
+                    "sentiment": "immature",
+                    "topic": null,
+                    "score": -0.79233520429398,
+                    "original_text": "you are immature",
+                    "original_length": 16,
+                    "normalized_text": "you are immature",
+                    "normalized_length": 16,
+                    "offset": 1146
+                },
+                {
+                    "sentiment": "is humiliating",
+                    "topic": "someone",
+                    "score": -0.88224907438536,
+                    "original_text": "when is humiliating someone",
+                    "original_length": 27,
+                    "normalized_text": "when is humiliating someone",
+                    "normalized_length": 27,
+                    "offset": 1515
+                },
+                {
+                    "sentiment": "making fun of",
+                    "topic": null,
+                    "score": -0.7614534295774,
+                    "original_text": "making fun of them",
+                    "original_length": 18,
+                    "normalized_text": "making fun of them",
+                    "normalized_length": 18,
+                    "offset": 1547
+                },
+                {
+                    "sentiment": "a fucking stupid",
+                    "topic": "comment",
+                    "score": -0.84022114659003,
+                    "original_text": "a fucking stupid comment",
+                    "original_length": 24,
+                    "normalized_text": "a fucking stupid comment",
+                    "normalized_length": 24,
+                    "offset": 1782
+                },
+                {
+                    "sentiment": "cruel",
+                    "topic": "A FUCKING JOKEthis",
+                    "score": -0.88659316870509,
+                    "original_text": "A FUCKING JOKEthis is cruel...",
+                    "original_length": 30,
+                    "normalized_text": "A FUCKING JOKEthis is cruel...",
+                    "normalized_length": 30,
+                    "offset": 1844
+                }
+            ],
+            "aggregate": {
+                "sentiment": "negative",
+                "score": -0.29233279189919
+            }
+        }
+    ]
+}

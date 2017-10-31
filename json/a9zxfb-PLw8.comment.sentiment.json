@@ -1,0 +1,194 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "\ud83d\ude02",
+                    "topic": null,
+                    "score": 0.87920443269923,
+                    "original_text": "\ud83d\ude02",
+                    "original_length": 1,
+                    "normalized_text": "\ud83d\ude02",
+                    "normalized_length": 1,
+                    "offset": 477
+                },
+                {
+                    "sentiment": "\ud83d\ude02",
+                    "topic": null,
+                    "score": 0.87920443269923,
+                    "original_text": "\ud83d\ude02",
+                    "original_length": 1,
+                    "normalized_text": "\ud83d\ude02",
+                    "normalized_length": 1,
+                    "offset": 478
+                },
+                {
+                    "sentiment": "the healthy",
+                    "topic": "weight for her height",
+                    "score": 0.67489840558231,
+                    "original_text": "the healthy weight for her height",
+                    "original_length": 33,
+                    "normalized_text": "the healthy weight for her height",
+                    "normalized_length": 33,
+                    "offset": 1008
+                },
+                {
+                    "sentiment": "convincing",
+                    "topic": "her actions",
+                    "score": 0.57345066344102,
+                    "original_text": "her actions are convincing",
+                    "original_length": 26,
+                    "normalized_text": "her actions are convincing",
+                    "normalized_length": 26,
+                    "offset": 1063
+                },
+                {
+                    "sentiment": "has a good reason",
+                    "topic": "Greg",
+                    "score": 0.84980410505444,
+                    "original_text": "but Greg has a good reason",
+                    "original_length": 26,
+                    "normalized_text": "but Greg has a good reason",
+                    "normalized_length": 26,
+                    "offset": 1396
+                },
+                {
+                    "sentiment": "a lovely",
+                    "topic": "day",
+                    "score": 0.74700038636648,
+                    "original_text": "a lovely day",
+                    "original_length": 12,
+                    "normalized_text": "a lovely day",
+                    "normalized_length": 12,
+                    "offset": 1627
+                },
+                {
+                    "sentiment": "perfect",
+                    "topic": null,
+                    "score": 0.63982045835682,
+                    "original_text": "she is perfect?",
+                    "original_length": 15,
+                    "normalized_text": "she is perfect?",
+                    "normalized_length": 15,
+                    "offset": 1799
+                },
+                {
+                    "sentiment": "won't ",
+                    "topic": null,
+                    "score": 0.0018334946608492,
+                    "original_text": "but she won't ",
+                    "original_length": 14,
+                    "normalized_text": "but she won't ",
+                    "normalized_length": 14,
+                    "offset": 1998
+                }
+            ],
+            "negative": [
+                {
+                    "sentiment": "could die",
+                    "topic": null,
+                    "score": -0.25992248435397,
+                    "original_text": "she could die",
+                    "original_length": 13,
+                    "normalized_text": "she could die",
+                    "normalized_length": 13,
+                    "offset": 219
+                },
+                {
+                    "sentiment": "makes you weak",
+                    "topic": "anorexia",
+                    "score": -0.72746547139359,
+                    "original_text": "anorexia makes you weak",
+                    "original_length": 23,
+                    "normalized_text": "anorexia makes you weak",
+                    "normalized_length": 23,
+                    "offset": 287
+                },
+                {
+                    "sentiment": "die",
+                    "topic": null,
+                    "score": -0.46377052838785,
+                    "original_text": "you die",
+                    "original_length": 7,
+                    "normalized_text": "you die",
+                    "normalized_length": 7,
+                    "offset": 380
+                },
+                {
+                    "sentiment": "weak",
+                    "topic": "ugenia",
+                    "score": -0.72746547139359,
+                    "original_text": "ugenia looks weak",
+                    "original_length": 17,
+                    "normalized_text": "ugenia looks weak",
+                    "normalized_length": 17,
+                    "offset": 391
+                },
+                {
+                    "sentiment": "very blunt",
+                    "topic": null,
+                    "score": -0.78888891940184,
+                    "original_text": "I'm just going to be very blunt",
+                    "original_length": 31,
+                    "normalized_text": "I'm just going to be very blunt",
+                    "normalized_length": 31,
+                    "offset": 817
+                },
+                {
+                    "sentiment": "sick",
+                    "topic": "Eugenia",
+                    "score": -0.79233520429398,
+                    "original_text": "Eugenia is sick",
+                    "original_length": 15,
+                    "normalized_text": "Eugenia is sick",
+                    "normalized_length": 15,
+                    "offset": 940
+                },
+                {
+                    "sentiment": "is killing",
+                    "topic": null,
+                    "score": -0.79233520429398,
+                    "original_text": "She is killing herself and others",
+                    "original_length": 33,
+                    "normalized_text": "She is killing herself and others",
+                    "normalized_length": 33,
+                    "offset": 1168
+                },
+                {
+                    "sentiment": "rude",
+                    "topic": null,
+                    "score": -0.71594822248919,
+                    "original_text": "be rude",
+                    "original_length": 7,
+                    "normalized_text": "be rude",
+                    "normalized_length": 7,
+                    "offset": 1863
+                },
+                {
+                    "sentiment": "offend",
+                    "topic": null,
+                    "score": -0.83035851058597,
+                    "original_text": "offend her",
+                    "original_length": 10,
+                    "normalized_text": "offend her",
+                    "normalized_length": 10,
+                    "offset": 1874
+                },
+                {
+                    "sentiment": "worried",
+                    "topic": null,
+                    "score": -0.79233520429398,
+                    "original_text": "I'm worried",
+                    "original_length": 11,
+                    "normalized_text": "I'm worried",
+                    "normalized_length": 11,
+                    "offset": 2023
+                }
+            ],
+            "aggregate": {
+                "sentiment": "slightly negative",
+                "score": -0.091422713445976
+            }
+        }
+    ]
+}

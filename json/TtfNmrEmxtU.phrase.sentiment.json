@@ -1,0 +1,23 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "a quick",
+                    "topic": "Robert",
+                    "score": 0.79233520429398,
+                    "original_text": "Robert's got a quick",
+                    "original_length": 20,
+                    "normalized_text": "Robert's got a quick",
+                    "normalized_length": 20,
+                    "offset": 1
+                }
+            ],
+            "negative": [],
+            "aggregate": {
+                "sentiment": "positive",
+                "score": 0.79233520429398
+            }
+        }
+    ]
+}

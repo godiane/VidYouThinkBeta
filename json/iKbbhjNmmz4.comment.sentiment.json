@@ -1,0 +1,214 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "care too",
+                    "topic": null,
+                    "score": 0.79233520429398,
+                    "original_text": "you care too",
+                    "original_length": 12,
+                    "normalized_text": "you care too",
+                    "normalized_length": 12,
+                    "offset": 198
+                },
+                {
+                    "sentiment": "enjoy",
+                    "topic": "your honesty",
+                    "score": 0.87684577655941,
+                    "original_text": "but I enjoy your honesty",
+                    "original_length": 24,
+                    "normalized_text": "but I enjoy your honesty",
+                    "normalized_length": 24,
+                    "offset": 285
+                },
+                {
+                    "sentiment": "lucky",
+                    "topic": null,
+                    "score": 0.83035851058597,
+                    "original_text": "I am lucky",
+                    "original_length": 10,
+                    "normalized_text": "I am lucky",
+                    "normalized_length": 10,
+                    "offset": 503
+                },
+                {
+                    "sentiment": "will gain weight soon",
+                    "topic": null,
+                    "score": 0.86150148655065,
+                    "original_text": "I will gain weight soon!",
+                    "original_length": 24,
+                    "normalized_text": "I will gain weight soon!",
+                    "normalized_length": 24,
+                    "offset": 613
+                },
+                {
+                    "sentiment": "best",
+                    "topic": null,
+                    "score": 0.84484659729366,
+                    "original_text": "is best",
+                    "original_length": 7,
+                    "normalized_text": "is best",
+                    "normalized_length": 7,
+                    "offset": 816
+                },
+                {
+                    "sentiment": "better look like",
+                    "topic": null,
+                    "score": 0.7614534295774,
+                    "original_text": "you better look like me",
+                    "original_length": 23,
+                    "normalized_text": "you better look like me",
+                    "normalized_length": 23,
+                    "offset": 840
+                },
+                {
+                    "sentiment": "can help",
+                    "topic": null,
+                    "score": 0.40869778315017,
+                    "original_text": "you can help",
+                    "original_length": 12,
+                    "normalized_text": "you can help",
+                    "normalized_length": 12,
+                    "offset": 1013
+                },
+                {
+                    "sentiment": "care about",
+                    "topic": null,
+                    "score": 0.081655796521516,
+                    "original_text": "if you care about anything",
+                    "original_length": 26,
+                    "normalized_text": "if you care about anything",
+                    "normalized_length": 26,
+                    "offset": 1205
+                },
+                {
+                    "sentiment": "simple",
+                    "topic": null,
+                    "score": 0.35507191430262,
+                    "original_text": "It's simple",
+                    "original_length": 11,
+                    "normalized_text": "It's simple",
+                    "normalized_length": 11,
+                    "offset": 1429
+                },
+                {
+                    "sentiment": "be helped",
+                    "topic": null,
+                    "score": 0.79233520429398,
+                    "original_text": "wanna be helped",
+                    "original_length": 15,
+                    "normalized_text": "wanna be helped",
+                    "normalized_length": 15,
+                    "offset": 1455
+                }
+            ],
+            "negative": [
+                {
+                    "sentiment": "rude",
+                    "topic": null,
+                    "score": -0.79813669994825,
+                    "original_text": "you're rude",
+                    "original_length": 11,
+                    "normalized_text": "you're rude",
+                    "normalized_length": 11,
+                    "offset": 273
+                },
+                {
+                    "sentiment": "are so offended by",
+                    "topic": "the truth",
+                    "score": -0.90804389740359,
+                    "original_text": "People are so offended by the truth",
+                    "original_length": 35,
+                    "normalized_text": "People are so offended by the truth",
+                    "normalized_length": 35,
+                    "offset": 311
+                },
+                {
+                    "sentiment": "am very disappointed in",
+                    "topic": "the way",
+                    "score": -0.90625640126623,
+                    "original_text": "I am very disappointed in the way",
+                    "original_length": 33,
+                    "normalized_text": "I am very disappointed in the way",
+                    "normalized_length": 33,
+                    "offset": 561
+                },
+                {
+                    "sentiment": "doubt",
+                    "topic": null,
+                    "score": -0.57345066344102,
+                    "original_text": "I doubt",
+                    "original_length": 7,
+                    "normalized_text": "I doubt",
+                    "normalized_length": 7,
+                    "offset": 866
+                },
+                {
+                    "sentiment": "obviously don't care",
+                    "topic": null,
+                    "score": -0.90258715778194,
+                    "original_text": "You obviously don't care",
+                    "original_length": 24,
+                    "normalized_text": "You obviously don't care",
+                    "normalized_length": 24,
+                    "offset": 895
+                },
+                {
+                    "sentiment": "suicidal",
+                    "topic": "someone",
+                    "score": -0.088605680121973,
+                    "original_text": "If someone is suicidal",
+                    "original_length": 22,
+                    "normalized_text": "If someone is suicidal",
+                    "normalized_length": 22,
+                    "offset": 921
+                },
+                {
+                    "sentiment": "highly doubt",
+                    "topic": null,
+                    "score": -0.75643212378589,
+                    "original_text": "but I highly doubt that",
+                    "original_length": 23,
+                    "normalized_text": "but I highly doubt that",
+                    "normalized_length": 23,
+                    "offset": 1131
+                },
+                {
+                    "sentiment": null,
+                    "topic": "your former videos",
+                    "score": -0.33770883713714,
+                    "original_text": "your former videos didn't help",
+                    "original_length": 30,
+                    "normalized_text": "your former videos didn't help",
+                    "normalized_length": 30,
+                    "offset": 1355
+                },
+                {
+                    "sentiment": "now aren't helping",
+                    "topic": "Your videos",
+                    "score": -0.70933685150655,
+                    "original_text": "Your videos now aren't helping her",
+                    "original_length": 34,
+                    "normalized_text": "Your videos now aren't helping her",
+                    "normalized_length": 34,
+                    "offset": 1391
+                },
+                {
+                    "sentiment": "re wasting",
+                    "topic": null,
+                    "score": -0.79233520429398,
+                    "original_text": "You're wasting your time",
+                    "original_length": 24,
+                    "normalized_text": "You're wasting your time",
+                    "normalized_length": 24,
+                    "offset": 1472
+                }
+            ],
+            "aggregate": {
+                "sentiment": "mixed",
+                "score": -0.0083895906778601
+            }
+        }
+    ]
+}

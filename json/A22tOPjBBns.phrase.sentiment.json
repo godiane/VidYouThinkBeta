@@ -1,0 +1,12 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [],
+            "negative": [],
+            "aggregate": {
+                "sentiment": "neutral",
+                "score": 0
+            }
+        }
+    ]
+}

@@ -1,0 +1,114 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "a sweet person",
+                    "topic": "eugenia cooney",
+                    "score": 0.79233520429398,
+                    "original_text": "eugenia cooney is a sweet person",
+                    "original_length": 32,
+                    "normalized_text": "eugenia cooney is a sweet person",
+                    "normalized_length": 32,
+                    "offset": 16
+                },
+                {
+                    "sentiment": "like the cool",
+                    "topic": "Elsa",
+                    "score": 0.79233520429398,
+                    "original_text": "Elsa is like the cool",
+                    "original_length": 21,
+                    "normalized_text": "Elsa is like the cool",
+                    "normalized_length": 21,
+                    "offset": 121
+                },
+                {
+                    "sentiment": "pretty cool",
+                    "topic": null,
+                    "score": 0.92036506358378,
+                    "original_text": "she's pretty cool",
+                    "original_length": 17,
+                    "normalized_text": "she's pretty cool",
+                    "normalized_length": 17,
+                    "offset": 167
+                },
+                {
+                    "sentiment": "cool",
+                    "topic": null,
+                    "score": 0.79233520429398,
+                    "original_text": "she's cool",
+                    "original_length": 10,
+                    "normalized_text": "she's cool",
+                    "normalized_length": 10,
+                    "offset": 190
+                },
+                {
+                    "sentiment": "cool",
+                    "topic": null,
+                    "score": 0.79233520429398,
+                    "original_text": "she is cool",
+                    "original_length": 11,
+                    "normalized_text": "she is cool",
+                    "normalized_length": 11,
+                    "offset": 245
+                },
+                {
+                    "sentiment": "really nice",
+                    "topic": "sayYou",
+                    "score": 0.90625640126623,
+                    "original_text": "sayYou're really nice",
+                    "original_length": 21,
+                    "normalized_text": "sayYou're really nice",
+                    "normalized_length": 21,
+                    "offset": 323
+                },
+                {
+                    "sentiment": "help",
+                    "topic": "sexualplease",
+                    "score": 0.54537478118619,
+                    "original_text": "but sexualplease get help",
+                    "original_length": 25,
+                    "normalized_text": "but sexualplease get help",
+                    "normalized_length": 25,
+                    "offset": 444
+                },
+                {
+                    "sentiment": "are blessed",
+                    "topic": null,
+                    "score": 0.89120994093411,
+                    "original_text": "you are blessed !",
+                    "original_length": 17,
+                    "normalized_text": "you are blessed !",
+                    "normalized_length": 17,
+                    "offset": 746
+                }
+            ],
+            "negative": [
+                {
+                    "sentiment": "die",
+                    "topic": null,
+                    "score": -0.46377052838785,
+                    "original_text": "you die",
+                    "original_length": 7,
+                    "normalized_text": "you die",
+                    "normalized_length": 7,
+                    "offset": 477
+                },
+                {
+                    "sentiment": ";(",
+                    "topic": null,
+                    "score": -0.74906846745998,
+                    "original_text": ";(",
+                    "original_length": 2,
+                    "normalized_text": ";(",
+                    "normalized_length": 2,
+                    "offset": 683
+                }
+            ],
+            "aggregate": {
+                "sentiment": "positive",
+                "score": 0.52197080082984
+            }
+        }
+    ]
+}

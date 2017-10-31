@@ -1,0 +1,84 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "awesome",
+                    "topic": "cover",
+                    "score": 0.8734223340003,
+                    "original_text": "awesome cover!",
+                    "original_length": 14,
+                    "normalized_text": "awesome cover!",
+                    "normalized_length": 14,
+                    "offset": 0
+                },
+                {
+                    "sentiment": ":D",
+                    "topic": null,
+                    "score": 0.87920443269923,
+                    "original_text": ":D",
+                    "original_length": 2,
+                    "normalized_text": ":D",
+                    "normalized_length": 2,
+                    "offset": 15
+                },
+                {
+                    "sentiment": "seriously amazing",
+                    "topic": "love",
+                    "score": 0.92271411831766,
+                    "original_text": "seriously amazing love!!",
+                    "original_length": 24,
+                    "normalized_text": "seriously amazing love!!",
+                    "normalized_length": 24,
+                    "offset": 296
+                },
+                {
+                    "sentiment": "\u2764",
+                    "topic": null,
+                    "score": 0.8265700636425,
+                    "original_text": "\u2764",
+                    "original_length": 1,
+                    "normalized_text": "\u2764",
+                    "normalized_length": 1,
+                    "offset": 320
+                },
+                {
+                    "sentiment": "better",
+                    "topic": "the original",
+                    "score": 0.93403989859836,
+                    "original_text": "but the original will always be better",
+                    "original_length": 38,
+                    "normalized_text": "but the original will always be better",
+                    "normalized_length": 38,
+                    "offset": 393
+                },
+                {
+                    "sentiment": "Yay",
+                    "topic": null,
+                    "score": 0.67003104828152,
+                    "original_text": "Yay",
+                    "original_length": 3,
+                    "normalized_text": "Yay",
+                    "normalized_length": 3,
+                    "offset": 510
+                }
+            ],
+            "negative": [
+                {
+                    "sentiment": "wrong turn",
+                    "topic": "oops",
+                    "score": -0.67489840558231,
+                    "original_text": "oops wrong turn",
+                    "original_length": 15,
+                    "normalized_text": "oops wrong turn",
+                    "normalized_length": 15,
+                    "offset": 232
+                }
+            ],
+            "aggregate": {
+                "sentiment": "positive",
+                "score": 0.63301192713675
+            }
+        }
+    ]
+}

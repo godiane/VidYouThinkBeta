@@ -1,0 +1,94 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "really impressed",
+                    "topic": null,
+                    "score": 0.90258715778194,
+                    "original_text": "I'm really impressed",
+                    "original_length": 20,
+                    "normalized_text": "I'm really impressed",
+                    "normalized_length": 20,
+                    "offset": 0
+                },
+                {
+                    "sentiment": "too perfect",
+                    "topic": "The camera stabilisation",
+                    "score": 0.88224907438536,
+                    "original_text": "The camera stabilisation is too perfect",
+                    "original_length": 39,
+                    "normalized_text": "The camera stabilisation is too perfect",
+                    "normalized_length": 39,
+                    "offset": 106
+                },
+                {
+                    "sentiment": "Very clever",
+                    "topic": null,
+                    "score": 0.77868568173168,
+                    "original_text": "Very clever",
+                    "original_length": 11,
+                    "normalized_text": "Very clever",
+                    "normalized_length": 11,
+                    "offset": 585
+                },
+                {
+                    "sentiment": "Nice",
+                    "topic": "Easter egg",
+                    "score": 0.52569565141477,
+                    "original_text": "Nice Easter egg...",
+                    "original_length": 18,
+                    "normalized_text": "Nice Easter egg...",
+                    "normalized_length": 18,
+                    "offset": 612
+                },
+                {
+                    "sentiment": "cool original touch",
+                    "topic": null,
+                    "score": 0.60858454666352,
+                    "original_text": "that'd be cool original touch",
+                    "original_length": 29,
+                    "normalized_text": "that'd be cool original touch",
+                    "normalized_length": 29,
+                    "offset": 706
+                }
+            ],
+            "negative": [
+                {
+                    "sentiment": "poor",
+                    "topic": "human",
+                    "score": -0.62801457251814,
+                    "original_text": "poor human",
+                    "original_length": 10,
+                    "normalized_text": "poor human",
+                    "normalized_length": 10,
+                    "offset": 59
+                },
+                {
+                    "sentiment": "sad",
+                    "topic": null,
+                    "score": -0.79233520429398,
+                    "original_text": "I'm sad",
+                    "original_length": 7,
+                    "normalized_text": "I'm sad",
+                    "normalized_length": 7,
+                    "offset": 317
+                },
+                {
+                    "sentiment": "have given up",
+                    "topic": null,
+                    "score": -0.79233520429398,
+                    "original_text": "I have given up",
+                    "original_length": 15,
+                    "normalized_text": "I have given up",
+                    "normalized_length": 15,
+                    "offset": 631
+                }
+            ],
+            "aggregate": {
+                "sentiment": "positive",
+                "score": 0.1856396413589
+            }
+        }
+    ]
+}

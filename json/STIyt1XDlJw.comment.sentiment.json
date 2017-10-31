@@ -1,0 +1,334 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "much care of",
+                    "topic": null,
+                    "score": 0.85612532535118,
+                    "original_text": "much care of herself",
+                    "original_length": 20,
+                    "normalized_text": "much care of herself",
+                    "normalized_length": 20,
+                    "offset": 133
+                },
+                {
+                    "sentiment": "gain",
+                    "topic": null,
+                    "score": 0.8265700636425,
+                    "original_text": "gain 40 all together",
+                    "original_length": 20,
+                    "normalized_text": "gain 40 all together",
+                    "normalized_length": 20,
+                    "offset": 820
+                },
+                {
+                    "sentiment": "always very compliant",
+                    "topic": null,
+                    "score": 0.78888891940184,
+                    "original_text": "because I was always very compliant",
+                    "original_length": 35,
+                    "normalized_text": "because I was always very compliant",
+                    "normalized_length": 35,
+                    "offset": 1102
+                },
+                {
+                    "sentiment": "compliant",
+                    "topic": null,
+                    "score": 0.4859387301891,
+                    "original_text": "be compliant",
+                    "original_length": 12,
+                    "normalized_text": "be compliant",
+                    "normalized_length": 12,
+                    "offset": 1259
+                },
+                {
+                    "sentiment": "don't lose",
+                    "topic": null,
+                    "score": 0.63982045835682,
+                    "original_text": "but don't lose weight",
+                    "original_length": 21,
+                    "normalized_text": "but don't lose weight",
+                    "normalized_length": 21,
+                    "offset": 1389
+                },
+                {
+                    "sentiment": "helps for",
+                    "topic": null,
+                    "score": 0.57345066344102,
+                    "original_text": "helps for you",
+                    "original_length": 13,
+                    "normalized_text": "helps for you",
+                    "normalized_length": 13,
+                    "offset": 1473
+                },
+                {
+                    "sentiment": "don't lose any more",
+                    "topic": null,
+                    "score": 0.81492569603244,
+                    "original_text": "don't lose any more weight",
+                    "original_length": 26,
+                    "normalized_text": "don't lose any more weight",
+                    "normalized_length": 26,
+                    "offset": 1634
+                },
+                {
+                    "sentiment": "healthy",
+                    "topic": "dads sudden death and worsened a lot",
+                    "score": 0.67489840558231,
+                    "original_text": "healthy dads sudden death and worsened a lot",
+                    "original_length": 44,
+                    "normalized_text": "healthy dads sudden death and worsened a lot",
+                    "normalized_length": 44,
+                    "offset": 1840
+                },
+                {
+                    "sentiment": "a lot easier",
+                    "topic": null,
+                    "score": 0.88132594945742,
+                    "original_text": "it's a lot easier",
+                    "original_length": 17,
+                    "normalized_text": "it's a lot easier",
+                    "normalized_length": 17,
+                    "offset": 3196
+                },
+                {
+                    "sentiment": "care and be",
+                    "topic": "outpatient",
+                    "score": 0.79233520429398,
+                    "original_text": "outpatient care and be",
+                    "original_length": 22,
+                    "normalized_text": "outpatient care and be",
+                    "normalized_length": 22,
+                    "offset": 3222
+                },
+                {
+                    "sentiment": "one of the best",
+                    "topic": null,
+                    "score": 0.84484659729366,
+                    "original_text": "be one of the best",
+                    "original_length": 18,
+                    "normalized_text": "be one of the best",
+                    "normalized_length": 18,
+                    "offset": 3524
+                },
+                {
+                    "sentiment": "my best",
+                    "topic": "doing the outpatient programs",
+                    "score": 0.77868568173168,
+                    "original_text": "my best doing the outpatient programs",
+                    "original_length": 37,
+                    "normalized_text": "my best doing the outpatient programs",
+                    "normalized_length": 37,
+                    "offset": 3601
+                },
+                {
+                    "sentiment": "recover",
+                    "topic": "many women in my outpatient group",
+                    "score": 0.69354674715648,
+                    "original_text": "many women in my outpatient group recover",
+                    "original_length": 41,
+                    "normalized_text": "many women in my outpatient group recover",
+                    "normalized_length": 41,
+                    "offset": 3736
+                },
+                {
+                    "sentiment": "help",
+                    "topic": null,
+                    "score": 0.40325111109508,
+                    "original_text": "get help",
+                    "original_length": 8,
+                    "normalized_text": "get help",
+                    "normalized_length": 8,
+                    "offset": 3905
+                },
+                {
+                    "sentiment": "so beautiful",
+                    "topic": null,
+                    "score": 0.85223807104944,
+                    "original_text": "because you are so beautiful",
+                    "original_length": 28,
+                    "normalized_text": "because you are so beautiful",
+                    "normalized_length": 28,
+                    "offset": 3914
+                },
+                {
+                    "sentiment": "love",
+                    "topic": "Eugenia",
+                    "score": 0.8401344326865,
+                    "original_text": "love Eugenia",
+                    "original_length": 12,
+                    "normalized_text": "love Eugenia",
+                    "normalized_length": 12,
+                    "offset": 4106
+                }
+            ],
+            "negative": [
+                {
+                    "sentiment": "That awkward",
+                    "topic": "laugh",
+                    "score": -0.62801457251814,
+                    "original_text": "That awkward laugh",
+                    "original_length": 18,
+                    "normalized_text": "That awkward laugh",
+                    "normalized_length": 18,
+                    "offset": 266
+                },
+                {
+                    "sentiment": "making that fishy face in",
+                    "topic": null,
+                    "score": -0.63982045835682,
+                    "original_text": "making that fishy face in the camera every 10 seconds just",
+                    "original_length": 58,
+                    "normalized_text": "making that fishy face in the camera every 10 seconds just",
+                    "normalized_length": 58,
+                    "offset": 289
+                },
+                {
+                    "sentiment": "killing",
+                    "topic": null,
+                    "score": -0.79233520429398,
+                    "original_text": "It's killing",
+                    "original_length": 12,
+                    "normalized_text": "It's killing",
+                    "normalized_length": 12,
+                    "offset": 410
+                },
+                {
+                    "sentiment": "slowly kill",
+                    "topic": "someone",
+                    "score": -0.79233520429398,
+                    "original_text": "someone slowly kill themself",
+                    "original_length": 28,
+                    "normalized_text": "someone slowly kill themself",
+                    "normalized_length": 28,
+                    "offset": 504
+                },
+                {
+                    "sentiment": ":(",
+                    "topic": null,
+                    "score": -0.74906846745998,
+                    "original_text": ":(",
+                    "original_length": 2,
+                    "normalized_text": ":(",
+                    "normalized_length": 2,
+                    "offset": 534
+                },
+                {
+                    "sentiment": "gave up before",
+                    "topic": null,
+                    "score": -0.79233520429398,
+                    "original_text": "I gave up before",
+                    "original_length": 16,
+                    "normalized_text": "I gave up before",
+                    "normalized_length": 16,
+                    "offset": 567
+                },
+                {
+                    "sentiment": "failed so",
+                    "topic": null,
+                    "score": -0.94089064137618,
+                    "original_text": "failed so many times",
+                    "original_length": 20,
+                    "normalized_text": "failed so many times",
+                    "normalized_length": 20,
+                    "offset": 918
+                },
+                {
+                    "sentiment": "a few involuntary",
+                    "topic": "inpatient admissions",
+                    "score": -0.62801457251814,
+                    "original_text": "a few involuntary inpatient admissions",
+                    "original_length": 38,
+                    "normalized_text": "a few involuntary inpatient admissions",
+                    "normalized_length": 38,
+                    "offset": 1006
+                },
+                {
+                    "sentiment": "suffers from",
+                    "topic": "whoever",
+                    "score": -0.83035851058597,
+                    "original_text": "whoever suffers from an ED",
+                    "original_length": 26,
+                    "normalized_text": "whoever suffers from an ED",
+                    "normalized_length": 26,
+                    "offset": 1232
+                },
+                {
+                    "sentiment": "discouraged",
+                    "topic": null,
+                    "score": -0.70933685150655,
+                    "original_text": "feeling discouraged",
+                    "original_length": 19,
+                    "normalized_text": "feeling discouraged",
+                    "normalized_length": 19,
+                    "offset": 1421
+                },
+                {
+                    "sentiment": "may not have been so quick",
+                    "topic": "the director",
+                    "score": -0.58261592560204,
+                    "original_text": "the director may not have been so quick",
+                    "original_length": 39,
+                    "normalized_text": "the director may not have been so quick",
+                    "normalized_length": 39,
+                    "offset": 2251
+                },
+                {
+                    "sentiment": "Unfortunately",
+                    "topic": null,
+                    "score": -0.56857996205272,
+                    "original_text": "Unfortunately",
+                    "original_length": 13,
+                    "normalized_text": "Unfortunately",
+                    "normalized_length": 13,
+                    "offset": 2540
+                },
+                {
+                    "sentiment": "have been involuntarily hospitalized",
+                    "topic": "2x",
+                    "score": -0.67489840558231,
+                    "original_text": "have been involuntarily hospitalized 2x",
+                    "original_length": 39,
+                    "normalized_text": "have been involuntarily hospitalized 2x",
+                    "normalized_length": 39,
+                    "offset": 3335
+                },
+                {
+                    "sentiment": "s not going to be easy",
+                    "topic": null,
+                    "score": -0.70933685150655,
+                    "original_text": "it's not going to be easy",
+                    "original_length": 25,
+                    "normalized_text": "it's not going to be easy",
+                    "normalized_length": 25,
+                    "offset": 3648
+                },
+                {
+                    "sentiment": "still struggling",
+                    "topic": "4 years and others",
+                    "score": -0.51909411237721,
+                    "original_text": "4 years and others still struggling",
+                    "original_length": 35,
+                    "normalized_text": "4 years and others still struggling",
+                    "normalized_length": 35,
+                    "offset": 3808
+                },
+                {
+                    "sentiment": "devastated",
+                    "topic": null,
+                    "score": -0.84484659729366,
+                    "original_text": "be devastated",
+                    "original_length": 13,
+                    "normalized_text": "be devastated",
+                    "normalized_length": 13,
+                    "offset": 4049
+                }
+            ],
+            "aggregate": {
+                "sentiment": "mixed",
+                "score": 0.010784391098227
+            }
+        }
+    ]
+}

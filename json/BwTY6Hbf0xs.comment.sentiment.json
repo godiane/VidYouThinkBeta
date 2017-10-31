@@ -1,0 +1,94 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "a lot more cheerful",
+                    "topic": null,
+                    "score": 0.88324065723587,
+                    "original_text": "sound a lot more cheerful....",
+                    "original_length": 29,
+                    "normalized_text": "sound a lot more cheerful....",
+                    "normalized_length": 29,
+                    "offset": 154
+                },
+                {
+                    "sentiment": "help",
+                    "topic": null,
+                    "score": 0.40325111109508,
+                    "original_text": "get help",
+                    "original_length": 8,
+                    "normalized_text": "get help",
+                    "normalized_length": 8,
+                    "offset": 459
+                }
+            ],
+            "negative": [
+                {
+                    "sentiment": "fake",
+                    "topic": null,
+                    "score": -0.7614534295774,
+                    "original_text": "fake enthusiasm",
+                    "original_length": 15,
+                    "normalized_text": "fake enthusiasm",
+                    "normalized_length": 15,
+                    "offset": 94
+                },
+                {
+                    "sentiment": "tired and dull",
+                    "topic": "Her vice",
+                    "score": -0.92036506358378,
+                    "original_text": "Her vice sounds tired and dull",
+                    "original_length": 30,
+                    "normalized_text": "Her vice sounds tired and dull",
+                    "normalized_length": 30,
+                    "offset": 111
+                },
+                {
+                    "sentiment": "loses",
+                    "topic": null,
+                    "score": -0.57345066344102,
+                    "original_text": "she loses her train of thought quickly",
+                    "original_length": 38,
+                    "normalized_text": "she loses her train of thought quickly",
+                    "normalized_length": 38,
+                    "offset": 346
+                },
+                {
+                    "sentiment": "so sad",
+                    "topic": null,
+                    "score": -0.80099079750908,
+                    "original_text": "this is so sad...",
+                    "original_length": 17,
+                    "normalized_text": "this is so sad...",
+                    "normalized_length": 17,
+                    "offset": 406
+                },
+                {
+                    "sentiment": "are going to die",
+                    "topic": null,
+                    "score": -0.46377052838785,
+                    "original_text": "you are going to die",
+                    "original_length": 20,
+                    "normalized_text": "you are going to die",
+                    "normalized_length": 20,
+                    "offset": 469
+                },
+                {
+                    "sentiment": "dislike",
+                    "topic": "crew checking inWhat's the name of the product",
+                    "score": -0.79233520429398,
+                    "original_text": "dislike crew checking inWhat's the name of the product",
+                    "original_length": 54,
+                    "normalized_text": "dislike crew checking inWhat's the name of the product",
+                    "normalized_length": 54,
+                    "offset": 606
+                }
+            ],
+            "aggregate": {
+                "sentiment": "negative",
+                "score": -0.37823423980777
+            }
+        }
+    ]
+}

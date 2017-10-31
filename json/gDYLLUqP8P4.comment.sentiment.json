@@ -1,0 +1,194 @@
+{
+    "sentiment_analysis": [
+        {
+            "positive": [
+                {
+                    "sentiment": "super",
+                    "topic": "soft",
+                    "score": 0.71229529207806,
+                    "original_text": "super soft",
+                    "original_length": 10,
+                    "normalized_text": "super soft",
+                    "normalized_length": 10,
+                    "offset": 82
+                },
+                {
+                    "sentiment": "my favorite pokemon",
+                    "topic": "pikachu",
+                    "score": 0.85825242038059,
+                    "original_text": "pikachu is my favorite pokemon",
+                    "original_length": 30,
+                    "normalized_text": "pikachu is my favorite pokemon",
+                    "normalized_length": 30,
+                    "offset": 95
+                },
+                {
+                    "sentiment": "a cute person",
+                    "topic": null,
+                    "score": 0.79233520429398,
+                    "original_text": "she's a cute person",
+                    "original_length": 19,
+                    "normalized_text": "she's a cute person",
+                    "normalized_length": 19,
+                    "offset": 155
+                },
+                {
+                    "sentiment": "very nice",
+                    "topic": null,
+                    "score": 0.84980410505444,
+                    "original_text": "seems very nice",
+                    "original_length": 15,
+                    "normalized_text": "seems very nice",
+                    "normalized_length": 15,
+                    "offset": 179
+                },
+                {
+                    "sentiment": "professional help",
+                    "topic": null,
+                    "score": 0.58011915805765,
+                    "original_text": "Getting professional help",
+                    "original_length": 25,
+                    "normalized_text": "Getting professional help",
+                    "normalized_length": 25,
+                    "offset": 806
+                },
+                {
+                    "sentiment": "actually care about",
+                    "topic": "guys",
+                    "score": 0.90258715778194,
+                    "original_text": "guys actually care about her",
+                    "original_length": 28,
+                    "normalized_text": "guys actually care about her",
+                    "normalized_length": 28,
+                    "offset": 930
+                },
+                {
+                    "sentiment": "cant feel sorry",
+                    "topic": null,
+                    "score": 0.70933685150655,
+                    "original_text": "I cant feel sorry",
+                    "original_length": 17,
+                    "normalized_text": "I cant feel sorry",
+                    "normalized_length": 17,
+                    "offset": 1129
+                },
+                {
+                    "sentiment": "really good",
+                    "topic": null,
+                    "score": 0.94564704732248,
+                    "original_text": "It's really good!",
+                    "original_length": 17,
+                    "normalized_text": "It's really good!",
+                    "normalized_length": 17,
+                    "offset": 1370
+                }
+            ],
+            "negative": [
+                {
+                    "sentiment": "lack of",
+                    "topic": "that body type screams",
+                    "score": -0.53043391709799,
+                    "original_text": "but that body type screams lack of nutrition...",
+                    "original_length": 47,
+                    "normalized_text": "but that body type screams lack of nutrition...",
+                    "normalized_length": 47,
+                    "offset": 196
+                },
+                {
+                    "sentiment": "unhealthy",
+                    "topic": "eating disorder",
+                    "score": -0.62801457251814,
+                    "original_text": "unhealthy eating disorder",
+                    "original_length": 25,
+                    "normalized_text": "unhealthy eating disorder",
+                    "normalized_length": 25,
+                    "offset": 357
+                },
+                {
+                    "sentiment": "UGH",
+                    "topic": null,
+                    "score": -0.67003104828152,
+                    "original_text": "UGH",
+                    "original_length": 3,
+                    "normalized_text": "UGH",
+                    "normalized_length": 3,
+                    "offset": 754
+                },
+                {
+                    "sentiment": "\ud83d\ude12",
+                    "topic": null,
+                    "score": -0.75700031106962,
+                    "original_text": "\ud83d\ude12",
+                    "original_length": 1,
+                    "normalized_text": "\ud83d\ude12",
+                    "normalized_length": 1,
+                    "offset": 912
+                },
+                {
+                    "sentiment": "\ud83d\ude12",
+                    "topic": null,
+                    "score": -0.75700031106962,
+                    "original_text": "\ud83d\ude12",
+                    "original_length": 1,
+                    "normalized_text": "\ud83d\ude12",
+                    "normalized_length": 1,
+                    "offset": 913
+                },
+                {
+                    "sentiment": "dead",
+                    "topic": null,
+                    "score": -0.05597126385364,
+                    "original_text": "if she's dead",
+                    "original_length": 13,
+                    "normalized_text": "if she's dead",
+                    "normalized_length": 13,
+                    "offset": 1003
+                },
+                {
+                    "sentiment": "very terrible",
+                    "topic": null,
+                    "score": -0.95398531587632,
+                    "original_text": "it's very terrible",
+                    "original_length": 18,
+                    "normalized_text": "it's very terrible",
+                    "normalized_length": 18,
+                    "offset": 1051
+                },
+                {
+                    "sentiment": "feel so bad for",
+                    "topic": null,
+                    "score": -0.85829655349807,
+                    "original_text": "i feel so bad for her",
+                    "original_length": 21,
+                    "normalized_text": "i feel so bad for her",
+                    "normalized_length": 21,
+                    "offset": 1098
+                },
+                {
+                    "sentiment": "ignoring",
+                    "topic": "her problem",
+                    "score": -0.91055944859235,
+                    "original_text": "ignoring her problem!!!!!!!!!!",
+                    "original_length": 30,
+                    "normalized_text": "ignoring her problem!!!!!!!!!!",
+                    "normalized_length": 30,
+                    "offset": 1169
+                },
+                {
+                    "sentiment": "have an incorrect pronunciation of the word",
+                    "topic": null,
+                    "score": -0.79233520429398,
+                    "original_text": "we have an incorrect pronunciation of the word",
+                    "original_length": 46,
+                    "normalized_text": "we have an incorrect pronunciation of the word",
+                    "normalized_length": 46,
+                    "offset": 1230
+                }
+            ],
+            "aggregate": {
+                "sentiment": "slightly negative",
+                "score": -0.031291706093086
+            }
+        }
+    ]
+}
