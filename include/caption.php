@@ -1,10 +1,14 @@
 <?php
-	
+/**
+ * Caption API
+ *
+ * @author DIGO
+ */
 	require_once __DIR__ . '/constants.php';
 	require_once __DIR__ . '/sentiment.php';
-	
+
 	function getCaptionID(Google_Service_YouTube $youtube, $videoId, $captionLanguage = CAPTION_LANGUAGE) {
-		// Call the YouTube Data API's captions.list method to retrieve video caption tracks.		
+		// Call the YouTube Data API's captions.list method to retrieve video caption tracks.
 		$captions = $youtube->captions->listCaptions("snippet", $videoId);
 
 		foreach ($captions as $caption) {
@@ -14,7 +18,7 @@
 			}
 		}
 	}
-	
+
 	/**
 	 * Downloads a caption track for a YouTube video. (captions.download)
 	 *
@@ -34,9 +38,9 @@
 		// FIXME Based on https://github.com/guzzle/guzzle/commit/b0cb490f15567f724ce26380e4bb57b91831947b
 		return $captionResource->getBody();
 	}
-	
+
 	function parseCaption($videoId, $filename, $phrase = NULL) {
-	
+
 		$lines = file($filename);
 		$captionsHTML = '';
 
@@ -45,7 +49,7 @@
 		$subNum  = 0;
 		$subText = '';
 		$subTime = '';
-		
+
 		foreach($lines as $line) {
 			switch($state) {
 				case SRT_STATE_SUBNUMBER:
@@ -75,7 +79,7 @@
 						// echo "shacked! phrase: ".substr($phrase, 1, -1) . ' text:' . $sub->text . ' result:' .
 						// 	$isThere . '<br/>';
 						if ($isThere === "true") {
-							$captionsHTML .= '<tr class="bg-warning">';						
+							$captionsHTML .= '<tr class="bg-warning">';
 							$captionsHTML .= '    <td>' . $sub->number . '</td>';
 							$captionsHTML .= '    <td>' . format_sentiment(getSentimentAnalysisJSON(
 								strtolower($sub->text))) . '</td>';
@@ -97,9 +101,9 @@
 		}
 		return $captionsHTML;
 	}
-	
+
 	function getPhraseTimeframe($captions, $phrase) {
-	
+
 		$lines = $captions;
 		$position = '';
 
@@ -108,7 +112,7 @@
 		$subNum  = 0;
 		$subText = '';
 		$subTime = '';
-		
+
 		foreach($lines as $line) {
 			switch($state) {
 				case SRT_STATE_SUBNUMBER:
@@ -142,9 +146,9 @@
 		}
 		return $position;
 	}
-	
+
 	function getCaptionsText($filename) {
-	
+
 		$lines = file($filename);
 		$captions = '';
 
@@ -153,7 +157,7 @@
 		$subNum  = 0;
 		$subText = '';
 		$subTime = '';
-		
+
 		foreach($lines as $line) {
 			switch($state) {
 				case SRT_STATE_SUBNUMBER:

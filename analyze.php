@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Analyze
+ * Analyze API
  *
  * @author Diana Gonzales
  */
@@ -10,27 +9,38 @@ if (!file_exists(__DIR__ . '/vendor/autoload.php')) {
 }
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/constants.php';
-require_once __DIR__ . '/caption.php';
-require_once __DIR__ . '/sentiment.php';
-require_once __DIR__ . '/comment.php';
-require_once __DIR__ . '/utils.php';
+require_once __DIR__ . '/include/constants.php';
+require_once __DIR__ . '/include/caption.php';
+require_once __DIR__ . '/include/sentiment.php';
+require_once __DIR__ . '/include/comment.php';
+require_once __DIR__ . '/include/utils.php';
+require_once __DIR__ . '/include/config.php';
 
 session_start();
+
+if(!$fgmembersite->CheckLogin())
+{
+    $fgmembersite->RedirectToURL("index.php");
+    exit;
+}
 
 $htmlBody = <<<END
 END;
 
 $client = new Google_Client();
+$client->setApplicationName("VidYouThink");
+$client->setDeveloperKey("aeaf20d90cbba9de7f35c5e9c544b45f37fb5124");
 $client->setClientId(YOUTUBE_OAUTH2_CLIENT_ID);
 $client->setClientSecret(YOUTUBE_OAUTH2_CLIENT_SECRET);
+
+$utils = new Utils();
 
 /*
  * This OAuth 2.0 access scope allows for full read/write access to the
  * authenticated user's account and requires requests to use an SSL connection.
  */
 $client->setScopes(GOOGLE_YT_API_SSL);
-$redirect = filter_var((isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . 
+$redirect = filter_var((isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] .
 	$_SERVER['PHP_SELF'], FILTER_SANITIZE_URL);
 $client->setRedirectUri($redirect);
 $client->setAccessType('offline');
@@ -51,7 +61,8 @@ if (isset($_GET['code'])) {
 
 	$client->authenticate($_GET['code']);
 	$_SESSION[$tokenSessionKey] = $client->getAccessToken();
-	header('Location: ' . $redirect);
+  //header('Location: ' . $redirect  . '?' . $_SERVER['QUERY_STRING']);
+	header('Location: ' . $redirect . '?' . $_SESSION['query']);
 }
 
 if (isset($_SESSION[$tokenSessionKey])) {
@@ -59,7 +70,7 @@ if (isset($_SESSION[$tokenSessionKey])) {
 	$client->refreshToken(YOUTUBE_REFRESH_TOKEN);
 	*/
 	$client->setAccessToken($_SESSION[$tokenSessionKey]);
-	
+
 	// if ($client->isAccessTokenExpired()) {
 	// 	$currentTokenData = json_decode($_SESSION[$tokenSessionKey]);
 	// 	if (isset($currentTokenData->refresh_token)) {
@@ -78,20 +89,20 @@ if ($client->getAccessToken()) {
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		$videoId = isset($_GET['videoId']) ? $_GET['videoId'] : null;
 		$phrase = isset($_GET['phrase']) ? urldecode($_GET['phrase']) : null;
-	
+
 		try {
 			// FIXME
 			$filename = 'srt/' . $videoId . '.srt';
 			if (!file_exists($filename)) {
 				$captionId = getCaptionID($youtube, $videoId);
-				$videoCaptionFile = getVideoCaption($youtube, $captionId);			
+				$videoCaptionFile = getVideoCaption($youtube, $captionId);
 				file_put_contents($filename, $videoCaptionFile);
 			}
-			
+
 			$videoCaptionText = file_get_contents($filename);
 			$captionsHTML = parseCaption($videoId, $filename, $phrase);
 			$captionsText = getCaptionsText($filename);
-			
+
 			$videoCommentThreads = getVideoCommentThreads($youtube, $videoId);
 			$commentHTML = "";
 			$commentText = "";
@@ -100,7 +111,7 @@ if ($client->getAccessToken()) {
 				$textOriginal = getTextOriginal($videoCommentThread);
 				$commentHTML .= "<tr>";
 				$commentHTML .= '<td>' . $counter . '</td>';
-				$commentHTML .= '<td>' . format_sentiment(getSentimentAnalysisJSON($textOriginal)) . 
+				$commentHTML .= '<td>' . $utils->format_sentiment(getSentimentAnalysisJSON($textOriginal)) .
 					'</td>';
 				$commentHTML .= '<td>' . $textOriginal . '</td>';
 				$commentText .= $textOriginal;
@@ -110,17 +121,17 @@ if ($client->getAccessToken()) {
 			$tcSentiment = getSentimentAnalysisJSON($commentText);
 			$phSentiment = getSentimentAnalysisJSON($phrase);
 			$caSentiment = getSentimentAnalysisJSON($captionsText, null, CAPTION);
-		
+
 			$overallSentiment = getOverallSentiment($tcSentiment, $phSentiment, $caSentiment);
-			
+
 			$videoDetails = $youtube->videos->listVideos('snippet, statistics', array(
 					'id' => $videoId,
 			));
-			
+
 			$video = $videoDetails->items[0];
-			
+
 			// print_r($video);
-			
+
 			if (empty($videoCaptionText)) {
 				$htmlBody .= '<div class="alert alert-danger"><strong>Error:</strong> '.
 					'Can\'t get video caption tracks.</div>';
@@ -130,14 +141,14 @@ if ($client->getAccessToken()) {
 				$htmlBody .= '        <h1 class="text-primary text-center">'.$video->snippet->title.'</h1>';
 				$htmlBody .= '    </div>';
 				$htmlBody .= '    <div class="col-md-12 bg-danger">';
-				$htmlBody .= '        <h1 class="text-center text-danger"><small>Overall Sentiment:</small> ' . 
+				$htmlBody .= '        <h1 class="text-center text-danger"><small>Overall Sentiment:</small> ' .
 					$overallSentiment . '</h1>';
 				$htmlBody .= '    </div>';
 				$htmlBody .= '</div>';
-				
+
 				$htmlBody .= '<div class="row" style="padding: 2%">';
 				$htmlBody .= '	<div class="col-md-4">';
-				$htmlBody .= '		<h1 class="text-center"><small>Phrase:</small><br/>'.format_sentiment($phSentiment).
+				$htmlBody .= '		<h1 class="text-center"><small>Phrase:</small><br/>'.$utils->format_sentiment($phSentiment).
 					'</h1>';
 				$htmlBody .= '		<a id="modal-222550" href="#modal-container-222550" role="button" '.
 					'class="btn btn-block btn-lg btn-danger" data-toggle="modal">Details</a>';
@@ -165,7 +176,7 @@ if ($client->getAccessToken()) {
 				$htmlBody .= '								</thead>';
 				$htmlBody .= "								<tbody><tr>";
 				$htmlBody .= "									<td>" . $phrase . "</td>";
-				$htmlBody .= "									<td>" . format_sentiment($phSentiment) . "</td>";
+				$htmlBody .= "									<td>" . $utils->format_sentiment($phSentiment) . "</td>";
 				$htmlBody .= '								</tr></tbody>';
 				$htmlBody .= '							</table>';
 				$htmlBody .= '						</div>';
@@ -182,7 +193,7 @@ if ($client->getAccessToken()) {
 				$htmlBody .= '	</div>';
 				$htmlBody .= '	<div class="col-md-4">';
 				$htmlBody .= '		<h1 class="text-center"><small>Top Comments:</small><br/>'.
-					format_sentiment($tcSentiment).'</h1>';
+					$utils->format_sentiment($tcSentiment).'</h1>';
 				$htmlBody .= '		<a id="modal-222557" href="#modal-container-222557" role="button" '.
 					'class="btn btn-block btn-lg btn-info" data-toggle="modal">Details</a>';
 				$htmlBody .= '		<div class="modal fade" id="modal-container-222557" role="dialog" '.
@@ -227,7 +238,7 @@ if ($client->getAccessToken()) {
 				$htmlBody .= '	</div>';
 				$htmlBody .= '  <div class="col-md-4">';
 				$htmlBody .= '		<h1 class="text-center text-success"><small>Overall Caption:</small><br/>';
-				$htmlBody .=            format_sentiment($caSentiment).'</h1>';
+				$htmlBody .=            $utils->format_sentiment($caSentiment).'</h1>';
 				$htmlBody .= '		<a id="modal-764936" href="#modal-container-764936" role="button" class="btn '.
 					'btn-lg btn-block btn-warning" data-toggle="modal">Details</a>';
 				$htmlBody .= '		<div class="modal fade" id="modal-container-764936" role="dialog" '.
@@ -283,7 +294,7 @@ if ($client->getAccessToken()) {
 				$htmlBody .= '    </div>';
 				$htmlBody .= '</div>';
 			}
-		
+
 		} catch (Google_Service_Exception $e) {
 			if ($e->getCode() == '401') {
 				unset($_SESSION[$tokenSessionKey]);
@@ -291,7 +302,10 @@ if ($client->getAccessToken()) {
 				$state = mt_rand();
 				$client->setState($state);
 				$_SESSION['state'] = $state;
-		
+        $_SESSION['query'] = $_SERVER['QUERY_STRING'];
+        echo $_SESSION['query'];
+        echo $_SERVER['QUERY_STRING'];
+
 				$authUrl = $client->createAuthUrl();
 				$htmlBody .= '<div class="alert alert-danger"><h3>Authorization Required</h3>' .
 				'<p>You need to <a href="' . $authUrl . '">authorize access</a> before proceeding.<p></div>';
@@ -301,7 +315,7 @@ if ($client->getAccessToken()) {
 			}
 		} catch (Google_Exception $e) {
 			$htmlBody .= sprintf('<div class="alert alert-danger"><strong>'. CLIENT_ERROR_MSG .'</strong> '.
-					'<code>%s</code></div>', htmlspecialchars($e->getMessage()));		
+					'<code>%s</code></div>', htmlspecialchars($e->getMessage()));
 		} catch (\Exception $e) {
 			$htmlBody .= sprintf('<div class="alert alert-danger"><strong>'. ERROR_MSG .'</strong> '.
 			'<code>%s</code></div>', htmlspecialchars($e->getMessage()));
@@ -351,7 +365,7 @@ if(isset($_SERVER['HTTP_REFERER'])) {
 		<link rel="stylesheet" href="assets/site.css" />
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		
+
 		<!--[if lt IE 9]>
 		<script src = "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src = "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -375,7 +389,7 @@ if(isset($_SERVER['HTTP_REFERER'])) {
 		</div>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		
+
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">

@@ -1,7 +1,11 @@
 <?php
-
+/**
+ * Comments API - Constants
+ *
+ * @author DIGO
+ */
 	function getVideoCommentThreads(Google_Service_YouTube $youtube, $videoId) {
-		
+
 		$videoCommentThreads = $youtube->commentThreads->listCommentThreads('snippet', array(
 			'videoId' => $videoId,
 			'textFormat' => 'plainText',

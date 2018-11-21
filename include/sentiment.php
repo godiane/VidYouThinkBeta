@@ -1,15 +1,20 @@
 <?php
+/**
+* Sentiment Functions
+*
+* @author DIGO
+*/
 	require_once __DIR__ . '/constants.php';
 	require_once __DIR__ . '/utils.php';
-	
-	function debugOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment, 
+
+	function debugOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment,
 		$phraseAndCaptionsSentiment) {
 		echo "Top Comment Sentiment: " . $topCommentSentiment . "<br/>";
 		echo "Phrase Sentiment: " . $phraseSentiment . "<br/>";
 		echo "Captions Sentiment: " . $captionsSentiment . "<br/>";
 		echo "Phrase and Captions Sentiment: " . $phraseAndCaptionsSentiment . "<br/>";
 	}
-	
+
 	function getOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment) {
 		$phraseAndCaptionsSentiment = "neutral";
 		// echo "TEST! " . $phraseSentiment . " :: " . (preg_match("positive", $phraseSentiment));
@@ -19,9 +24,9 @@
 			} else if ("negative" == $captionsSentiment) {
 				$phraseAndCaptionsSentiment = "negative";
 			} else if ("neutral" == $captionsSentiment) {
-				$phraseAndCaptionsSentiment = "neutral";		
+				$phraseAndCaptionsSentiment = "neutral";
 			} else {
-				// FIXME debugOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment, 
+				// FIXME debugOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment,
 				// $phraseAndCaptionsSentiment);
 				return "Invalid";
 			}
@@ -29,11 +34,11 @@
 			if ("positive" == $captionsSentiment) {
 				$phraseAndCaptionsSentiment = "neutral";
 			} else if ("neutral" == $captionsSentiment) {
-				$phraseAndCaptionsSentiment = "neutral";	
+				$phraseAndCaptionsSentiment = "neutral";
 			} else if ("negative" == $captionsSentiment) {
 				$phraseAndCaptionsSentiment = "negative";
 			} else {
-				// FIXME debugOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment, 
+				// FIXME debugOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment,
 				// $phraseAndCaptionsSentiment);
 				return "Invalid";
 			}
@@ -41,20 +46,20 @@
 			if ("positive" == $captionsSentiment) {
 				$phraseAndCaptionsSentiment = "negative";
 			} else if ("neutral" == $captionsSentiment) {
-				$phraseAndCaptionsSentiment = "negative";	
+				$phraseAndCaptionsSentiment = "negative";
 			} else if ("negative" == $captionsSentiment) {
 				$phraseAndCaptionsSentiment = "negative";
 			} else {
-				// FIXME debugOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment, 
+				// FIXME debugOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment,
 				// $phraseAndCaptionsSentiment);
 				return "Invalid";
 			}
 		} else {
-			// FIXME debugOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment, 
+			// FIXME debugOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment,
 			// $phraseAndCaptionsSentiment);
 			return "Invalid";
 		}
-		
+
 		if ("positive" == $phraseAndCaptionsSentiment) {
 			if ("positive" == $topCommentSentiment) {
 				return "positive";
@@ -63,7 +68,7 @@
 			} else if ("neutral" == $topCommentSentiment) {
 				return "neutral";
 			} else {
-				// FIXME debugOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment, 
+				// FIXME debugOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment,
 				// $phraseAndCaptionsSentiment);
 				return "Invalid";
 			}
@@ -76,19 +81,20 @@
 				return "neutral";
 			}
 		} else {
-			// FIXME debugOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment, 
+			// FIXME debugOverallSentiment($topCommentSentiment, $phraseSentiment, $captionsSentiment,
 			// $phraseAndCaptionsSentiment);
 			return "Invalid";
 		}
 	}
-	
+
 	function getSentimentAnalysisJSON($text, $videoId = NULL, $type = NULL, $saveToFile = false) {
 		$file = '';
 		if (!empty($videoId)) {
 			$file = 'json/' . $videoId . '.' . $type . '.sentiment.json';
 		}
 		if (CAPTION == $type) {
-			$text = truncate($text, 1500, "");
+			$util = new Utils();
+			$text = $util->truncate($text, 1500, "");
 		}
 		if (empty($file) || !file_exists($file)) {
 			$uri = ANALYSIS_URI . urlencode($text);
@@ -99,7 +105,7 @@
 				))
 			->send();
 			if ($saveToFile) {
-				file_put_contents($file, json_encode($response->body, JSON_PRETTY_PRINT));			
+				file_put_contents($file, json_encode($response->body, JSON_PRETTY_PRINT));
 			}
 			return $response->body->type;
 		} else {

@@ -1,6 +1,5 @@
 <?php
-
-	/**
+/**
  * Main Search Page
  *
  * @author DIGO
@@ -10,43 +9,43 @@ if (!file_exists(__DIR__ . '/vendor/autoload.php')) {
 }
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/constants.php';
-require_once __DIR__ . '/utils.php';
-require_once __DIR__ . '/caption.php';
-require_once __DIR__ . '/category.php';
+require_once __DIR__ . '/include/config.php';
 
-session_start();
+if($fgmembersite->CheckLogin())
+{
+    //echo "Boom!";
+    $fgmembersite->RedirectToURL("login-home.php");
+    exit;
+} else {
+  if(isset($_POST['submitted']) && $fgmembersite->Login())
+  {
+       $fgmembersite->RedirectToURL("login-home.php");
+       exit;
+  }
+}
 
 $htmlBody = <<<END
 	<div class="row">
-		<div class="col-lg-8">
-			<form method="GET" role="form" id="search-form" data-toggle="validator">
-		 		<fieldset>
-					<!-- Form Name -->
-					<legend>Search</legend>
-					<div class="input-group input-group-lg" data-toggle="tooltip" title="Enter phrase to search in YouTube Videos. Limited to 25 search results.">
-						<label class="sr-only" for="q">Search Term</label>
-						<input type="text" class="form-control input-lg" id="q" name="q" placeholder="Enter phrase to search" required />
-						<span class="input-group-btn">
-							<button class="btn btn-default btn-lg" type="submit" >Go!</button>
-						</span>
-					</div><!-- input-group -->
-				</fieldset>
-			</form><!-- form -->
+		<div class="col-lg-6">
+			<legend>Welcome</legend>
+			<div class="input-group input-group-lg" data-toggle="tooltip" title="Welcome">
+				Please login to access functionality.
+			</div><!-- input-group -->
 		</div><!-- col -->
-		<div class="col-lg-4">
-			<form method="POST" role="form" id="login-form" data-toggle="validator" class="form-horizontal">
+		<div class="col-lg-6">
+			<form method="POST" action="/index.php" role="form" id="login-form" data-toggle="validator" class="form-horizontal" accept-charset="UTF-8">
 				<!-- Form Name -->
-				<legend>Login</legend>
 				<fieldset>
+        	<legend>Login</legend>
+          <input type="hidden" name="submitted" id="submitted" value="1"/>
 					<div class="form-group">
 						<div class="col-lg-10">
-							<input id="inputusername" name="inputusername" type="text" placeholder="Username" class="form-control" required="">
+							<input id="username" name="username" type="text" placeholder="Please enter username." class="form-control" required />
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-lg-10">
-							<input id="inputpassword" name="inputpassword" type="password" placeholder="Password" class="form-control" required="">
+							<input id="password" name="password" type="password" placeholder="Please enter password." class="form-control" required />
 						</div>
 					</div>
 					<div class="form-group">
@@ -60,145 +59,15 @@ $htmlBody = <<<END
 					</div>
 					<div class="form-group">
 						<div class="col-lg-10">
-							<button type="submit" class="btn btn-success btn-block">
-								Sign in
-							</button>
+							<input type="submit" id="login" name="login" class="btn btn-success btn-block" />
 						</div>
+            <a href="register.php" class="btn" type="button">Not a member? Register!</a>
 					</div>
 				</fieldset><!-- fieldset 2 -->
-			</form><!-- form 2 -->
-			<a href="register.php" class="btn" type="button">Not a member? Register!</a>
-		</div>
-	</div>
+			</form><!-- form -->
+	  </div><!-- col -->
 	</div><!-- row -->
-</form>
 END;
-
-$client = new Google_Client();
-$client->setDeveloperKey(YOUTUBE_DEVELOPER_KEY);
-
-$client->setScopes(GOOGLE_YT_API_SSL);
-$redirect = filter_var((isset($_SERVER['HTTPS']) ? 'https://' : 'http://') .
-	$_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'], FILTER_SANITIZE_URL);
-$client->setRedirectUri($redirect);
-
-$client->setHttpClient(new \GuzzleHttp\Client(array(
-    'verify' => CA_CERT_LOCATION,
-)));
-// Define an object that will be used to make all API requests.
-$youtube = new Google_Service_YouTube($client);
-
-if (isset($_GET['q']) && !empty($_GET['q'])) {
-	$query = '"' . $_GET['q'] . '"';
-
-	$htmlBody = '<div class="alert alert-success">';
-	$htmlBody .= "<strong>Search Query:</strong> " .  $query;
-	$htmlBody .= '</div>';
-
-	try {
-		$searchResponse = $youtube->search->listSearch('id,snippet', array(
-			'q' => $query,
-			'maxResults' => MAX_SEARCH_RESULTS,
-			'type' => 'video',
-			'videoCaption' => 'closedCaption'
-		));
-		// DEBUG
-		// echo json_encode($searchResponse);
-		$videos = '';
-		// $jsonArray = '{"search_results": [';
-
-		// Add each result to the appropriate list, and then display the lists of
-		// matching videos, channels, and playlists.
-
-		$numResults = count($searchResponse->items);
-
-		foreach ($searchResponse->items as $searchResult) {
-			if ('youtube#video' == $searchResult->id->kind) {
-				$videos .= '<div class="row">';
-				$videos .= '	<div class="col-md-12">';
-				$videos .= '		<div class="media well">';
-				$videos .= '			<a href="#" class="pull-left">';
-				$videos .= '				<iframe width="420" height="315" ';
-				$videos .= '					src="https://www.youtube.com/embed/';
-				$videos .= $searchResult->id->videoId . '" class="media-object">';
-				$videos .= '                </iframe>';
-				$videos .= '            </a>';
-				$videos .= '            <div class="media-body">';
-				$videos .= '            	<h3 class="text-left text-primary">';
-				$videos .= $searchResult->snippet->title . '</a> by ' . $searchResult->snippet->channelTitle;
-				$videos .= '            	</h3>';
-				$videosResponse = $youtube->videos->listVideos('snippet, statistics', array(
-					'id' => $searchResult->id->videoId,
-				));
-				$videos .= '				<strong>Category:</strong> ' . getVideoCategory($youtube, $videosResponse->items[0]->snippet->categoryId) . '<br/>';
-				$videos .= '				<strong>Overall Views:</strong> ' . number_format($videosResponse->items[0]->statistics->viewCount, 0, ".", ",") . '<br/>';
-				if (empty($videosResponse->items[0]->statistics->likeCount)) {
-					$videos .= '0 <strong>Likes</strong>, ';
-				} else {
-					$videos .= number_format($videosResponse->items[0]->statistics->likeCount, 0, ".", ",") . ' <strong>Likes</strong>, ';
-				}
-				if (empty($videosResponse->items[0]->statistics->dislikeCount)) {
-					$videos .= '0 <strong>Dislikes</strong>';
-				} else {
-					$videos .= number_format($videosResponse->items[0]->statistics->dislikeCount, 0, ".", ",") . ' <strong>Dislikes</strong>';
-				}
-				$videos .= '				<br/><br/>';
-				$videos .= '				<a href="analyze.php?videoId=' . $searchResult->id->videoId
-					. '&phrase=' . urlencode($query) . '"><button type="button" class="btn btn-success btn-lg" data-loading-text="<i class=\'fa fa-circle-o-notch fa-spin\'></i> Analyzing...">Analyze</button>';
-				$videos .= '				</a>';
-				$videos .= '			</div>';
-				$videos .= '		</div>';
-				$videos .= '	</div>';
-				$videos .= '</div>';
-
-				// $jsonArray .= '{';
-				// $jsonArray .= '"thumbnail" : ' . json_encode($searchResult->snippet->thumbnails['modelData'], JSON_PRETTY_PRINT) . ',';
-				// $jsonArray .= '"id" : ' . json_encode($searchResult->id, JSON_PRETTY_PRINT) . ',';
-				// $jsonArray .= '"snippet" : ' . json_encode($videosResponse->items[0]->snippet, JSON_PRETTY_PRINT);
-				// $jsonArray .= '"statistics" : ' . json_encode($videosResponse->items[0]->statistics, JSON_PRETTY_PRINT);
-				// $jsonArray .= '},';
-			}
-		}
-		// $jsonArray = substr($jsonArray, 0, -1);
-		// $jsonArray .= ']}';
-		// file_put_contents(JSON_SEARCH_RESULTS_FILE, $jsonArray);
-
-		$numResultsText = '';
-		if ($numResults == 25) {
-			$numResultsText = 'Top ';
-		}
-		$numResultsText .= $numResults;
-
-		$htmlBody .= <<<END
-					<h2>$numResultsText Search Result(s)</h2>
-					<div class="container-fluid">$videos</div>
-END;
-	} catch (Google_Service_Exception $e) {
-		if ($e->getCode() == '401') {
-			unset($_SESSION[$tokenSessionKey]);
-			// If the user hasn't authorized the app, initiate the OAuth flow
-			$state = mt_rand();
-			$client->setState($state);
-			$_SESSION['state'] = $state;
-
-			$authUrl = $client->createAuthUrl();
-			$htmlBody .= '<div class="alert alert-danger"><h3>Authorization Required</h3>' .
-			'<p>You need to <a href="' . $authUrl . '">authorize access</a> before proceeding.<p></div>';
-		} else {
-			$htmlBody .= sprintf('<div class="alert alert-danger"><strong>'. SERVICE_ERROR_MSG .'</strong> '.
-				'<code>%s</code></div>', htmlspecialchars($e->getMessage()));
-		}
-	} catch (Google_Exception $e) {
-		$htmlBody .= sprintf('<div class="alert alert-danger"><strong>'. CLIENT_ERROR_MSG .'</strong> '.
-			'<code>%s</code></div>',
-			htmlspecialchars($e->getMessage()));
-	} catch (\Exception $e) {
-		$htmlBody .= sprintf('<div class="alert alert-danger"><strong>'. ERROR_MSG .'</strong> '.
-			'<code>%s</code></div>',
-			htmlspecialchars($e));
-	}
-}
-
 ?>
 
 <!doctype html>
@@ -229,12 +98,17 @@ END;
 				<div class="page-header">
 					<h1><a href="./index.php">VidYouThink!</a> <small>Caption Search</small></h1>
 				</div>
+        <?php if (!empty($fgmembersite->GetErrorMessage())) { ?>
+          <div class="alert alert-danger" role="alert">
+            <strong>Oh snap!</strong> <?=$fgmembersite->GetErrorMessage()?>
+          </div>
+        <?php } ?>
 				<?=$htmlBody?>
 			</div>
 		</div>
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src = "assets/js/jquery.min.js"></script>
+  <script src = "assets/js/jquery.min.js"></script>
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="assets/js/bootstrap.min.js"></script>
@@ -243,13 +117,6 @@ END;
 		$(document).ready(function(){
 			$('[data-toggle="tooltip"]').tooltip();
 		});
-		$('#search-form').validator().on('submit', function (e) {
-		  if (e.isDefaultPrevented()) {
-			// handle the invalid form...
-		  } else {
-			// everything looks good!
-		  }
-		})
 		$('#login-form').validator().on('submit', function (e) {
 			if (e.isDefaultPrevented()) {
 			// handle the invalid form...
