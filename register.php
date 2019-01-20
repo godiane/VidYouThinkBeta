@@ -24,7 +24,7 @@ if(isset($_POST['submitted']))
 }
 
 $htmlBody = <<<END
-<form method="POST" action="/register.php" role="form" id="register-form" data-toggle="validator" class="form-horizontal">
+<form method="POST" action="./register.php" role="form" id="register-form" data-toggle="validator" class="form-horizontal">
 	<fieldset>
 
 		<!-- Form Name -->

@@ -1,6 +1,6 @@
 <?PHP
   require_once __DIR__ . '/fg_membersite.php';
-  require_once __DIR__ . '/search_query.php';
+  require_once __DIR__ . '/db/search_query.php';
 
   $fgmembersite = new FGMembersite();
 
@@ -10,10 +10,21 @@
   //Provide the email address where you want to get notifications
   $fgmembersite->SetAdminEmail('di.gonzales@gmail.com');
 
+  // local
+
   DB::$user = 'root';
   DB::$password = 'manage';
   DB::$dbName = 'vidyouthink';
   DB::$encoding = 'utf8';
+  
+
+  // live
+  /*
+  DB::$user = 'godiane_admin';
+  DB::$password = 'manage';
+  DB::$dbName = 'godiane_vidyouthink';
+  DB::$encoding = 'utf8';
+ */
 
   DB::$error_handler = false; // since we're catching errors, don't need error handler
   DB::$throw_exception_on_error = true;
@@ -22,6 +33,6 @@
   // and put it here
   $fgmembersite->SetRandomKey('qSRcVS6DrTzrPvr');
 
-  $search_query = new SearchQuery();
+  $search_query = new SearchQueryT();
 
 ?>

@@ -4,8 +4,8 @@
  *
  * @author DIGO
  */
-require_once __DIR__ . '/formvalidator.php';
-require_once __DIR__ . '/utils.php';
+require_once __DIR__ . '/../formvalidator.php';
+require_once __DIR__ . '/../utils.php';
 
 class SearchQueryT
 {
@@ -17,6 +17,9 @@ class SearchQueryT
 
     // Error Message Handler
     var $error_message;
+
+    // Utilities
+    var $utils;
 
     //-----Initialization -------
     function __construct()
@@ -78,16 +81,26 @@ class SearchQueryT
         return $this->error_message;
     } // END FUNCTION
 
+    function set_utils($utils_i) {
+      $this->utils = $utils_i;
+    }
+
+    function get_utils()
+    {
+        if(($this->utils) === null) {
+          return new Utils();
+        }
+        return $this->utils;
+    } // END FUNCTION
+
     //-------Main Operations ----------------------
     function SaveSearch()
     {
         if (!isset($_GET['submitted'])) {
             return false;
         }
-
-        $utils = new Utils();
         $this->user_id = $_SESSION['id_of_user'];
-        $this->query = $utils->sanitize($_GET['q']);
+        $this->query = $this->get_utils()->sanitize($_GET['q']);
 
         if (!$this->ValidateSearchSubmission()) {
             $this->HandleError("Submission is invalid.");
@@ -141,7 +154,8 @@ class SearchQueryT
     function IsSearchUnique($user_id_input, $query_input) {
       if (!$this->IsFieldUnique($this->user_id, 'USER_ID', 'SEARCH_QUERY')
         && !$this->IsFieldUnique($this->query, 'QUERY', 'SEARCH_QUERY')) {
-        return false;
+          echo "search query id: " . $this->get_search_query_id($user_id_input, $query_input);
+          return false;
       }
       return true;
     }
@@ -150,6 +164,7 @@ class SearchQueryT
     {
         if (!$this->IsSearchUnique($this->user_id, $this->query)) {
             // TODO get the query from DB and just get all details from DB/json
+            // echo $this->get_search_query_id($this->user_id, $this->query);
         } else {
             if (!$this->InsertSearchQueryIntoDB()) {
                 $this->HandleError("Inserting to Database failed.");
@@ -161,7 +176,7 @@ class SearchQueryT
 
     function IsFieldUnique($value, $fieldname, $tablename)
     {
-        $field_val = $utils->sanitize_for_sql($value);
+        $field_val = $this->get_utils()->sanitize_for_sql($value);
         $query     = "SELECT $fieldname FROM $tablename WHERE $fieldname=%s";
         $result    = DB::query($query, $field_val);
         if(DB::count() > 0)
@@ -172,8 +187,8 @@ class SearchQueryT
     } // END FUNCTION
 
     /** Insert into USER table **/
-    function InsertSearchQueryIntoDB()
-    {
+    function InsertSearchQueryIntoDB() {
+
         try {
             DB::insert('SEARCH_QUERY', array(
                 'USER_ID' => $this->user_id,
@@ -186,6 +201,21 @@ class SearchQueryT
         }
         return true;
     } // END FUNCTION
+
+    // Get Search Query ID from fields
+    function get_search_query_id($user_id_i, $query_i) {
+      // get
+      $field_val1 = $this->get_utils()->sanitize_for_sql($user_id_i);
+      $field_val2 = $this->get_utils()->sanitize_for_sql($user_id_i);
+      $query     = "SELECT id FROM SEARCH_QUERY WHERE USER_ID=%s AND QUERY=%s";
+      $result    = DB::query($query, $field_val1, $field_val2);
+
+      if(DB::count() > 0) {
+        return $result[0];
+      } else {
+        return "";
+      }
+    }
 
 } // END CLASS
 ?>

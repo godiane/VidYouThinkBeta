@@ -76,8 +76,10 @@
 						if (strpos(strtolower($sub->text), strtolower(substr($phrase, 1, -1))) === false){
 							$isThere = "false";
 						}
-						// echo "shacked! phrase: ".substr($phrase, 1, -1) . ' text:' . $sub->text . ' result:' .
-						// 	$isThere . '<br/>';
+						/* TODO Uncomment for debugging
+						echo "shacked! phrase: ".substr($phrase, 1, -1) . ' text:' . $sub->text . ' result:' .
+							$isThere . '<br/>';
+						*/
 						if ($isThere === "true") {
 							$captionsHTML .= '<tr class="bg-warning">';
 							$captionsHTML .= '    <td>' . $sub->number . '</td>';
@@ -97,7 +99,7 @@
 		$file = 'json/' . $videoId . '.captions.json';
 		file_put_contents($file, json_encode($subs, JSON_PRETTY_PRINT));
 		if (empty($captionsHTML)) {
-			$captionsHTML .= '<tr class="bg-danger"><td colspan="4" class="text-center">No results.</td></tr>';
+			$captionsHTML .= '<tr class="bg-danger"><td colspan="4" class="text-center">Searched phrase was not mentioned in the video.</td></tr>';
 		}
 		return $captionsHTML;
 	}

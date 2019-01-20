@@ -33,7 +33,7 @@ $htmlBody = <<<END
 			</div><!-- input-group -->
 		</div><!-- col -->
 		<div class="col-lg-6">
-			<form method="POST" action="/index.php" role="form" id="login-form" data-toggle="validator" class="form-horizontal" accept-charset="UTF-8">
+			<form method="POST" action="./index.php" role="form" id="login-form" data-toggle="validator" class="form-horizontal" accept-charset="UTF-8">
 				<!-- Form Name -->
 				<fieldset>
         	<legend>Login</legend>
@@ -61,7 +61,7 @@ $htmlBody = <<<END
 						<div class="col-lg-10">
 							<input type="submit" id="login" name="login" class="btn btn-success btn-block" />
 						</div>
-            <a href="register.php" class="btn" type="button">Not a member? Register!</a>
+            <a href="./register.php" class="btn" type="button">Not a member? Register!</a>
 					</div>
 				</fieldset><!-- fieldset 2 -->
 			</form><!-- form -->

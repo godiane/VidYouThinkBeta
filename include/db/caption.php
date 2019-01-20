@@ -4,17 +4,15 @@
  *
  * @author DIGO
  */
-require_once __DIR__ . '/formvalidator.php';
-require_once __DIR__ . '/utils.php';
+ require_once __DIR__ . '/../formvalidator.php';
+ require_once __DIR__ . '/../utils.php';
 
-class VideoT
+class CaptionT
 {
     //----- Variables -------
+    var $video_id;
     var $id;
-    var $name;
-    var $url;
-    var $title;
-    var $description;
+    var $caption;
     var $insert_timestamp;
     var $insert_user_id;
 
@@ -26,9 +24,19 @@ class VideoT
     {
     } // END FUNCTION
 
-    function SearchResult()
+    function CaptionT()
     {
         self::__construct();
+    } // END FUNCTION
+
+    function set_video_id($video_id_i)
+    {
+        $this->video_id = $video_id_i;
+    } // END FUNCTION
+
+    function get_video_id()
+    {
+        return $this->video_id;
     } // END FUNCTION
 
     function set_id($id_i)
@@ -41,24 +49,34 @@ class VideoT
         return $this->id;
     } // END FUNCTION
 
-    function set_search_query_id($search_query_id_i)
+    function set_caption($caption_i)
     {
-        $this->search_query_id = $search_query_id_i;
+        $this->caption = $caption_i;
     } // END FUNCTION
 
-    function get_search_query_id()
+    function get_caption()
     {
-        return $this->search_query_id;
+        return $this->caption;
     } // END FUNCTION
 
-    function set_video_id($video_id_i)
+    function set_insert_timestamp($insert_timestamp_i)
     {
-        $this->video_id = $video_id_i;
+        $this->insert_timestamp = $insert_timestamp_i;
     } // END FUNCTION
 
-    function get_video_id()
+    function get_insert_timestamp()
     {
-        return $this->video_id;
+        return $this->insert_timestamp;
+    } // END FUNCTION
+
+    function set_insert_user_id($insert_user_id_i)
+    {
+        $this->insert_user_id = $insert_user_id_i;
+    } // END FUNCTION
+
+    function get_insert_user_id()
+    {
+        return $this->insert_user_id;
     } // END FUNCTION
 
     function set_error_message($error_message_i)

@@ -28,11 +28,14 @@ http://www.html-form-guide.com/php-form/php-login-form.html
   class FGMembersite
   {
       //----- Variables -------
-      var $admin_email;
+			var $sitename;
+			var $admin_email;
       var $from_address;
 
       var $username;
       var $pwd;
+      var $database;
+      var $connection;
       var $rand_key;
 
       var $error_message;
@@ -178,7 +181,7 @@ http://www.html-form-guide.com/php-form/php-login-form.html
 
       function HandleDBError($err)
       {
-          $this->HandleError($err."\r\n mysqlerror:".$this->connection->errorInfo());
+          $this->HandleError($err);
       }
 
       function GetLoginSessionVar()
@@ -271,12 +274,12 @@ http://www.html-form-guide.com/php-form/php-login-form.html
                 $this->HandleError("Database login failed.");
                 return false;
             }
-            if(!$this->IsFieldUnique($formvars,'email','user'))
+            if(!$this->IsFieldUnique($formvars,'email','USER'))
             {
                 $this->HandleError("This email is already registered.");
                 return false;
             }
-            if(!$this->IsFieldUnique($formvars,'username','user'))
+            if(!$this->IsFieldUnique($formvars,'username','USER'))
             {
                 $this->HandleError("This username is already used. Please try another username.");
                 return false;
@@ -340,14 +343,7 @@ http://www.html-form-guide.com/php-form/php-login-form.html
 
         function SanitizeForSQL($str)
         {
-            if( function_exists( "mysql_real_escape_string" ) )
-            {
-                  $ret_str = mysql_real_escape_string( $str );
-            }
-            else
-            {
-                  $ret_str = addslashes( $str );
-            }
+            $ret_str = addslashes( $str );
             return $ret_str;
         }
 

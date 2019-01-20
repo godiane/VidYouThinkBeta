@@ -94,7 +94,7 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
 		// DEBUG
 		// echo json_encode($searchResponse);
 		$videos = '';
-		// $jsonArray = '{"search_results": [';
+		$jsonArray = '{"search_results": [';
 
 		// Add each result to the appropriate list, and then display the lists of
 		// matching videos, channels, and playlists.
@@ -140,17 +140,17 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
 				$videos .= '	</div>';
 				$videos .= '</div>';
 
-				// $jsonArray .= '{';
-				// $jsonArray .= '"thumbnail" : ' . json_encode($searchResult->snippet->thumbnails['modelData'], JSON_PRETTY_PRINT) . ',';
-				// $jsonArray .= '"id" : ' . json_encode($searchResult->id, JSON_PRETTY_PRINT) . ',';
-				// $jsonArray .= '"snippet" : ' . json_encode($videosResponse->items[0]->snippet, JSON_PRETTY_PRINT);
-				// $jsonArray .= '"statistics" : ' . json_encode($videosResponse->items[0]->statistics, JSON_PRETTY_PRINT);
-				// $jsonArray .= '},';
+				$jsonArray .= '{';
+				$jsonArray .= '"thumbnail" : ' . json_encode($searchResult->snippet->thumbnails['modelData'], JSON_PRETTY_PRINT) . ',';
+				$jsonArray .= '"id" : ' . json_encode($searchResult->id, JSON_PRETTY_PRINT) . ',';
+				$jsonArray .= '"snippet" : ' . json_encode($videosResponse->items[0]->snippet, JSON_PRETTY_PRINT) . ',';
+				$jsonArray .= '"statistics" : ' . json_encode($videosResponse->items[0]->statistics, JSON_PRETTY_PRINT);
+				$jsonArray .= '},';
 			}
 		}
-		// $jsonArray = substr($jsonArray, 0, -1);
-		// $jsonArray .= ']}';
-		// file_put_contents(JSON_SEARCH_RESULTS_FILE, $jsonArray);
+		$jsonArray = substr($jsonArray, 0, -1);
+		$jsonArray .= ']}';
+		file_put_contents(JSON_SEARCH_RESULTS_FILE . '_' . $query, $jsonArray);
 
 		$numResultsText = '';
 		if ($numResults == 25) {

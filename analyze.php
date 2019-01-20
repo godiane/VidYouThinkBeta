@@ -303,10 +303,10 @@ if ($client->getAccessToken()) {
 				$client->setState($state);
 				$_SESSION['state'] = $state;
         $_SESSION['query'] = $_SERVER['QUERY_STRING'];
-        echo $_SESSION['query'];
-        echo $_SERVER['QUERY_STRING'];
+        // echo $_SESSION['query'];
+        //echo $_SERVER['QUERY_STRING'];
 
-				$authUrl = $client->createAuthUrl();
+				 $authUrl = $client->createAuthUrl();
 				$htmlBody .= '<div class="alert alert-danger"><h3>Authorization Required</h3>' .
 				'<p>You need to <a href="' . $authUrl . '">authorize access</a> before proceeding.<p></div>';
 			} else {

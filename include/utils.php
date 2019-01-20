@@ -7,7 +7,6 @@
 
 class Utils
 {
-
     //-----Initialization -------
     function __construct()
     {
@@ -66,7 +65,7 @@ class Utils
         return $str;
     } // END FUNCTION
 
-    function SanitizeForSQL($str)
+    function sanitize_for_sql($str)
     {
         if (function_exists("mysql_real_escape_string")) {
             $ret_str = mysql_real_escape_string($str);

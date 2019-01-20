@@ -7,16 +7,16 @@
  require_once __DIR__ . '/../formvalidator.php';
  require_once __DIR__ . '/../utils.php';
 
-class UserT
+class VideoT
 {
     //----- Variables -------
     var $id;
-    var $username;
-    var $email;
-    var $password;
-    var $confirm_code;
-    var $create_timestamp;
-    var $update_timestamp;
+    var $name;
+    var $url;
+    var $title;
+    var $description;
+    var $insert_timestamp;
+    var $insert_user_id;
 
     // Error Message Handler
     var $error_message;
@@ -26,7 +26,7 @@ class UserT
     {
     } // END FUNCTION
 
-    function UserT()
+    function VideoT()
     {
         self::__construct();
     } // END FUNCTION
@@ -41,64 +41,64 @@ class UserT
         return $this->id;
     } // END FUNCTION
 
-    function set_username($username_i)
+    function set_name($name_i)
     {
-        $this->username = $username_i;
+        $this->name = $name_i;
     } // END FUNCTION
 
-    function get_username()
+    function get_name()
     {
-        return $this->username;
+        return $this->name;
     } // END FUNCTION
 
-    function set_email($email_i)
+    function set_url($url_i)
     {
-        $this->email = $email_i;
+        $this->url = $url_i;
     } // END FUNCTION
 
-    function get_email()
+    function get_url()
     {
-        return $this->email;
+        return $this->url;
     } // END FUNCTION
 
-    function set_password($password_i)
+    function set_title($title_i)
     {
-        $this->password = $password_i;
+        $this->title = $title_i;
     } // END FUNCTION
 
-    function get_password()
+    function get_title()
     {
-        return $this->password;
+        return $this->title;
     } // END FUNCTION
 
-    function set_confirm_code($confirm_code_i)
+    function set_description($description_i)
     {
-        $this->confirm_code = $confirm_code_i;
+        $this->description = $description_i;
     } // END FUNCTION
 
-    function get_confirm_code()
+    function get_description()
     {
-        return $this->confirm_code;
+        return $this->description;
     } // END FUNCTION
 
-    function set_create_timestamp($create_timestamp_i)
+    function set_insert_timestamp($insert_timestamp_i)
     {
-        $this->create_timestamp = $create_timestamp_i;
+        $this->insert_timestamp = $insert_timestamp_i;
     } // END FUNCTION
 
-    function get_create_timestamp($create_timestamp_i)
+    function get_insert_timestamp()
     {
-        return $this->create_timestamp;
+        return $this->insert_timestamp;
     } // END FUNCTION
 
-    function set_update_timestamp($update_timestamp_i)
+    function set_insert_user_id($insert_user_id_i)
     {
-        $this->update_timestamp = $update_timestamp_i;
+        $this->insert_user_id = $insert_user_id_i;
     } // END FUNCTION
 
-    function get_update_timestamp($update_timestamp_i)
+    function get_insert_user_id()
     {
-        return $this->update_timestamp;
+        return $this->insert_user_id;
     } // END FUNCTION
 
     function set_error_message($error_message_i)
@@ -113,7 +113,9 @@ class UserT
 
     //-------Main Operations ----------------------
 
-    //-------Private Helper functions-----------
+
+    //-------Public Helper functions -------------
+
 
 } // END CLASS
 ?>
