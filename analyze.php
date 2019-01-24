@@ -61,7 +61,8 @@ if (isset($_GET['code'])) {
 
 	$client->authenticate($_GET['code']);
 	$_SESSION[$tokenSessionKey] = $client->getAccessToken();
-  //header('Location: ' . $redirect  . '?' . $_SERVER['QUERY_STRING']);
+  // header('Location: ' . $redirect);
+  // header('Location: ' . $redirect  . '?' . $_SERVER['QUERY_STRING']);
 	header('Location: ' . $redirect . '?' . $_SESSION['query']);
 }
 
@@ -95,7 +96,10 @@ if ($client->getAccessToken()) {
 			$filename = 'srt/' . $videoId . '.srt';
 			if (!file_exists($filename)) {
 				$captionId = getCaptionID($youtube, $videoId);
-				$videoCaptionFile = getVideoCaption($youtube, $captionId);
+        die(" caption Id: " . $captionId);
+        if ($captionId !== '') {
+          $videoCaptionFile = getVideoCaption($youtube, $captionId);          
+        }
 				file_put_contents($filename, $videoCaptionFile);
 			}
 

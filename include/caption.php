@@ -10,9 +10,9 @@
 	function getCaptionID(Google_Service_YouTube $youtube, $videoId, $captionLanguage = CAPTION_LANGUAGE) {
 		// Call the YouTube Data API's captions.list method to retrieve video caption tracks.
 		$captions = $youtube->captions->listCaptions("snippet", $videoId);
-
+		print_r($captions);
 		foreach ($captions as $caption) {
-			if ($captionLanguage == $caption['snippet']['language']) {
+			if (CAPTION_LANGUAGE == $caption['snippet']['language']) {
 				return $caption['id'];
 				break;
 			}

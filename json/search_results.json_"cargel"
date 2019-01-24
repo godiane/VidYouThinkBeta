@@ -55,7 +55,7 @@
     "dislikeCount": "7",
     "favoriteCount": "0",
     "likeCount": "261",
-    "viewCount": "18703"
+    "viewCount": "18709"
 }},{"thumbnail" : {
     "default": {
         "url": "https:\/\/i.ytimg.com\/vi\/hr5Am3HREmY\/default.jpg",
@@ -150,7 +150,7 @@
     "dislikeCount": "40",
     "favoriteCount": "0",
     "likeCount": "2051",
-    "viewCount": "190414"
+    "viewCount": "190453"
 }},{"thumbnail" : {
     "default": {
         "url": "https:\/\/i.ytimg.com\/vi\/yvX8axLtwPI\/default.jpg",
@@ -211,8 +211,8 @@
     "commentCount": "883",
     "dislikeCount": "162",
     "favoriteCount": "0",
-    "likeCount": "13944",
-    "viewCount": "1235169"
+    "likeCount": "13945",
+    "viewCount": "1235393"
 }},{"thumbnail" : {
     "default": {
         "url": "https:\/\/i.ytimg.com\/vi\/LLp4kgZZ4-o\/default.jpg",
@@ -328,7 +328,7 @@
     "dislikeCount": "6",
     "favoriteCount": "0",
     "likeCount": "185",
-    "viewCount": "29175"
+    "viewCount": "29178"
 }},{"thumbnail" : {
     "default": {
         "url": "https:\/\/i.ytimg.com\/vi\/CcQ0fxjTC8M\/default.jpg",
@@ -476,67 +476,7 @@
     "dislikeCount": "18",
     "favoriteCount": "0",
     "likeCount": "1979",
-    "viewCount": "225557"
-}},{"thumbnail" : {
-    "default": {
-        "url": "https:\/\/i.ytimg.com\/vi\/EM08dv1FLug\/default.jpg",
-        "width": 120,
-        "height": 90
-    },
-    "medium": {
-        "url": "https:\/\/i.ytimg.com\/vi\/EM08dv1FLug\/mqdefault.jpg",
-        "width": 320,
-        "height": 180
-    },
-    "high": {
-        "url": "https:\/\/i.ytimg.com\/vi\/EM08dv1FLug\/hqdefault.jpg",
-        "width": 480,
-        "height": 360
-    }
-},"id" : {
-    "channelId": null,
-    "kind": "youtube#video",
-    "playlistId": null,
-    "videoId": "EM08dv1FLug"
-},"snippet" : {
-    "categoryId": "24",
-    "channelId": "UCa8MtLLIPmmC4iUTDwQJSCQ",
-    "channelTitle": "PEP",
-    "defaultAudioLanguage": "tl",
-    "defaultLanguage": null,
-    "description": "\"Kung na-pretty-han na siya sa 'kin, e di... wow!\" reacts Angelica Panganiban. \n\nSubscribe to our YouTube channel! http:\/\/bit.ly\/PEPYouTubeChannel\n\nKnow the latest in showbiz on http:\/\/www.pep.ph!\n\nLike PEP.ph on Facebook! https:\/\/www.facebook.com\/PEPalerts\n\nFollow PEP.ph on Twitter! https:\/\/twitter.com\/pepalerts",
-    "liveBroadcastContent": "none",
-    "publishedAt": "2018-09-25T02:15:51.000Z",
-    "tags": [
-        "#pepalerts",
-        "#peptalk",
-        "pep.ph",
-        "filipino",
-        "entertainment",
-        "news",
-        "celebrity",
-        "pinoy",
-        "celeb",
-        "showbiz",
-        "GMA-7",
-        "ABS-CBN",
-        "TV5",
-        "TV",
-        "abs-cbn online",
-        "abs-cbn philippines",
-        "angelica panganiban",
-        "zanjoe marudo",
-        "abs online",
-        "philippine entertainment",
-        "magandang buhay"
-    ],
-    "title": "What if Zanjoe Marudo woos Angelica Panganiban?"
-},"statistics" : {
-    "commentCount": "15",
-    "dislikeCount": "5",
-    "favoriteCount": "0",
-    "likeCount": "101",
-    "viewCount": "12750"
+    "viewCount": "225607"
 }},{"thumbnail" : {
     "default": {
         "url": "https:\/\/i.ytimg.com\/vi\/wwKIPq4OQLw\/default.jpg",
@@ -577,46 +517,6 @@
     "favoriteCount": "0",
     "likeCount": "34",
     "viewCount": "1872"
-}},{"thumbnail" : {
-    "default": {
-        "url": "https:\/\/i.ytimg.com\/vi\/U-JDw5FL7g4\/default.jpg",
-        "width": 120,
-        "height": 90
-    },
-    "medium": {
-        "url": "https:\/\/i.ytimg.com\/vi\/U-JDw5FL7g4\/mqdefault.jpg",
-        "width": 320,
-        "height": 180
-    },
-    "high": {
-        "url": "https:\/\/i.ytimg.com\/vi\/U-JDw5FL7g4\/hqdefault.jpg",
-        "width": 480,
-        "height": 360
-    }
-},"id" : {
-    "channelId": null,
-    "kind": "youtube#video",
-    "playlistId": null,
-    "videoId": "U-JDw5FL7g4"
-},"snippet" : {
-    "categoryId": "22",
-    "channelId": "UCSVzDdx8cVLeGfFXJIxoe3g",
-    "channelTitle": "G E",
-    "defaultAudioLanguage": "en",
-    "defaultLanguage": null,
-    "description": "No copyright infringement intended. Credits to ABS-CBN Corporation, Jeepney TV and to the person responsible for recording the whole episode. This video is not mine.",
-    "liveBroadcastContent": "none",
-    "publishedAt": "2018-11-11T22:22:25.000Z",
-    "tags": [
-        "yt:cc=on"
-    ],
-    "title": "G-Mik Season 2: Jun-Jun vs. Brian"
-},"statistics" : {
-    "commentCount": "1",
-    "dislikeCount": "0",
-    "favoriteCount": "0",
-    "likeCount": "10",
-    "viewCount": "616"
 }},{"thumbnail" : {
     "default": {
         "url": "https:\/\/i.ytimg.com\/vi\/UFyjzB_8eKY\/default.jpg",
@@ -676,8 +576,8 @@
     "commentCount": "67",
     "dislikeCount": "32",
     "favoriteCount": "0",
-    "likeCount": "815",
-    "viewCount": "108692"
+    "likeCount": "816",
+    "viewCount": "108717"
 }},{"thumbnail" : {
     "default": {
         "url": "https:\/\/i.ytimg.com\/vi\/W8AlIy5c3Kg\/default.jpg",
@@ -716,46 +616,6 @@
     "favoriteCount": "0",
     "likeCount": "16",
     "viewCount": "403"
-}},{"thumbnail" : {
-    "default": {
-        "url": "https:\/\/i.ytimg.com\/vi\/SKND2qUFGm0\/default.jpg",
-        "width": 120,
-        "height": 90
-    },
-    "medium": {
-        "url": "https:\/\/i.ytimg.com\/vi\/SKND2qUFGm0\/mqdefault.jpg",
-        "width": 320,
-        "height": 180
-    },
-    "high": {
-        "url": "https:\/\/i.ytimg.com\/vi\/SKND2qUFGm0\/hqdefault.jpg",
-        "width": 480,
-        "height": 360
-    }
-},"id" : {
-    "channelId": null,
-    "kind": "youtube#video",
-    "playlistId": null,
-    "videoId": "SKND2qUFGm0"
-},"snippet" : {
-    "categoryId": "22",
-    "channelId": "UCSVzDdx8cVLeGfFXJIxoe3g",
-    "channelTitle": "G E",
-    "defaultAudioLanguage": "en",
-    "defaultLanguage": null,
-    "description": "No copyright infringement intended. Credits to ABS-CBN Corporation, Jeepney TV and to the person responsible for recording the whole episode. This video is not mine\n\nSource:\nG-mik x Youtube channel",
-    "liveBroadcastContent": "none",
-    "publishedAt": "2018-11-05T03:45:57.000Z",
-    "tags": [
-        "yt:cc=on"
-    ],
-    "title": "G-Mik: Compilation of Borj reading Roni's diary"
-},"statistics" : {
-    "commentCount": "1",
-    "dislikeCount": "0",
-    "favoriteCount": "0",
-    "likeCount": "9",
-    "viewCount": "427"
 }},{"thumbnail" : {
     "default": {
         "url": "https:\/\/i.ytimg.com\/vi\/zPdewquVB2w\/default.jpg",
@@ -798,17 +658,17 @@
     "viewCount": "643"
 }},{"thumbnail" : {
     "default": {
-        "url": "https:\/\/i.ytimg.com\/vi\/-nrZm2_mEAw\/default.jpg",
+        "url": "https:\/\/i.ytimg.com\/vi\/uIhEX7GiQQc\/default.jpg",
         "width": 120,
         "height": 90
     },
     "medium": {
-        "url": "https:\/\/i.ytimg.com\/vi\/-nrZm2_mEAw\/mqdefault.jpg",
+        "url": "https:\/\/i.ytimg.com\/vi\/uIhEX7GiQQc\/mqdefault.jpg",
         "width": 320,
         "height": 180
     },
     "high": {
-        "url": "https:\/\/i.ytimg.com\/vi\/-nrZm2_mEAw\/hqdefault.jpg",
+        "url": "https:\/\/i.ytimg.com\/vi\/uIhEX7GiQQc\/hqdefault.jpg",
         "width": 480,
         "height": 360
     }
@@ -816,26 +676,106 @@
     "channelId": null,
     "kind": "youtube#video",
     "playlistId": null,
-    "videoId": "-nrZm2_mEAw"
+    "videoId": "uIhEX7GiQQc"
 },"snippet" : {
     "categoryId": "22",
     "channelId": "UCSVzDdx8cVLeGfFXJIxoe3g",
     "channelTitle": "G E",
     "defaultAudioLanguage": "fil",
     "defaultLanguage": null,
-    "description": "No copyright infringement intended. Credits to ABS-CBN Corporation, Jeepney TV and G-mik x Youtube channel. This video is not mine\n\nSource:\nG-mik x YouTube Channel\n\nFull episode:\nhttps:\/\/www.youtube.com\/watch?v=YYI1j8f1wQk",
+    "description": "No copyright infringement intended. Borj (Stefano Mori) went to visit Yuan(John Prats) at his place, talked things through and that Borj has decided to avoid dating Roni so that he and Yuan can be friends again. This video is not mine, this belongs to the owner of the \"G-MIK\" page on Facebook. Credits to the \"G-MIK\" Facebook page, ABS-CBN Corporation and Jeepney TV.\n\nSongs in this clip: Newborn Friend by Seal",
     "liveBroadcastContent": "none",
-    "publishedAt": "2018-10-08T01:03:17.000Z",
+    "publishedAt": "2018-08-10T04:53:18.000Z",
     "tags": [
         "yt:cc=on"
     ],
-    "title": "G-Mik Season 2: Borj found out that Apple dumped Tonsy"
+    "title": "G-mik: Yuan and Borj are in good terms"
+},"statistics" : {
+    "commentCount": "4",
+    "dislikeCount": "0",
+    "favoriteCount": "0",
+    "likeCount": "15",
+    "viewCount": "2501"
+}},{"thumbnail" : {
+    "default": {
+        "url": "https:\/\/i.ytimg.com\/vi\/C8LIbeB6hyc\/default.jpg",
+        "width": 120,
+        "height": 90
+    },
+    "medium": {
+        "url": "https:\/\/i.ytimg.com\/vi\/C8LIbeB6hyc\/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+    },
+    "high": {
+        "url": "https:\/\/i.ytimg.com\/vi\/C8LIbeB6hyc\/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+    }
+},"id" : {
+    "channelId": null,
+    "kind": "youtube#video",
+    "playlistId": null,
+    "videoId": "C8LIbeB6hyc"
+},"snippet" : {
+    "categoryId": "22",
+    "channelId": "UCSVzDdx8cVLeGfFXJIxoe3g",
+    "channelTitle": "G E",
+    "defaultAudioLanguage": "fil",
+    "defaultLanguage": null,
+    "description": "No copyright infringement intended. Christine, the mother of Borj offering help but then Borj refuses. This video is not mine, this belongs to the owner of the \"G-MIK\" page on Facebook. Credits to the \"G-MIK\" Facebook page, ABS-CBN Corporation and Jeepney TV.",
+    "liveBroadcastContent": "none",
+    "publishedAt": "2018-08-12T01:07:22.000Z",
+    "tags": [
+        "yt:cc=on"
+    ],
+    "title": "G-Mik: Borj's mom offers help"
 },"statistics" : {
     "commentCount": "0",
     "dislikeCount": "0",
     "favoriteCount": "0",
-    "likeCount": "0",
-    "viewCount": "180"
+    "likeCount": "4",
+    "viewCount": "419"
+}},{"thumbnail" : {
+    "default": {
+        "url": "https:\/\/i.ytimg.com\/vi\/U-JDw5FL7g4\/default.jpg",
+        "width": 120,
+        "height": 90
+    },
+    "medium": {
+        "url": "https:\/\/i.ytimg.com\/vi\/U-JDw5FL7g4\/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+    },
+    "high": {
+        "url": "https:\/\/i.ytimg.com\/vi\/U-JDw5FL7g4\/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+    }
+},"id" : {
+    "channelId": null,
+    "kind": "youtube#video",
+    "playlistId": null,
+    "videoId": "U-JDw5FL7g4"
+},"snippet" : {
+    "categoryId": "22",
+    "channelId": "UCSVzDdx8cVLeGfFXJIxoe3g",
+    "channelTitle": "G E",
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": null,
+    "description": "No copyright infringement intended. Credits to ABS-CBN Corporation, Jeepney TV and to the person responsible for recording the whole episode. This video is not mine.",
+    "liveBroadcastContent": "none",
+    "publishedAt": "2018-11-11T22:22:25.000Z",
+    "tags": [
+        "yt:cc=on"
+    ],
+    "title": "G-Mik Season 2: Jun-Jun vs. Brian"
+},"statistics" : {
+    "commentCount": "1",
+    "dislikeCount": "0",
+    "favoriteCount": "0",
+    "likeCount": "10",
+    "viewCount": "616"
 }},{"thumbnail" : {
     "default": {
         "url": "https:\/\/i.ytimg.com\/vi\/oFGA31WgZQo\/default.jpg",
@@ -888,126 +828,6 @@
     "viewCount": "158"
 }},{"thumbnail" : {
     "default": {
-        "url": "https:\/\/i.ytimg.com\/vi\/0wlMbUDD9oM\/default.jpg",
-        "width": 120,
-        "height": 90
-    },
-    "medium": {
-        "url": "https:\/\/i.ytimg.com\/vi\/0wlMbUDD9oM\/mqdefault.jpg",
-        "width": 320,
-        "height": 180
-    },
-    "high": {
-        "url": "https:\/\/i.ytimg.com\/vi\/0wlMbUDD9oM\/hqdefault.jpg",
-        "width": 480,
-        "height": 360
-    }
-},"id" : {
-    "channelId": null,
-    "kind": "youtube#video",
-    "playlistId": null,
-    "videoId": "0wlMbUDD9oM"
-},"snippet" : {
-    "categoryId": "22",
-    "channelId": "UCSVzDdx8cVLeGfFXJIxoe3g",
-    "channelTitle": "G E",
-    "defaultAudioLanguage": "fil",
-    "defaultLanguage": null,
-    "description": "No copyright infringement intended. This video is not mine, give credit to the owner of this video and thank you to him for uploading the videos. Credits to ABS-CBN Corporation and Jeepney TV",
-    "liveBroadcastContent": "none",
-    "publishedAt": "2018-08-20T17:01:46.000Z",
-    "tags": [
-        "yt:cc=on"
-    ],
-    "title": "G-Mik: Stefano and Camille's Chemistry"
-},"statistics" : {
-    "commentCount": "3",
-    "dislikeCount": "0",
-    "favoriteCount": "0",
-    "likeCount": "15",
-    "viewCount": "603"
-}},{"thumbnail" : {
-    "default": {
-        "url": "https:\/\/i.ytimg.com\/vi\/uIhEX7GiQQc\/default.jpg",
-        "width": 120,
-        "height": 90
-    },
-    "medium": {
-        "url": "https:\/\/i.ytimg.com\/vi\/uIhEX7GiQQc\/mqdefault.jpg",
-        "width": 320,
-        "height": 180
-    },
-    "high": {
-        "url": "https:\/\/i.ytimg.com\/vi\/uIhEX7GiQQc\/hqdefault.jpg",
-        "width": 480,
-        "height": 360
-    }
-},"id" : {
-    "channelId": null,
-    "kind": "youtube#video",
-    "playlistId": null,
-    "videoId": "uIhEX7GiQQc"
-},"snippet" : {
-    "categoryId": "22",
-    "channelId": "UCSVzDdx8cVLeGfFXJIxoe3g",
-    "channelTitle": "G E",
-    "defaultAudioLanguage": "fil",
-    "defaultLanguage": null,
-    "description": "No copyright infringement intended. Borj (Stefano Mori) went to visit Yuan(John Prats) at his place, talked things through and that Borj has decided to avoid dating Roni so that he and Yuan can be friends again. This video is not mine, this belongs to the owner of the \"G-MIK\" page on Facebook. Credits to the \"G-MIK\" Facebook page, ABS-CBN Corporation and Jeepney TV.\n\nSongs in this clip: Newborn Friend by Seal",
-    "liveBroadcastContent": "none",
-    "publishedAt": "2018-08-10T04:53:18.000Z",
-    "tags": [
-        "yt:cc=on"
-    ],
-    "title": "G-mik: Yuan and Borj are in good terms"
-},"statistics" : {
-    "commentCount": "4",
-    "dislikeCount": "0",
-    "favoriteCount": "0",
-    "likeCount": "15",
-    "viewCount": "2501"
-}},{"thumbnail" : {
-    "default": {
-        "url": "https:\/\/i.ytimg.com\/vi\/Qhmg8EUSZIE\/default.jpg",
-        "width": 120,
-        "height": 90
-    },
-    "medium": {
-        "url": "https:\/\/i.ytimg.com\/vi\/Qhmg8EUSZIE\/mqdefault.jpg",
-        "width": 320,
-        "height": 180
-    },
-    "high": {
-        "url": "https:\/\/i.ytimg.com\/vi\/Qhmg8EUSZIE\/hqdefault.jpg",
-        "width": 480,
-        "height": 360
-    }
-},"id" : {
-    "channelId": null,
-    "kind": "youtube#video",
-    "playlistId": null,
-    "videoId": "Qhmg8EUSZIE"
-},"snippet" : {
-    "categoryId": "22",
-    "channelId": "UCSVzDdx8cVLeGfFXJIxoe3g",
-    "channelTitle": "G E",
-    "defaultAudioLanguage": "en",
-    "defaultLanguage": null,
-    "description": "No copyright infringement intended. Credits to ABS-CBN Corporation, Jeepney TV and to the person respondible for recording the video. This video is not mine.",
-    "liveBroadcastContent": "none",
-    "publishedAt": "2018-12-09T22:30:00.000Z",
-    "tags": [
-        "yt:cc=on"
-    ],
-    "title": "G-Mik Season 3: Borj and Roni (#7)"
-},"statistics" : {
-    "commentCount": "0",
-    "dislikeCount": "0",
-    "favoriteCount": "0",
-    "likeCount": "9",
-    "viewCount": "539"
-}},{"thumbnail" : {
-    "default": {
         "url": "https:\/\/i.ytimg.com\/vi\/W_SqDsMAass\/default.jpg",
         "width": 120,
         "height": 90
@@ -1046,6 +866,106 @@
     "favoriteCount": "0",
     "likeCount": "37",
     "viewCount": "1932"
+}},{"thumbnail" : {
+    "default": {
+        "url": "https:\/\/i.ytimg.com\/vi\/SKND2qUFGm0\/default.jpg",
+        "width": 120,
+        "height": 90
+    },
+    "medium": {
+        "url": "https:\/\/i.ytimg.com\/vi\/SKND2qUFGm0\/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+    },
+    "high": {
+        "url": "https:\/\/i.ytimg.com\/vi\/SKND2qUFGm0\/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+    }
+},"id" : {
+    "channelId": null,
+    "kind": "youtube#video",
+    "playlistId": null,
+    "videoId": "SKND2qUFGm0"
+},"snippet" : {
+    "categoryId": "22",
+    "channelId": "UCSVzDdx8cVLeGfFXJIxoe3g",
+    "channelTitle": "G E",
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": null,
+    "description": "No copyright infringement intended. Credits to ABS-CBN Corporation, Jeepney TV and to the person responsible for recording the whole episode. This video is not mine\n\nSource:\nG-mik x Youtube channel",
+    "liveBroadcastContent": "none",
+    "publishedAt": "2018-11-05T03:45:57.000Z",
+    "tags": [
+        "yt:cc=on"
+    ],
+    "title": "G-Mik: Compilation of Borj reading Roni's diary"
+},"statistics" : {
+    "commentCount": "1",
+    "dislikeCount": "0",
+    "favoriteCount": "0",
+    "likeCount": "9",
+    "viewCount": "427"
+}},{"thumbnail" : {
+    "default": {
+        "url": "https:\/\/i.ytimg.com\/vi\/EM08dv1FLug\/default.jpg",
+        "width": 120,
+        "height": 90
+    },
+    "medium": {
+        "url": "https:\/\/i.ytimg.com\/vi\/EM08dv1FLug\/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+    },
+    "high": {
+        "url": "https:\/\/i.ytimg.com\/vi\/EM08dv1FLug\/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+    }
+},"id" : {
+    "channelId": null,
+    "kind": "youtube#video",
+    "playlistId": null,
+    "videoId": "EM08dv1FLug"
+},"snippet" : {
+    "categoryId": "24",
+    "channelId": "UCa8MtLLIPmmC4iUTDwQJSCQ",
+    "channelTitle": "PEP",
+    "defaultAudioLanguage": "tl",
+    "defaultLanguage": null,
+    "description": "\"Kung na-pretty-han na siya sa 'kin, e di... wow!\" reacts Angelica Panganiban. \n\nSubscribe to our YouTube channel! http:\/\/bit.ly\/PEPYouTubeChannel\n\nKnow the latest in showbiz on http:\/\/www.pep.ph!\n\nLike PEP.ph on Facebook! https:\/\/www.facebook.com\/PEPalerts\n\nFollow PEP.ph on Twitter! https:\/\/twitter.com\/pepalerts",
+    "liveBroadcastContent": "none",
+    "publishedAt": "2018-09-25T02:15:51.000Z",
+    "tags": [
+        "#pepalerts",
+        "#peptalk",
+        "pep.ph",
+        "filipino",
+        "entertainment",
+        "news",
+        "celebrity",
+        "pinoy",
+        "celeb",
+        "showbiz",
+        "GMA-7",
+        "ABS-CBN",
+        "TV5",
+        "TV",
+        "abs-cbn online",
+        "abs-cbn philippines",
+        "angelica panganiban",
+        "zanjoe marudo",
+        "abs online",
+        "philippine entertainment",
+        "magandang buhay"
+    ],
+    "title": "What if Zanjoe Marudo woos Angelica Panganiban?"
+},"statistics" : {
+    "commentCount": "15",
+    "dislikeCount": "5",
+    "favoriteCount": "0",
+    "likeCount": "101",
+    "viewCount": "12756"
 }},{"thumbnail" : {
     "default": {
         "url": "https:\/\/i.ytimg.com\/vi\/UkcvHzSzadw\/default.jpg",
@@ -1098,8 +1018,8 @@
     "commentCount": "39",
     "dislikeCount": "15",
     "favoriteCount": "0",
-    "likeCount": "659",
-    "viewCount": "70157"
+    "likeCount": "660",
+    "viewCount": "70194"
 }},{"thumbnail" : {
     "default": {
         "url": "https:\/\/i.ytimg.com\/vi\/w5T5S927nVU\/default.jpg",
@@ -1158,17 +1078,17 @@
     "viewCount": "474"
 }},{"thumbnail" : {
     "default": {
-        "url": "https:\/\/i.ytimg.com\/vi\/C8LIbeB6hyc\/default.jpg",
+        "url": "https:\/\/i.ytimg.com\/vi\/-nrZm2_mEAw\/default.jpg",
         "width": 120,
         "height": 90
     },
     "medium": {
-        "url": "https:\/\/i.ytimg.com\/vi\/C8LIbeB6hyc\/mqdefault.jpg",
+        "url": "https:\/\/i.ytimg.com\/vi\/-nrZm2_mEAw\/mqdefault.jpg",
         "width": 320,
         "height": 180
     },
     "high": {
-        "url": "https:\/\/i.ytimg.com\/vi\/C8LIbeB6hyc\/hqdefault.jpg",
+        "url": "https:\/\/i.ytimg.com\/vi\/-nrZm2_mEAw\/hqdefault.jpg",
         "width": 480,
         "height": 360
     }
@@ -1176,24 +1096,122 @@
     "channelId": null,
     "kind": "youtube#video",
     "playlistId": null,
-    "videoId": "C8LIbeB6hyc"
+    "videoId": "-nrZm2_mEAw"
 },"snippet" : {
     "categoryId": "22",
     "channelId": "UCSVzDdx8cVLeGfFXJIxoe3g",
     "channelTitle": "G E",
     "defaultAudioLanguage": "fil",
     "defaultLanguage": null,
-    "description": "No copyright infringement intended. Christine, the mother of Borj offering help but then Borj refuses. This video is not mine, this belongs to the owner of the \"G-MIK\" page on Facebook. Credits to the \"G-MIK\" Facebook page, ABS-CBN Corporation and Jeepney TV.",
+    "description": "No copyright infringement intended. Credits to ABS-CBN Corporation, Jeepney TV and G-mik x Youtube channel. This video is not mine\n\nSource:\nG-mik x YouTube Channel\n\nFull episode:\nhttps:\/\/www.youtube.com\/watch?v=YYI1j8f1wQk",
     "liveBroadcastContent": "none",
-    "publishedAt": "2018-08-12T01:07:22.000Z",
+    "publishedAt": "2018-10-08T01:03:17.000Z",
     "tags": [
         "yt:cc=on"
     ],
-    "title": "G-Mik: Borj's mom offers help"
+    "title": "G-Mik Season 2: Borj found out that Apple dumped Tonsy"
 },"statistics" : {
     "commentCount": "0",
     "dislikeCount": "0",
     "favoriteCount": "0",
+    "likeCount": "0",
+    "viewCount": "180"
+}},{"thumbnail" : {
+    "default": {
+        "url": "https:\/\/i.ytimg.com\/vi\/hCUDNhjJ0E0\/default.jpg",
+        "width": 120,
+        "height": 90
+    },
+    "medium": {
+        "url": "https:\/\/i.ytimg.com\/vi\/hCUDNhjJ0E0\/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+    },
+    "high": {
+        "url": "https:\/\/i.ytimg.com\/vi\/hCUDNhjJ0E0\/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+    }
+},"id" : {
+    "channelId": null,
+    "kind": "youtube#video",
+    "playlistId": null,
+    "videoId": "hCUDNhjJ0E0"
+},"snippet" : {
+    "categoryId": "22",
+    "channelId": "UCSVzDdx8cVLeGfFXJIxoe3g",
+    "channelTitle": "G E",
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": null,
+    "description": "No copyright infringement intended. Credits to ABS-CBN Corporation, Jeepney TV and to the person responsible for recording the video. This video is not mine.\n\nSong:\nWhere I'm Headed by Lene Marlin\n\nSong link:\nhttps:\/\/www.youtube.com\/watch?v=kKvaWsGh5jA",
+    "liveBroadcastContent": "none",
+    "publishedAt": "2018-11-16T20:58:04.000Z",
+    "tags": [
+        "yt:cc=on"
+    ],
+    "title": "G-Mik Season 2: Jun-Jun bids farewell (Finale)"
+},"statistics" : {
+    "commentCount": "0",
+    "dislikeCount": "0",
+    "favoriteCount": "0",
+    "likeCount": "3",
+    "viewCount": "252"
+}},{"thumbnail" : {
+    "default": {
+        "url": "https:\/\/i.ytimg.com\/vi\/w5H5NVjYkTU\/default.jpg",
+        "width": 120,
+        "height": 90
+    },
+    "medium": {
+        "url": "https:\/\/i.ytimg.com\/vi\/w5H5NVjYkTU\/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+    },
+    "high": {
+        "url": "https:\/\/i.ytimg.com\/vi\/w5H5NVjYkTU\/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+    }
+},"id" : {
+    "channelId": null,
+    "kind": "youtube#video",
+    "playlistId": null,
+    "videoId": "w5H5NVjYkTU"
+},"snippet" : {
+    "categoryId": "24",
+    "channelId": "UCYG6dVlAkHhIZ0H9ZDUHHlg",
+    "channelTitle": "Trending Worldwide - News Feed",
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": null,
+    "description": "#Trending #WorldWide #AngelicaPanganiban #LoveTeam #Advice\n\nAngelica Panganiban may Payo sa mga Love Teams \"Ang importante hindi dapat kayo Manloko ng Tao\" \ud83d\ude0d\n\nWatch the hottest and latest showbiz news in the Philippines also in the World. From your fav celebrety to their latest social media post. Enjoy and Pls... continue to watch! Don't forget to SUBSCRIBE\n\nNOTE:\ud83d\udd14\nIto pong mga videos na aking ginagawa ay base lang po sa mga tv videos, news, tabloid, social media na aking nababasa at napapanood at wala pong halong  pag-i-imbentong salita or balita na idinagdag at kung meron man pong mali or nasaktan sa videos nato malugod po ang aking paghingi ng pasensya, sorry at paumanhin....ito po ay ginawa para sa mga mapagmahal at taga subaybay ng mga minamahal nilang idolo! Salamat po.... \ud83d\ude4f\ud83d\ude09\ud83d\ude0a\n\nPls..click this link to SUBSCRIBE \u27a1\ufe0f https:\/\/www.youtube.com\/channel\/UCYG6dVlAkHhIZ0H9ZDUHHlg?view_as=subscriber?sub_confirmation=1\n\nNote: \ud83d\udd14\ud83d\udd14\ud83d\udd14\nThis video is Purely Fan-Made\nIf you offend or owners of this video before doing anything, Pls... 'CONTACT US DIRECTLY' before doing anything. Thx...\ud83d\udc8c\n\nWatch More Videos:  \u25b6\u25b6\u25b6\n\nNagulat sila Vice, Anne at mga Hurado ng magmura si reigning Miss Q & A: Odessa Jones sa Showtime\n\u25b6 https:\/\/youtu.be\/bbYTniv_N_U\n\nLove triangle nila Vice, ate Girl at Bela sa Showtime\n\u25b6 https:\/\/youtu.be\/V_IdQghnD-I\n\nKisses Delavin sinagot ang tanong kay Catriona Gray sa BB Pilipinas 2018\n\u25b6 https:\/\/youtu.be\/oZYO24VVSf4\n\nVice Ganda ipinakita ang ''HUBOG'' nagbabala kay Catriona Gray\n\u25b6 https:\/\/youtu.be\/k-Lfc1jzEcs\n\nSino nga ba si Jackque Gonzaga aka 'Ate Girl' ng Showtime?\n\u25b6 https:\/\/youtu.be\/F5semQEbf00\n\nJaDine Movie \u201cNever Not Love You\u201d One of the Best and most Realistic Films\n\u25b6 https:\/\/youtu.be\/kjmP4vfYFls\n\nAnong nangyari ng magkita si Maymay Entrata at Hero Angeles?\n\u25b6 https:\/\/youtu.be\/2LCbizH2d3s\n\nRuffa Gutierrez daughter na si Lorin Gutierrez ay gustong maging Beauty Queen\n\u25b6 https:\/\/youtu.be\/JyQoeZTZWLA\n\nClaudine Barretto ginulantang ang mga Tagahanga sa bago nitong Itsura!\n\u25b6 https:\/\/youtu.be\/yeIGpEBqU-Q\n\nGerald Anderson Binira ang mga Bashers ni Bea Alonso\n\u25b6 https:\/\/youtu.be\/U_WZZNBlFpY\n\nItinanggi ng mag Jowang Bugoy Carino at EJ Laure ang Buntis isyu!\n\u25b6 https:\/\/youtu.be\/7cEBD9laNBg\n\nSarah Geronimo Deni-activate ang Social Media\n\u25b6 https:\/\/youtu.be\/RmqnfFGFPms\n\nJoshua Garcia di mapigil ang pag-luha sa paghingi nya ng Sorry kay Julia Barretto\n\u25b6 https:\/\/youtu.be\/yqivFRDegA4\n\nJohn Mark Bayot eliminated for Grand Finals ''Pilipinas Got Talent''\n\u25b6 https:\/\/youtu.be\/k_fzdN4YQBA\n\nKZ Tandingan return on ''The Singer 2018'' as Wildcard Contender\n\u25b6 https:\/\/youtu.be\/zUn1ZLTdsbI\n\nKZ Tandingan | Real Gone (The Singer 2018 Ep.8)\n\u25b6 https:\/\/youtu.be\/PmaftgXYGBc\n\nThank you for Watching! \ud83d\udc9f\ud83d\udc9f\ud83d\udc9f",
+    "liveBroadcastContent": "none",
+    "publishedAt": "2018-06-07T09:10:25.000Z",
+    "tags": [
+        "angelica panganiban",
+        "advice",
+        "love team",
+        "love teams",
+        "Angelica",
+        "Panganiban",
+        "may",
+        "Payo",
+        "sa",
+        "mga",
+        "Love",
+        "Teams",
+        "Ang importante hindi dapat kayo Manloko ng Tao",
+        "trending",
+        "trending now",
+        "update",
+        "2018",
+        "philippines showbiz",
+        "worldwide"
+    ],
+    "title": "Angelica Panganiban may Payo sa mga Love Teams \"Ang importante hindi dapat kayo Manloko ng Tao\" \ud83d\ude0d"
+},"statistics" : {
+    "commentCount": "1",
+    "dislikeCount": "0",
+    "favoriteCount": "0",
     "likeCount": "4",
-    "viewCount": "419"
+    "viewCount": "119"
 }}]}
