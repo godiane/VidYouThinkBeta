@@ -67,12 +67,7 @@ class Utils
 
     function sanitize_for_sql($str)
     {
-        if (function_exists("mysql_real_escape_string")) {
-            $ret_str = mysql_real_escape_string($str);
-        } else {
-            $ret_str = addslashes($str);
-        }
-        return $ret_str;
+        return addslashes($str);
     } // END FUNCTION
 }
 

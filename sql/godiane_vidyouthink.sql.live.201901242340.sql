@@ -1,0 +1,211 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Jan 24, 2019 at 09:39 AM
+-- Server version: 5.6.36-82.1-log
+-- PHP Version: 5.6.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `godiane_vidyouthink`
+--
+CREATE DATABASE IF NOT EXISTS `godiane_vidyouthink` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `godiane_vidyouthink`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `CAPTION`
+--
+
+DROP TABLE IF EXISTS `CAPTION`;
+CREATE TABLE `CAPTION` (
+  `VIDEO_ID` int(50) UNSIGNED NOT NULL,
+  `ID` int(50) UNSIGNED NOT NULL,
+  `CAPTION` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `INSERT_TIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `INSERT_USER_ID` int(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `COMMENT`
+--
+
+DROP TABLE IF EXISTS `COMMENT`;
+CREATE TABLE `COMMENT` (
+  `VIDEO_ID` int(50) UNSIGNED NOT NULL,
+  `ID` int(50) UNSIGNED NOT NULL,
+  `NAME` varchar(100) NOT NULL,
+  `COMMENT` varchar(1000) NOT NULL,
+  `INSERT_TIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `INSERT_USER_ID` int(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `RATING`
+--
+
+DROP TABLE IF EXISTS `RATING`;
+CREATE TABLE `RATING` (
+  `VIDEO_ID` int(50) UNSIGNED NOT NULL,
+  `ID` int(50) UNSIGNED NOT NULL,
+  `RATING` varchar(50) NOT NULL,
+  `TITLE` varchar(1000) NOT NULL,
+  `INSERT_TIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `INSERT_USER_ID` int(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `SEARCH_QUERY`
+--
+
+DROP TABLE IF EXISTS `SEARCH_QUERY`;
+CREATE TABLE `SEARCH_QUERY` (
+  `ID` int(50) UNSIGNED NOT NULL,
+  `USER_ID` int(50) UNSIGNED NOT NULL,
+  `QUERY` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `CREATE_TIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `SEARCH_QUERY`
+--
+
+INSERT INTO `SEARCH_QUERY` (`ID`, `USER_ID`, `QUERY`, `CREATE_TIMESTAMP`) VALUES
+(0, 0, 'cargel', '2018-12-10 15:14:06'),
+(0, 16, 'Cargel', '2018-12-13 13:35:48'),
+(9, 16, 'cargel', '2018-11-21 16:07:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `SEARCH_RESULT`
+--
+
+DROP TABLE IF EXISTS `SEARCH_RESULT`;
+CREATE TABLE `SEARCH_RESULT` (
+  `ID` int(50) UNSIGNED NOT NULL,
+  `SEARCH_QUERY_ID` int(50) UNSIGNED NOT NULL,
+  `VIDEO_ID` int(50) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `SENTIMENT_RATING`
+--
+
+DROP TABLE IF EXISTS `SENTIMENT_RATING`;
+CREATE TABLE `SENTIMENT_RATING` (
+  `CAPTION_ID` int(50) UNSIGNED NOT NULL,
+  `ID` int(50) UNSIGNED NOT NULL,
+  `RATING` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `INSERT_TIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `INSERT_USER_ID` int(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `USER`
+--
+
+DROP TABLE IF EXISTS `USER`;
+CREATE TABLE `USER` (
+  `ID` int(50) UNSIGNED NOT NULL,
+  `USERNAME` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `EMAIL` varchar(300) NOT NULL,
+  `PASSWORD` varchar(100) NOT NULL,
+  `CONFIRM_CODE` varchar(100) NOT NULL,
+  `CREATE_TIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `UPDATE_TIMESTAMP` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `USER`
+--
+
+INSERT INTO `USER` (`ID`, `USERNAME`, `EMAIL`, `PASSWORD`, `CONFIRM_CODE`, `CREATE_TIMESTAMP`, `UPDATE_TIMESTAMP`) VALUES
+(16, 'Administrator', 'di.gonzales@gmail.com', '70682896e24287b0476eff2a14c148f0', '411322008d0478a2c6df3858c7a80ad7', '2018-11-13 15:47:03', '2018-11-13 15:47:03'),
+(0, 'godiane', 'diane@godiane.com', '70682896e24287b0476eff2a14c148f0', 'f7805a013bfb318c817a263fc661d9a4', '2018-12-10 15:13:36', '2018-12-10 15:13:36'),
+(0, 'ganoop', 'kristinalim.ph@gmail.com', 'b320df10522768197f902c305ca3e51c', 'd58044aab269c781846fa2b7a67ba818', '2018-12-17 07:26:42', '2018-12-17 07:26:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `VIDEO`
+--
+
+DROP TABLE IF EXISTS `VIDEO`;
+CREATE TABLE `VIDEO` (
+  `ID` int(50) UNSIGNED NOT NULL,
+  `NAME` varchar(1000) NOT NULL,
+  `URL` varchar(1000) NOT NULL,
+  `TITLE` varchar(1000) NOT NULL,
+  `DESCRIPTION` varchar(500) DEFAULT NULL,
+  `INSERT_TIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `INSERT_USER_ID` int(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `CAPTION`
+--
+ALTER TABLE `CAPTION`
+  ADD PRIMARY KEY (`VIDEO_ID`,`ID`);
+
+--
+-- Indexes for table `COMMENT`
+--
+ALTER TABLE `COMMENT`
+  ADD PRIMARY KEY (`VIDEO_ID`,`ID`);
+
+--
+-- Indexes for table `RATING`
+--
+ALTER TABLE `RATING`
+  ADD PRIMARY KEY (`VIDEO_ID`,`ID`);
+
+--
+-- Indexes for table `SEARCH_QUERY`
+--
+ALTER TABLE `SEARCH_QUERY`
+  ADD PRIMARY KEY (`ID`,`USER_ID`);
+
+--
+-- Indexes for table `SEARCH_RESULT`
+--
+ALTER TABLE `SEARCH_RESULT`
+  ADD PRIMARY KEY (`ID`,`SEARCH_QUERY_ID`,`VIDEO_ID`);
+
+--
+-- Indexes for table `SENTIMENT_RATING`
+--
+ALTER TABLE `SENTIMENT_RATING`
+  ADD PRIMARY KEY (`CAPTION_ID`,`ID`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
