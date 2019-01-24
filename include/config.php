@@ -12,19 +12,20 @@
 
   // TODO
   // local
-  /*
+
   DB::$user = 'root';
   DB::$password = 'manage';
   DB::$dbName = 'vidyouthink';
   DB::$encoding = 'utf8';
-  */
+
 
   // live
+  /*
   DB::$user = 'godiane_admin';
   DB::$password = 'manage';
   DB::$dbName = 'godiane_vidyouthink';
   DB::$encoding = 'utf8';
-
+  */
   DB::$error_handler = false; // since we're catching errors, don't need error handler
   DB::$throw_exception_on_error = true;
 

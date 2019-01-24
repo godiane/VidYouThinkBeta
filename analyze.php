@@ -96,9 +96,9 @@ if ($client->getAccessToken()) {
 			$filename = 'srt/' . $videoId . '.srt';
 			if (!file_exists($filename)) {
 				$captionId = getCaptionID($youtube, $videoId);
-        die(" caption Id: " . $captionId);
+        // die(" caption Id: " . $captionId);
         if ($captionId !== '') {
-          $videoCaptionFile = getVideoCaption($youtube, $captionId);          
+          $videoCaptionFile = getVideoCaption($youtube, $captionId);
         }
 				file_put_contents($filename, $videoCaptionFile);
 			}
