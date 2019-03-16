@@ -16,10 +16,13 @@ require_once __DIR__ . '/include/comment.php';
 require_once __DIR__ . '/include/utils.php';
 require_once __DIR__ . '/include/config.php';
 
+require_once __DIR__ . '/include/db/caption.php';
+require_once __DIR__ . '/include/db/comment.php';
+require_once __DIR__ . '/include/db/sentiment_rating.php';
+
 session_start();
 
-if(!$fgmembersite->CheckLogin())
-{
+if(!$fgmembersite->CheckLogin()) {
     $fgmembersite->RedirectToURL("index.php");
     exit;
 }
@@ -34,6 +37,7 @@ $client->setClientId(YOUTUBE_OAUTH2_CLIENT_ID);
 $client->setClientSecret(YOUTUBE_OAUTH2_CLIENT_SECRET);
 
 $utils = new Utils();
+$captionDB = new CaptionT();
 
 /*
  * This OAuth 2.0 access scope allows for full read/write access to the
@@ -71,7 +75,7 @@ if (isset($_SESSION[$tokenSessionKey])) {
 	$client->refreshToken(YOUTUBE_REFRESH_TOKEN);
 	*/
 	$client->setAccessToken($_SESSION[$tokenSessionKey]);
-
+  // TODO Implement refresing Access Token
 	// if ($client->isAccessTokenExpired()) {
 	// 	$currentTokenData = json_decode($_SESSION[$tokenSessionKey]);
 	// 	if (isset($currentTokenData->refresh_token)) {
@@ -96,50 +100,115 @@ if ($client->getAccessToken()) {
 			$filename = 'srt/' . $videoId . '.srt';
 			if (!file_exists($filename)) {
 				$captionId = getCaptionID($youtube, $videoId);
-        // die(" caption Id: " . $captionId);
-        if ($captionId !== '') {
-          $videoCaptionFile = getVideoCaption($youtube, $captionId);
-        }
-				file_put_contents($filename, $videoCaptionFile);
+                if (!is_null($captionId)) {
+                  $videoCaptionFile = getVideoCaption($youtube, $captionId);
+                  file_put_contents($filename, $videoCaptionFile);
+                }
 			}
 
 			$videoCaptionText = file_get_contents($filename);
-			$captionsHTML = parseCaption($videoId, $filename, $phrase);
-			$captionsText = getCaptionsText($filename);
-
-			$videoCommentThreads = getVideoCommentThreads($youtube, $videoId);
-			$commentHTML = "";
-			$commentText = "";
-			$counter = 1;
-			foreach ($videoCommentThreads as $videoCommentThread) {
-				$textOriginal = getTextOriginal($videoCommentThread);
-				$commentHTML .= "<tr>";
-				$commentHTML .= '<td>' . $counter . '</td>';
-				$commentHTML .= '<td>' . $utils->format_sentiment(getSentimentAnalysisJSON($textOriginal)) .
-					'</td>';
-				$commentHTML .= '<td>' . $textOriginal . '</td>';
-				$commentText .= $textOriginal;
-				$commentHTML .= "</tr>";
-				$counter++;
-			}
-			$tcSentiment = getSentimentAnalysisJSON($commentText);
-			$phSentiment = getSentimentAnalysisJSON($phrase);
-			$caSentiment = getSentimentAnalysisJSON($captionsText, null, CAPTION);
-
-			$overallSentiment = getOverallSentiment($tcSentiment, $phSentiment, $caSentiment);
-
-			$videoDetails = $youtube->videos->listVideos('snippet, statistics', array(
-					'id' => $videoId,
-			));
-
-			$video = $videoDetails->items[0];
+            // TODO BUGGY
+            $captionDB->set_video_id($videoId);
+            $captionDB->set_caption($videoCaptionText);
+            $captionDB->set_insert_user_id($_SESSION['id_of_user']);
+            $captionDB->InsertCaptionIntoDB();
 
 			// print_r($video);
-
 			if (empty($videoCaptionText)) {
 				$htmlBody .= '<div class="alert alert-danger"><strong>Error:</strong> '.
 					'Can\'t get video caption tracks.</div>';
 			} else {
+                $captionsHTML = parseCaption($videoId, $filename, $phrase);
+                $captionsText = getCaptionsText($filename);
+
+                $videoCommentThreads = getVideoCommentThreads($youtube, $videoId);
+                $commentHTML = "";
+                $commentText = "";
+                $counter = 1;
+                foreach ($videoCommentThreads as $videoCommentThread) {
+                    $textOriginal = getTextOriginal($videoCommentThread);
+                    $commentSentiment = getSentimentAnalysisJSON($textOriginal);
+                    $commentSentimentHTML = $utils->format_sentiment(
+                        $commentSentiment);
+                    $commentHTML .= "<tr>";
+                    $commentHTML .= '<td>' . $counter . '</td>';
+                    $commentHTML .= '<td>' . $commentSentimentHTML . '</td>';
+                    $commentHTML .= '<td>' . $textOriginal . '</td>';
+                    $commentText .= $textOriginal;
+                    $commentHTML .= "</tr>";
+
+                    $commenterName = getCommentAuthor($videoCommentThread);
+                    $ytCommentId = getCommentId($videoCommentThread);
+
+                    // INSERT INTO DB Table
+                    $commentDB = new CommentT();
+                    $commentDB->set_video_id($videoId);
+                    $commentDB->set_yt_comment_id($ytCommentId);
+                    $commentDB->set_name($commenterName);
+                    $commentDB->set_comment($textOriginal);
+                    $commentDB->set_insert_user_id($_SESSION['id_of_user']);
+                    $commentDB->InsertCommentIntoDB();
+
+                    // TODO INSERT COMMENT_ID
+                    $sentimentRatingDB = new SentimentRatingT();
+                    $sentimentRatingDB->set_rating($commentSentiment);
+                    $sentimentRatingDB->set_sentiment_type(
+                        SENTIMENT_TYPE_COMMENT);
+                    $sentimentRatingDB->set_video_id($videoId);
+                    $sentimentRatingDB->set_type_id($ytCommentId);
+                    $sentimentRatingDB->set_insert_user_id($_SESSION['id_of_user']);
+                    $sentimentRatingDB->InsertSentimentRatingIntoDB();
+
+                    $counter++;
+                }
+                $tcSentiment = getSentimentAnalysisJSON($commentText);
+                $sentimentRatingDB = new SentimentRatingT();
+                $sentimentRatingDB->set_rating($tcSentiment);
+                $sentimentRatingDB->set_sentiment_type(
+                    SENTIMENT_TYPE_OVERALL_COMMENT);
+                $sentimentRatingDB->set_video_id($videoId);
+                $sentimentRatingDB->set_insert_user_id($_SESSION['id_of_user']);
+                $sentimentRatingDB->InsertSentimentRatingIntoDB();
+
+                // TODO INSERT SEARCH_QUERY_ID
+                $phSentiment = getSentimentAnalysisJSON($phrase);
+                $sentimentRatingDB = new SentimentRatingT();
+                $sentimentRatingDB->set_rating($phSentiment);
+                $sentimentRatingDB->set_sentiment_type(
+                    SENTIMENT_TYPE_PHRASE);
+                $sentimentRatingDB->set_video_id($videoId);
+                $sentimentRatingDB->set_insert_user_id($_SESSION['id_of_user']);
+                $sentimentRatingDB->InsertSentimentRatingIntoDB();
+
+                // TODO INSERT CAPTION_ID
+                $caSentiment = getSentimentAnalysisJSON($captionsText, null,
+                    CAPTION);
+                $sentimentRatingDB = new SentimentRatingT();
+                $sentimentRatingDB->set_rating($caSentiment);
+                $sentimentRatingDB->set_sentiment_type(
+                    SENTIMENT_TYPE_CAPTION);
+                $sentimentRatingDB->set_video_id($videoId);
+                $sentimentRatingDB->set_insert_user_id($_SESSION['id_of_user']);
+                $sentimentRatingDB->InsertSentimentRatingIntoDB();
+
+                // TODO INSERT SEARCH_RESULTS_ID
+                $overallSentiment = getOverallSentiment($tcSentiment,
+                    $phSentiment, $caSentiment);
+                $sentimentRatingDB = new SentimentRatingT();
+                $sentimentRatingDB->set_rating($overallSentiment);
+                $sentimentRatingDB->set_sentiment_type(
+                    SENTIMENT_TYPE_OVERALL);
+                $sentimentRatingDB->set_video_id($videoId);
+                $sentimentRatingDB->set_insert_user_id($_SESSION['id_of_user']);
+                $sentimentRatingDB->InsertSentimentRatingIntoDB();
+
+                $videoDetails = $youtube->videos->listVideos('snippet,
+                    statistics', array(
+                        'id' => $videoId,
+                ));
+
+                $video = $videoDetails->items[0];
+
 				$htmlBody .= '<div class="row">';
 				$htmlBody .= '    <div class="col-md-12 bg-info">';
 				$htmlBody .= '        <h1 class="text-primary text-center">'.$video->snippet->title.'</h1>';
@@ -298,7 +367,6 @@ if ($client->getAccessToken()) {
 				$htmlBody .= '    </div>';
 				$htmlBody .= '</div>';
 			}
-
 		} catch (Google_Service_Exception $e) {
 			if ($e->getCode() == '401') {
 				unset($_SESSION[$tokenSessionKey]);
@@ -306,11 +374,11 @@ if ($client->getAccessToken()) {
 				$state = mt_rand();
 				$client->setState($state);
 				$_SESSION['state'] = $state;
-        $_SESSION['query'] = $_SERVER['QUERY_STRING'];
-        // echo $_SESSION['query'];
-        //echo $_SERVER['QUERY_STRING'];
+                $_SESSION['query'] = $_SERVER['QUERY_STRING'];
+                // echo $_SESSION['query'];
+                //echo $_SERVER['QUERY_STRING'];
 
-				 $authUrl = $client->createAuthUrl();
+				$authUrl = $client->createAuthUrl();
 				$htmlBody .= '<div class="alert alert-danger"><h3>Authorization Required</h3>' .
 				'<p>You need to <a href="' . $authUrl . '">authorize access</a> before proceeding.<p></div>';
 			} else {

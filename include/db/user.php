@@ -1,11 +1,11 @@
 <?PHP
 /**
- * Search Query
+ * User
  *
  * @author DIGO
  */
- require_once __DIR__ . '/../formvalidator.php';
- require_once __DIR__ . '/../utils.php';
+require_once __DIR__ . '/../formvalidator.php';
+require_once __DIR__ . '/../utils.php';
 
 class UserT
 {
@@ -111,9 +111,88 @@ class UserT
         return $this->error_message;
     } // END FUNCTION
 
-    //-------Main Operations ----------------------
+    function set_utils($utils_i) {
+      $this->utils = $utils_i;
+    }
+
+    function get_utils()
+    {
+        if(($this->utils) === null) {
+          return new Utils();
+        }
+        return $this->utils;
+    } // END FUNCTION
+
+    //-------Public Helper functions -------------
+    function GetErrorMessage()
+    {
+        if (empty($this->error_message)) {
+            return '';
+        }
+        $errormsg = nl2br(htmlentities($this->error_message));
+        return $errormsg;
+    } // END FUNCTION
 
     //-------Private Helper functions-----------
+    function HandleError($err)
+    {
+        $this->error_message .= $err . "\r\n";
+    } // END FUNCTION
+
+    function HandleDBError($err)
+    {
+        $this->HandleError($err);
+    } // END FUNCTION
+
+    //-------Main Operations ----------------------
+    function getUser($user_id_i) {
+        $query     = "SELECT USERNAME, EMAIL FROM USER WHERE ID='$user_id_i'";
+        $result    = DB::query($query);
+        if(DB::count() > 0) {
+            $this->set_id($user_id_i);
+            $this->set_username($result[0]['USERNAME']);
+            $this->set_email($result[0]['EMAIL']);
+            return $this;
+        }
+    }
+
+    function isEmailUnique($email_i) {
+        $query     = "SELECT EMAIL FROM USER WHERE EMAIL='$email_i'";
+        $result    = DB::query($query);
+        if (DB::count() > 0) {
+            echo "There is already a registered user under that account, please try again. ";
+            return false;
+        }
+        return true;
+    }
+
+    function updateUserEmail($user_id_i, $email) {
+        if ($this->isEmailUnique($email)) {
+            try {
+                DB::update('USER', array(
+                    'EMAIL' => $email
+                ), 'ID=%s', $user_id_i);
+            } catch (MeekroDBException $e) {
+                $this->HandleDBError($e->getMessage());
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    function updateUserPassword($user_id_i, $password) {
+        try {
+            DB::update('USER', array(
+                'password' => $password
+            ), 'ID=%s', $user_id_i);
+        } catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
+    }
+
 
 } // END CLASS
 ?>

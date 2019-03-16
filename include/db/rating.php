@@ -1,23 +1,29 @@
 <?PHP
 /**
- * Search Query
+ * Rating
  *
  * @author DIGO
  */
- require_once __DIR__ . '/../formvalidator.php';
- require_once __DIR__ . '/../utils.php';
+require_once __DIR__ . '/../formvalidator.php';
+require_once __DIR__ . '/../utils.php';
 
 class RatingT
 {
     //----- Variables -------
-    var $video_id;
     var $id;
+    var $video_id;
     var $rating;
+    var $overall_view;
+    var $likes;
+    var $dislikes;
     var $insert_timestamp;
     var $insert_user_id;
 
     // Error Message Handler
     var $error_message;
+
+    // Utilities
+    var $utils;
 
     //-----Initialization -------
     function __construct()
@@ -27,16 +33,6 @@ class RatingT
     function RatingT()
     {
         self::__construct();
-    } // END FUNCTION
-
-    function set_video_id($video_id_i)
-    {
-        $this->video_id = $video_id_i;
-    } // END FUNCTION
-
-    function get_video_id()
-    {
-        return $this->video_id;
     } // END FUNCTION
 
     function set_id($id_i)
@@ -49,6 +45,16 @@ class RatingT
         return $this->id;
     } // END FUNCTION
 
+    function set_video_id($video_id_i)
+    {
+        $this->video_id = $video_id_i;
+    } // END FUNCTION
+
+    function get_video_id()
+    {
+        return $this->video_id;
+    } // END FUNCTION
+
     function set_rating($rating_i)
     {
         $this->rating = $rating_i;
@@ -57,6 +63,36 @@ class RatingT
     function get_rating()
     {
         return $this->rating;
+    } // END FUNCTION
+
+    function set_overall_view($overall_view_i)
+    {
+        $this->overall_view = $overall_view_i;
+    } // END FUNCTION
+
+    function get_overall_view()
+    {
+        return $this->overall_view;
+    } // END FUNCTION
+
+    function set_likes($likes_i)
+    {
+        $this->likes = $likes_i;
+    } // END FUNCTION
+
+    function get_likes()
+    {
+        return $this->likes;
+    } // END FUNCTION
+
+    function set_dislikes($dislikes_i)
+    {
+        $this->dislikes = $dislikes_i;
+    } // END FUNCTION
+
+    function get_dislikes()
+    {
+        return $this->dislikes;
     } // END FUNCTION
 
     function set_insert_timestamp($insert_timestamp_i)
@@ -89,8 +125,62 @@ class RatingT
         return $this->error_message;
     } // END FUNCTION
 
-    //-------Main Operations ----------------------
+    function set_utils($utils_i) {
+      $this->utils = $utils_i;
+    }
 
+    function get_utils()
+    {
+        if(($this->utils) === null) {
+          return new Utils();
+        }
+        return $this->utils;
+    } // END FUNCTION
+
+    //-------Public Helper functions -------------
+    function GetErrorMessage()
+    {
+        if (empty($this->error_message)) {
+            return '';
+        }
+        $errormsg = nl2br(htmlentities($this->error_message));
+        return $errormsg;
+    } // END FUNCTION
+
+    //-------Private Helper functions-----------
+    function HandleError($err)
+    {
+        $this->error_message .= $err . "\r\n";
+    } // END FUNCTION
+
+    function HandleDBError($err)
+    {
+        $this->HandleError($err);
+    } // END FUNCTION
+
+    //-------Main Operations ----------------------
+    /** Insert into RATING table **/
+    function InsertRatingIntoDB() {
+      // TODO SanitizeForSQL
+      $uniqueId = uniqid('vyt',true);
+
+        try {
+            DB::insertUpdate('RATING', array(
+                'ID' => $uniqueId,
+                'VIDEO_ID' => $this->video_id,
+                'RATING' => str_replace(',', '', $this->rating),
+                'OVERALL_VIEW' => str_replace(',', '', $this->overall_view),
+                'LIKES' => str_replace(',', '', $this->likes),
+                'DISLIKES' => str_replace(',', '', $this->dislikes),
+                'INSERT_USER_ID' => $this->insert_user_id
+            ));
+        }
+        catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
+    } // END FUNCTION
 
     //-------Public Helper functions -------------
 

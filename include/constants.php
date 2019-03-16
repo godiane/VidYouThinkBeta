@@ -31,7 +31,8 @@
 	define('PROD_KEY', 'ZaZNBHG6f7n2OHY5tkjeE8wyiswzuQIY');
 
 	define('GOOGLE_YT_API_SSL' , 'https://www.googleapis.com/auth/youtube.force-ssl');
-	define('JSON_SEARCH_RESULTS_FILE', 'json/search_results.json');
+	define('JSON_SEARCH_RESULTS_FILE_1', 'json/');
+	define('JSON_SEARCH_RESULTS_FILE_2', 'search_results.json');
 	define('MAX_SEARCH_RESULTS', 25);
 
 	// TODO
@@ -56,5 +57,10 @@
 	define('CLIENT_ERROR_MSG', 'Client Error: ');
 	define('ERROR_MSG', 'Error: ');
 
+	define('SENTIMENT_TYPE_OVERALL', 1);
+	define('SENTIMENT_TYPE_PHRASE', 2);
+	define('SENTIMENT_TYPE_COMMENT', 3);
+	define('SENTIMENT_TYPE_OVERALL_COMMENT', 4);
+	define('SENTIMENT_TYPE_CAPTION', 5);
 
 ?>

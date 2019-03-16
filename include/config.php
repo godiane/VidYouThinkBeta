@@ -16,7 +16,7 @@
   DB::$user = 'root';
   DB::$password = 'manage';
   DB::$dbName = 'vidyouthink';
-  DB::$encoding = 'utf8';
+  DB::$encoding = 'utf8mb4';
 
 
   // live

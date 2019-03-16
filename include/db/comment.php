@@ -1,17 +1,18 @@
 <?PHP
 /**
- * Search Query
+ * Comment
  *
  * @author DIGO
  */
- require_once __DIR__ . '/../formvalidator.php';
- require_once __DIR__ . '/../utils.php';
+require_once __DIR__ . '/../formvalidator.php';
+require_once __DIR__ . '/../utils.php';
 
 class CommentT
 {
     //----- Variables -------
     var $video_id;
     var $id;
+    var $yt_comment_id;
     var $name;
     var $comment;
     var $insert_timestamp;
@@ -19,6 +20,9 @@ class CommentT
 
     // Error Message Handler
     var $error_message;
+
+    // Utilities
+    var $utils;
 
     //-----Initialization -------
     function __construct()
@@ -48,6 +52,16 @@ class CommentT
     function get_id()
     {
         return $this->id;
+    } // END FUNCTION
+
+    function set_yt_comment_id($yt_comment_id_i)
+    {
+        $this->yt_comment_id = $yt_comment_id_i;
+    } // END FUNCTION
+
+    function get_yt_comment_id()
+    {
+        return $this->yt_comment_id;
     } // END FUNCTION
 
     function set_name($name_i)
@@ -100,11 +114,65 @@ class CommentT
         return $this->error_message;
     } // END FUNCTION
 
-    //-------Main Operations ----------------------
+    function set_utils($utils_i) {
+      $this->utils = $utils_i;
+    }
 
+    function get_utils()
+    {
+        if(($this->utils) === null) {
+          return new Utils();
+        }
+        return $this->utils;
+    } // END FUNCTION
 
     //-------Public Helper functions -------------
+    function GetErrorMessage()
+    {
+        if (empty($this->error_message)) {
+            return '';
+        }
+        $errormsg = nl2br(htmlentities($this->error_message));
+        return $errormsg;
+    } // END FUNCTION
 
+    //-------Private Helper functions-----------
+    function HandleError($err)
+    {
+        $this->error_message .= $err . "\r\n";
+    } // END FUNCTION
 
+    function HandleDBError($err)
+    {
+        $this->HandleError($err);
+    } // END FUNCTION
+
+    //-------Main Operations ----------------------
+    /** Insert into COMMENT table **/
+    function InsertCommentIntoDB() {
+      // TODO SanitizeForSQL
+      $uniqueId = uniqid('vyt',true);
+
+        try {
+            DB::insertUpdate('COMMENT', array(
+                'ID' => $uniqueId,
+                'YT_COMMENT_ID' => $this->yt_comment_id,
+                'VIDEO_ID' => $this->video_id,
+                'NAME' => $this->name,
+                'COMMENT' => $this->get_utils()->sanitize_for_sql($this->comment),
+                'INSERT_USER_ID' => $this->insert_user_id
+            ));
+        }
+        catch (MeekroDBException $e) {
+            die($e->getMessage() . ' - ' .
+                $this->get_utils()->sanitize_for_sql($this->comment));
+
+            $this->HandleDBError($e->getMessage() . ' - ' .
+                $this->get_utils()->sanitize_for_sql($this->comment));
+            return false;
+        }
+        return true;
+    } // END FUNCTION
+    //-------Public Helper functions -------------
 } // END CLASS
 ?>

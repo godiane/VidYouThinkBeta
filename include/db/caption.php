@@ -1,11 +1,11 @@
 <?PHP
 /**
- * Search Query
+ * Caption
  *
  * @author DIGO
  */
- require_once __DIR__ . '/../formvalidator.php';
- require_once __DIR__ . '/../utils.php';
+require_once __DIR__ . '/../formvalidator.php';
+require_once __DIR__ . '/../utils.php';
 
 class CaptionT
 {
@@ -18,6 +18,9 @@ class CaptionT
 
     // Error Message Handler
     var $error_message;
+
+    // Utilities
+    var $utils;
 
     //-----Initialization -------
     function __construct()
@@ -89,11 +92,58 @@ class CaptionT
         return $this->error_message;
     } // END FUNCTION
 
-    //-------Main Operations ----------------------
+    function set_utils($utils_i) {
+      $this->utils = $utils_i;
+    }
 
+    function get_utils()
+    {
+        if(($this->utils) === null) {
+          return new Utils();
+        }
+        return $this->utils;
+    } // END FUNCTION
 
     //-------Public Helper functions -------------
+    function GetErrorMessage()
+    {
+        if (empty($this->error_message)) {
+            return '';
+        }
+        $errormsg = nl2br(htmlentities($this->error_message));
+        return $errormsg;
+    } // END FUNCTION
 
+    //-------Private Helper functions-----------
+    function HandleError($err)
+    {
+        $this->error_message .= $err . "\r\n";
+    } // END FUNCTION
 
+    function HandleDBError($err)
+    {
+        $this->HandleError($err);
+    } // END FUNCTION
+
+    //-------Main Operations ----------------------
+    /** Insert into CAPTION table **/
+    function InsertCaptionIntoDB() {
+      // TODO SanitizeForSQL
+      $uniqueId = uniqid('vyt',true);
+
+        try {
+            DB::insertUpdate('CAPTION', array(
+                'ID' => $uniqueId,
+                'VIDEO_ID' => $this->video_id,
+                'CAPTION' => $this->caption,
+                'INSERT_USER_ID' => $this->insert_user_id
+            ));
+        } catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
+    } // END FUNCTION
+    //-------Public Helper functions -------------
 } // END CLASS
 ?>

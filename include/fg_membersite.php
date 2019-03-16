@@ -23,29 +23,28 @@ http://www.html-form-guide.com/php-form/php-login-form.html
 *
 * @author DIGO
 */
-	require_once __DIR__ . '/formvalidator.php';
+require_once __DIR__ . '/formvalidator.php';
 
-  class FGMembersite
-  {
-      //----- Variables -------
-			var $sitename;
-			var $admin_email;
-      var $from_address;
+class FGMembersite
+{
+    //----- Variables -------
+	var $sitename;
+	var $admin_email;
+    var $from_address;
 
-      var $username;
-      var $pwd;
-      var $database;
-      var $connection;
-      var $rand_key;
+    var $username;
+    var $pwd;
+    var $database;
+    var $connection;
+    var $rand_key;
 
-      var $error_message;
+    var $error_message;
 
-      //-----Initialization -------
-      function __construct()
-      {
-          $this->sitename = 'YourWebsiteName.com';
-          $this->rand_key = '0iQx5oBk66oVZep';
-      }
+    //-----Initialization -------
+    function __construct() {
+    	$this->sitename = 'YourWebsiteName.com';
+        $this->rand_key = '0iQx5oBk66oVZep';
+    }
 
       function FGMembersite() {
         self::__construct();
@@ -209,7 +208,7 @@ http://www.html-form-guide.com/php-form/php-login-form.html
           $results = $this->connection->query($qry, $username, $pwdmd5);
           if ($this->connection->count() > 0) {
             foreach ($results as $row) {
-								$_SESSION['id_of_user'] = $row['ID'];
+				$_SESSION['id_of_user'] = $row['ID'];
                 $_SESSION['name_of_user']  = $row['USERNAME'];
                 $_SESSION['email_of_user'] = $row['EMAIL'];
             }
@@ -234,9 +233,15 @@ http://www.html-form-guide.com/php-form/php-login-form.html
             // $validator->addValidation("name","req","Please fill in Name");
             $validator->addValidation("email","email","The input for email should be a valid email value.");
             $validator->addValidation("email","req","Please fill in email.");
+			$validator->addValidation("email","min=7","Please enter username with 7-100 characters.");
+			$validator->addValidation("email","maxlen=100","Please enter username with 2-16 characters.");
             $validator->addValidation("username","req","Please fill in username.");
+			$validator->addValidation("username","alnum","Please enter username with alphanumeric characters.");
+			$validator->addValidation("username","minlen=2","Please enter username with 2-16 characters.");
+			$validator->addValidation("username","maxlen=16","Please enter username with 2-16 characters.");
             $validator->addValidation("password","req","Please fill in password.");
-
+			$validator->addValidation("password","minlen=6","Please enter username with 6-14 characters.");
+			$validator->addValidation("password","maxlen=14","Please enter username with 6-14 characters.");
 
             if(!$validator->ValidateForm())
             {
@@ -281,7 +286,8 @@ http://www.html-form-guide.com/php-form/php-login-form.html
             }
             if(!$this->IsFieldUnique($formvars,'username','USER'))
             {
-                $this->HandleError("This username is already used. Please try another username.");
+                $this->HandleError('This username is already used. ' .
+				'Please try another username.');
                 return false;
             }
             if(!$this->SaveUserToDatabase($formvars))
@@ -320,13 +326,15 @@ http://www.html-form-guide.com/php-form/php-login-form.html
         {
             $confirmcode = $this->MakeConfirmationMd5($formvars['email']);
             $formvars['confirmcode'] = $confirmcode;
+						$uniqueId = uniqid('vyt',true);
             try {
-              DB::insert('USER', array(
-                  'USERNAME' => $this->SanitizeForSQL($formvars['username']),
-                  'EMAIL' => $this->SanitizeForSQL($formvars['email']),
-                  'PASSWORD' => md5($formvars['password']),
-                  'CONFIRM_CODE' => $confirmcode)
-                );
+            	DB::insert('USER', array(
+					'ID' => $uniqueId,
+                	'USERNAME' => $this->SanitizeForSQL($formvars['username']),
+                	'EMAIL' => $this->SanitizeForSQL($formvars['email']),
+                	'PASSWORD' => md5($formvars['password']),
+                	'CONFIRM_CODE' => $confirmcode)
+            	);
             } catch (MeekroDBException $e) {
               $this->HandleDBError($e->getMessage());
               return false;

@@ -6,6 +6,7 @@
  */
 require_once __DIR__ . '/../formvalidator.php';
 require_once __DIR__ . '/../utils.php';
+require_once __DIR__ . '/search_result.php';
 
 class SearchQueryT
 {
@@ -14,6 +15,7 @@ class SearchQueryT
     var $user_id;
     var $query;
     var $create_timestamp;
+    var $active_flag;
 
     // Error Message Handler
     var $error_message;
@@ -69,6 +71,16 @@ class SearchQueryT
     function get_create_timestamp($create_timestamp_i)
     {
         return $this->create_timestamp;
+    } // END FUNCTION
+
+    function set_active_flag($active_flag_i)
+    {
+        $this->active_flag = $active_flag_i;
+    } // END FUNCTION
+
+    function get_active_flag($active_flag_i)
+    {
+        return $this->active_flag;
     } // END FUNCTION
 
     function set_error_message($error_message_i)
@@ -154,7 +166,6 @@ class SearchQueryT
     function IsSearchUnique($user_id_input, $query_input) {
       if (!$this->IsFieldUnique($this->user_id, 'USER_ID', 'SEARCH_QUERY')
         && !$this->IsFieldUnique($this->query, 'QUERY', 'SEARCH_QUERY')) {
-          echo "search query id: " . $this->get_search_query_id($user_id_input, $query_input);
           return false;
       }
       return true;
@@ -186,11 +197,13 @@ class SearchQueryT
         return true;
     } // END FUNCTION
 
-    /** Insert into USER table **/
+    /** Insert into SEARCH_QUERY table **/
     function InsertSearchQueryIntoDB() {
-
+        $uniqueId = uniqid('vyt',true);
         try {
+
             DB::insert('SEARCH_QUERY', array(
+                'ID' => $uniqueId,
                 'USER_ID' => $this->user_id,
                 'QUERY' => $this->query
             ));
@@ -203,18 +216,78 @@ class SearchQueryT
     } // END FUNCTION
 
     // Get Search Query ID from fields
-    function get_search_query_id($user_id_i, $query_i) {
-      // get
-      $field_val1 = $this->get_utils()->sanitize_for_sql($user_id_i);
-      $field_val2 = $this->get_utils()->sanitize_for_sql($user_id_i);
-      $query     = "SELECT id FROM SEARCH_QUERY WHERE USER_ID=%s AND QUERY=%s";
-      $result    = DB::query($query, $field_val1, $field_val2);
+    function getSearchQueryId($user_id_i, $query_i) {
+        // get
+        $field_val1 = $this->get_utils()->sanitize_for_sql($user_id_i);
+        // TODO
+        // $field_val2 = $this->get_utils()->sanitize_for_sql($query_i);
+        $field_val2 = $query_i;
+        $query = "SELECT id FROM SEARCH_QUERY WHERE USER_ID=%s AND QUERY=%s";
+        try {
+            $result    = DB::query($query, $field_val1, $field_val2);
+            if(DB::count() > 0) {
+                return $result[0]['id'];
+            }
+        } catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+      return "";
+    }
 
-      if(DB::count() > 0) {
-        return $result[0];
-      } else {
-        return "";
-      }
+    // Update Search Query Visibility on A Particular Query
+    function makeQueryInvisible($user_id_i, $query_i) {
+        try {
+            // TODO
+            $searchQueryId = $this->getSearchQueryId($user_id_i, $query_i);
+            $searchResult = new SearchResultT();
+            $searchResult->deleteSearchResults($searchQueryId);
+            DB::delete('SEARCH_QUERY',
+                "USER_ID = '" . $user_id_i . "' AND QUERY = '" . $query_i . "'"
+            );
+        }
+        catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    // Update Search Query Visibility for User
+    function makeQueriesInvisible($user_id_i) {
+        try {
+            DB::delete(
+                'SEARCH_QUERY',
+                'USER_ID=%s',$user_id_i
+            );
+        }
+        catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    // Update Search Query Visibility
+    function getTop5Queries($user_id_i) {
+        try {
+            $results = DB::query("SELECT ID, QUERY, CREATE_TIMESTAMP " .
+                                "FROM SEARCH_QUERY SQ " .
+                                "WHERE SQ.USER_ID=%s_USER_ID " .
+                                "AND ACTIVE_FLAG=%i_ACTIVE_FLAG " .
+                                "ORDER BY SQ.CREATE_TIMESTAMP DESC " .
+                                "LIMIT 5",
+                                array(
+                                    'USER_ID' => $user_id_i,
+                                    'ACTIVE_FLAG' => 1
+                                ));
+
+        }
+        catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return null;
+        }
+        return $results;
     }
 
 } // END CLASS
