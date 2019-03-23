@@ -19,6 +19,7 @@ class VideoT
     var $description;
     var $insert_timestamp;
     var $insert_user_id;
+    var $search_query_id;
 
     // Error Message Handler
     var $error_message;
@@ -126,6 +127,16 @@ class VideoT
         return $this->insert_user_id;
     } // END FUNCTION
 
+    function set_search_query_id($search_query_id_i)
+    {
+        $this->search_query_id = $search_query_id_i;
+    } // END FUNCTION
+
+    function get_search_query_id()
+    {
+        return $this->search_query_id;
+    } // END FUNCTION
+
     function set_error_message($error_message_i)
     {
         $this->error_message = $error_message_i;
@@ -184,7 +195,8 @@ class VideoT
                 'CHANNEL_TITLE' => $this->channel_title,
                 'CATEGORY' => $this->category,
                 'DESCRIPTION' => $this->description,
-                'INSERT_USER_ID' => $this->insert_user_id
+                'INSERT_USER_ID' => $this->insert_user_id,
+                'SEARCH_QUERY_ID' => $this->search_query_id
             ));
         }
         catch (MeekroDBException $e) {
@@ -212,6 +224,44 @@ class VideoT
         return $result[0]['id'];
       }
       return "";
+    }
+
+    /**
+    ** Delete Video By Search Query
+    **
+    ** @param $search_query_id_i - SearchQueryID
+    ** @return boolean
+    */
+    function deleteVideoBySearchQuery($search_query_id_i) {
+        try {
+            DB::delete('VIDEO',
+                'SEARCH_QUERY_ID = %s',
+                $search_query_id_i
+            );
+        } catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    /**
+    ** Delete Video By User
+    **
+    ** @param $user_id_i - UserID
+    ** @return boolean
+    */
+    function deleteVideoByUser($user_id_i) {
+        try {
+            DB::delete('VIDEO',
+                'INSERT_USER_ID = %s',
+                $user_id_i
+            );
+        } catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
     }
     //-------Public Helper functions -------------
 } // END CLASS

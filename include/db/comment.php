@@ -17,6 +17,7 @@ class CommentT
     var $comment;
     var $insert_timestamp;
     var $insert_user_id;
+    var $search_query_id;
 
     // Error Message Handler
     var $error_message;
@@ -104,6 +105,16 @@ class CommentT
         return $this->insert_user_id;
     } // END FUNCTION
 
+    function set_search_query_id($search_query_id_i)
+    {
+        $this->search_query_id = $search_query_id_i;
+    } // END FUNCTION
+
+    function get_search_query_id()
+    {
+        return $this->search_query_id;
+    } // END FUNCTION
+
     function set_error_message($error_message_i)
     {
         $this->error_message = $error_message_i;
@@ -160,7 +171,8 @@ class CommentT
                 'VIDEO_ID' => $this->video_id,
                 'NAME' => $this->name,
                 'COMMENT' => $this->get_utils()->sanitize_for_sql($this->comment),
-                'INSERT_USER_ID' => $this->insert_user_id
+                'INSERT_USER_ID' => $this->insert_user_id,
+                'SEARCH_QUERY_ID' => $this->search_query_id
             ));
         }
         catch (MeekroDBException $e) {
@@ -173,6 +185,45 @@ class CommentT
         }
         return true;
     } // END FUNCTION
+
+    /**
+    ** Delete Comment By Search Query
+    **
+    ** @param $search_query_id_i - SearchQueryID
+    ** @return boolean
+    */
+    function deleteCommentBySearchQuery($search_query_id_i) {
+        try {
+            DB::delete('COMMENT',
+                'SEARCH_QUERY_ID = %s',
+                $search_query_id_i
+            );
+        } catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    /**
+    ** Delete Comment By User
+    **
+    ** @param $user_id_i - UserID
+    ** @return boolean
+    */
+    function deleteCommentByUser($user_id_i) {
+        try {
+            DB::delete('COMMENT',
+                'INSERT_USER_ID = %s',
+                $user_id_i
+            );
+        } catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
+    }
+
     //-------Public Helper functions -------------
 } // END CLASS
 ?>

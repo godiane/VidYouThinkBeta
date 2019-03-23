@@ -25,7 +25,7 @@ function updateEmail() {
     $validator = new FormValidator();
     $validator->addValidation("email","email","The input for email should be a valid email value.");
     $validator->addValidation("email","req","Please fill in email.");
-    $validator->addValidation("email","min=7","Please enter username with 7-100 characters.");
+    $validator->addValidation("email","min=7","Please enter email with 7-100 characters.");
     $validator->addValidation("email","maxlen=100","Please enter email with 7-100 characters.");
 
     if(!$validator->ValidateForm())
@@ -75,7 +75,5 @@ function updatePassword() {
     }
     exit;
 }
-
-
 
 ?>

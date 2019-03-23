@@ -24,7 +24,7 @@
   DB::$user = 'godiane_admin';
   DB::$password = 'manage';
   DB::$dbName = 'godiane_vidyouthink';
-  DB::$encoding = 'utf8';
+  DB::$encoding = 'utf8mb4';
   */
   DB::$error_handler = false; // since we're catching errors, don't need error handler
   DB::$throw_exception_on_error = true;
@@ -32,7 +32,5 @@
   // For better security. Get a random string from this link: http://tinyurl.com/randstr
   // and put it here
   $fgmembersite->SetRandomKey('qSRcVS6DrTzrPvr');
-
-  $search_query = new SearchQueryT();
 
 ?>

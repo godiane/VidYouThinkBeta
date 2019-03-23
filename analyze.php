@@ -76,12 +76,12 @@ if (isset($_SESSION[$tokenSessionKey])) {
 	*/
 	$client->setAccessToken($_SESSION[$tokenSessionKey]);
   // TODO Implement refresing Access Token
-	// if ($client->isAccessTokenExpired()) {
-	// 	$currentTokenData = json_decode($_SESSION[$tokenSessionKey]);
-	// 	if (isset($currentTokenData->refresh_token)) {
-	// 		$client->refreshToken($currentTokenData->refresh_token);
-	// 	}
-	// }
+	if ($client->isAccessTokenExpired()) {
+	    $currentTokenData = json_decode($_SESSION[$tokenSessionKey]);
+	    if (isset($currentTokenData->refresh_token)) {
+	        $client->refreshToken($currentTokenData->refresh_token);
+	    }
+	}
 }
 
 // Check to ensure that the access token was successfully acquired.
@@ -111,6 +111,7 @@ if ($client->getAccessToken()) {
             $captionDB->set_video_id($videoId);
             $captionDB->set_caption($videoCaptionText);
             $captionDB->set_insert_user_id($_SESSION['id_of_user']);
+            $captionDB->set_search_query_id($_SESSION['search_query_id']);
             $captionDB->InsertCaptionIntoDB();
 
 			// print_r($video);
@@ -147,6 +148,7 @@ if ($client->getAccessToken()) {
                     $commentDB->set_name($commenterName);
                     $commentDB->set_comment($textOriginal);
                     $commentDB->set_insert_user_id($_SESSION['id_of_user']);
+                    $commentDB->set_search_query_id($_SESSION['search_query_id']);
                     $commentDB->InsertCommentIntoDB();
 
                     // TODO INSERT COMMENT_ID
@@ -157,6 +159,7 @@ if ($client->getAccessToken()) {
                     $sentimentRatingDB->set_video_id($videoId);
                     $sentimentRatingDB->set_type_id($ytCommentId);
                     $sentimentRatingDB->set_insert_user_id($_SESSION['id_of_user']);
+                    $sentimentRatingDB->set_search_query_id($_SESSION['search_query_id']);
                     $sentimentRatingDB->InsertSentimentRatingIntoDB();
 
                     $counter++;
@@ -168,6 +171,7 @@ if ($client->getAccessToken()) {
                     SENTIMENT_TYPE_OVERALL_COMMENT);
                 $sentimentRatingDB->set_video_id($videoId);
                 $sentimentRatingDB->set_insert_user_id($_SESSION['id_of_user']);
+                $sentimentRatingDB->set_search_query_id($_SESSION['search_query_id']);
                 $sentimentRatingDB->InsertSentimentRatingIntoDB();
 
                 // TODO INSERT SEARCH_QUERY_ID
@@ -178,6 +182,7 @@ if ($client->getAccessToken()) {
                     SENTIMENT_TYPE_PHRASE);
                 $sentimentRatingDB->set_video_id($videoId);
                 $sentimentRatingDB->set_insert_user_id($_SESSION['id_of_user']);
+                $sentimentRatingDB->set_search_query_id($_SESSION['search_query_id']);
                 $sentimentRatingDB->InsertSentimentRatingIntoDB();
 
                 // TODO INSERT CAPTION_ID
@@ -189,6 +194,7 @@ if ($client->getAccessToken()) {
                     SENTIMENT_TYPE_CAPTION);
                 $sentimentRatingDB->set_video_id($videoId);
                 $sentimentRatingDB->set_insert_user_id($_SESSION['id_of_user']);
+                $sentimentRatingDB->set_search_query_id($_SESSION['search_query_id']);
                 $sentimentRatingDB->InsertSentimentRatingIntoDB();
 
                 // TODO INSERT SEARCH_RESULTS_ID
@@ -200,6 +206,7 @@ if ($client->getAccessToken()) {
                     SENTIMENT_TYPE_OVERALL);
                 $sentimentRatingDB->set_video_id($videoId);
                 $sentimentRatingDB->set_insert_user_id($_SESSION['id_of_user']);
+                $sentimentRatingDB->set_search_query_id($_SESSION['search_query_id']);
                 $sentimentRatingDB->InsertSentimentRatingIntoDB();
 
                 $videoDetails = $youtube->videos->listVideos('snippet,
@@ -434,7 +441,7 @@ if(isset($_SERVER['HTTP_REFERER'])) {
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
 			integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-		<link rel="stylesheet" href="assets/site.css" />
+		<link rel="stylesheet" href="/assets/site.css" />
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 

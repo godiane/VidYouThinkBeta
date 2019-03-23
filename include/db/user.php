@@ -193,6 +193,17 @@ class UserT
         return true;
     }
 
+    function deleteUser($user_id_i) {
+        try {
+            DB::delete('USER',
+                'ID=%s', $user_id_i);
+        } catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
+    }
+
 
 } // END CLASS
 ?>

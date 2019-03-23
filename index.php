@@ -13,7 +13,6 @@ require_once __DIR__ . '/include/config.php';
 
 if($fgmembersite->CheckLogin())
 {
-    //echo "Boom!";
     $fgmembersite->RedirectToURL("login-home.php");
     exit;
 } else {
@@ -61,7 +60,7 @@ $htmlBody = <<<END
 						<div class="col-lg-10">
 							<input type="submit" id="login" name="login" class="btn btn-success btn-block" />
 						</div>
-            <a href="./register.php" class="btn" type="button">Not a member? Register!</a>
+                        <a href="./register.php" class="btn" type="button">Not a member? Register!</a>
 					</div>
 				</fieldset><!-- fieldset 2 -->
 			</form><!-- form -->

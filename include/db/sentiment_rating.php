@@ -18,6 +18,7 @@ class SentimentRatingT
     var $type_id; // 1-search_query_id, 2-comment_id, 3-caption_id
     var $insert_timestamp;
     var $insert_user_id;
+    var $search_query_id;
 
     // Error Message Handler
     var $error_message;
@@ -105,6 +106,16 @@ class SentimentRatingT
         return $this->insert_user_id;
     } // END FUNCTION
 
+    function set_search_query_id($search_query_id_i)
+    {
+        $this->search_query_id = $search_query_id_i;
+    } // END FUNCTION
+
+    function get_search_query_id()
+    {
+        return $this->search_query_id;
+    } // END FUNCTION
+
     function set_error_message($error_message_i)
     {
         $this->error_message = $error_message_i;
@@ -158,7 +169,8 @@ class SentimentRatingT
                 'SENTIMENT_TYPE' => $this->sentiment_type,
                 'VIDEO_ID' => $this->video_id,
                 'TYPE_ID' => $this->type_id,
-                'INSERT_USER_ID' => $this->insert_user_id
+                'INSERT_USER_ID' => $this->insert_user_id,
+                'SEARCH_QUERY_ID' => $this->search_query_id
             ));
         } catch (MeekroDBException $e) {
             die($e->getMessage());
@@ -207,6 +219,44 @@ class SentimentRatingT
             return null;
         }
         return $results['rating'];
+    }
+
+    /**
+    ** Delete Sentiment Rating By Search Query
+    **
+    ** @param $search_query_id_i - SearchQueryID
+    ** @return boolean
+    */
+    function deleteSentimentRatingBySearchQuery($search_query_id_i) {
+        try {
+            DB::delete('SENTIMENT_RATING',
+                'SEARCH_QUERY_ID = %s',
+                $search_query_id_i
+            );
+        } catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    /**
+    ** Delete Sentiment Rating By User
+    **
+    ** @param $user_id_i - UserID
+    ** @return boolean
+    */
+    function deleteSentimentRatingByUser($user_id_i) {
+        try {
+            DB::delete('SENTIMENT_RATING',
+                'INSERT_USER_ID = %s',
+                $user_id_i
+            );
+        } catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
     }
     //-------Public Helper functions -------------
 } // END CLASS

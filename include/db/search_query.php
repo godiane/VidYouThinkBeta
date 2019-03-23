@@ -7,6 +7,11 @@
 require_once __DIR__ . '/../formvalidator.php';
 require_once __DIR__ . '/../utils.php';
 require_once __DIR__ . '/search_result.php';
+require_once __DIR__ . '/video.php';
+require_once __DIR__ . '/rating.php';
+require_once __DIR__ . '/caption.php';
+require_once __DIR__ . '/comment.php';
+require_once __DIR__ . '/sentiment_rating.php';
 
 class SearchQueryT
 {
@@ -26,6 +31,7 @@ class SearchQueryT
     //-----Initialization -------
     function __construct()
     {
+
     } // END FUNCTION
 
     function SearchQueryT()
@@ -217,22 +223,36 @@ class SearchQueryT
 
     // Get Search Query ID from fields
     function getSearchQueryId($user_id_i, $query_i) {
-        // get
         $field_val1 = $this->get_utils()->sanitize_for_sql($user_id_i);
         // TODO
         // $field_val2 = $this->get_utils()->sanitize_for_sql($query_i);
         $field_val2 = $query_i;
-        $query = "SELECT id FROM SEARCH_QUERY WHERE USER_ID=%s AND QUERY=%s";
+        $query = 'SELECT id FROM SEARCH_QUERY WHERE USER_ID="'.$field_val1.
+            '" AND QUERY="'.$field_val2.'"';
         try {
-            $result    = DB::query($query, $field_val1, $field_val2);
+            $result = DB::queryFirstField($query);
             if(DB::count() > 0) {
-                return $result[0]['id'];
+                return $result;
             }
+        } catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+        }
+        return false;
+    }
+
+    public function deleteSearchQueryById($search_query_id_i)
+    {
+        try {
+            DB::delete(
+                'SEARCH_QUERY',
+                'ID = %s',
+                $search_query_id_i
+            );
         } catch (MeekroDBException $e) {
             $this->HandleDBError($e->getMessage());
             return false;
         }
-      return "";
+        return true;
     }
 
     // Update Search Query Visibility on A Particular Query
@@ -240,11 +260,26 @@ class SearchQueryT
         try {
             // TODO
             $searchQueryId = $this->getSearchQueryId($user_id_i, $query_i);
+
+            $sentimentRating = new SentimentRatingT();
+            $sentimentRating->deleteSentimentRatingBySearchQuery($searchQueryId);
+
+            $caption = new CaptionT();
+            $caption->deleteCaptionBySearchQuery($searchQueryId);
+
+            $comment = new CommentT();
+            $comment->deleteCommentBySearchQuery($searchQueryId);
+
+            $rating = new RatingT();
+            $rating->deleteRatingBySearchQuery($searchQueryId);
+
+            $video = new VideoT();
+            $video->deleteVideoBySearchQuery($searchQueryId);
+
             $searchResult = new SearchResultT();
-            $searchResult->deleteSearchResults($searchQueryId);
-            DB::delete('SEARCH_QUERY',
-                "USER_ID = '" . $user_id_i . "' AND QUERY = '" . $query_i . "'"
-            );
+            $searchResult->deleteSearchResultBySearchQuery($searchQueryId);
+
+            $this->deleteSearchQueryById($searchQueryId);
         }
         catch (MeekroDBException $e) {
             $this->HandleDBError($e->getMessage());
@@ -256,6 +291,25 @@ class SearchQueryT
     // Update Search Query Visibility for User
     function makeQueriesInvisible($user_id_i) {
         try {
+
+            $sentimentRating = new SentimentRatingT();
+            $sentimentRating->deleteSentimentRatingByUser($user_id_i);
+
+            $caption = new CaptionT();
+            $caption->deleteCaptionByUser($user_id_i);
+
+            $comment = new CommentT();
+            $comment->deleteCommentByUser($user_id_i);
+
+            $rating = new RatingT();
+            $rating->deleteRatingByUser($user_id_i);
+
+            $video = new VideoT();
+            $video->deleteVideoByUser($user_id_i);
+
+            $searchResult = new SearchResultT();
+            $searchResult->deleteSearchResultByUser($user_id_i);
+
             DB::delete(
                 'SEARCH_QUERY',
                 'USER_ID=%s',$user_id_i

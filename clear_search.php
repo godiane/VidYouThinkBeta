@@ -22,15 +22,21 @@ if (isset($_POST['action'])) {
 
 function clearAll() {
     $sq = new SearchQueryT();
-    $sq->makeQueriesInvisible($_POST['userId']);
-    echo "All search histories have been cleared.";
+    if ($sq->makeQueriesInvisible($_POST['userId'])) {
+        echo "All search histories have been cleared.";
+    } else {
+        echo "Error clearing search histories.";
+    }
     exit;
 }
 
 function clear() {
     $sq = new SearchQueryT();
-    $sq->makeQueryInvisible($_POST['userId'], $_POST['query']);
-    echo "Search History has been cleared.";
+    if ($sq->makeQueryInvisible($_POST['userId'], $_POST['query'])) {
+        echo "Search history '". $_POST['query'] . "' has been cleared.";
+    } else {
+        echo "Error clearing search history.";
+    }
     exit;
 }
 ?>

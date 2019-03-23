@@ -39,7 +39,7 @@
 	// LIVE
 	// define('CA_CERT_LOCATION', '/home/godiane/ssl/certs/cacert.pem');
 	// LOCAL
-	define('CA_CERT_LOCATION', '/Users/godiane/Projects/beta/VidYouThinkPHP/ssl/certs/cacert.pem');
+ 	define('CA_CERT_LOCATION', '/Users/godiane/Projects/beta/VidYouThinkPHP/ssl/certs/cacert.pem');
 
 
 	define('CAPTION_LANGUAGE', 'en');

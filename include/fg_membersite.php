@@ -233,15 +233,15 @@ class FGMembersite
             // $validator->addValidation("name","req","Please fill in Name");
             $validator->addValidation("email","email","The input for email should be a valid email value.");
             $validator->addValidation("email","req","Please fill in email.");
-			$validator->addValidation("email","min=7","Please enter username with 7-100 characters.");
-			$validator->addValidation("email","maxlen=100","Please enter username with 2-16 characters.");
+			$validator->addValidation("email","min=7","Please enter email with 7-100 characters.");
+			$validator->addValidation("email","maxlen=100","Please enter email with 7-100 characters.");
             $validator->addValidation("username","req","Please fill in username.");
 			$validator->addValidation("username","alnum","Please enter username with alphanumeric characters.");
 			$validator->addValidation("username","minlen=2","Please enter username with 2-16 characters.");
 			$validator->addValidation("username","maxlen=16","Please enter username with 2-16 characters.");
             $validator->addValidation("password","req","Please fill in password.");
-			$validator->addValidation("password","minlen=6","Please enter username with 6-14 characters.");
-			$validator->addValidation("password","maxlen=14","Please enter username with 6-14 characters.");
+			$validator->addValidation("password","minlen=6","Please enter password with 6-14 characters.");
+			$validator->addValidation("password","maxlen=14","Please enter password with 6-14 characters.");
 
             if(!$validator->ValidateForm())
             {

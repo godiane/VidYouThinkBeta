@@ -18,6 +18,7 @@ class RatingT
     var $dislikes;
     var $insert_timestamp;
     var $insert_user_id;
+    var $search_query_id;
 
     // Error Message Handler
     var $error_message;
@@ -115,6 +116,16 @@ class RatingT
         return $this->insert_user_id;
     } // END FUNCTION
 
+    function set_search_query_id($search_query_id_i)
+    {
+        $this->search_query_id = $search_query_id_i;
+    } // END FUNCTION
+
+    function get_search_query_id()
+    {
+        return $this->search_query_id;
+    } // END FUNCTION
+
     function set_error_message($error_message_i)
     {
         $this->error_message = $error_message_i;
@@ -172,7 +183,8 @@ class RatingT
                 'OVERALL_VIEW' => str_replace(',', '', $this->overall_view),
                 'LIKES' => str_replace(',', '', $this->likes),
                 'DISLIKES' => str_replace(',', '', $this->dislikes),
-                'INSERT_USER_ID' => $this->insert_user_id
+                'INSERT_USER_ID' => $this->insert_user_id,
+                'SEARCH_QUERY_ID' => $this->search_query_id
             ));
         }
         catch (MeekroDBException $e) {
@@ -181,6 +193,44 @@ class RatingT
         }
         return true;
     } // END FUNCTION
+
+    /**
+    ** Delete Rating By Search Query
+    **
+    ** @param $search_query_id_i - SearchQueryID
+    ** @return boolean
+    */
+    function deleteRatingBySearchQuery($search_query_id_i) {
+        try {
+            DB::delete('RATING',
+                'SEARCH_QUERY_ID = %s',
+                $search_query_id_i
+            );
+        } catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    /**
+    ** Delete Rating By User
+    **
+    ** @param $user_id_i - UserID
+    ** @return boolean
+    */
+    function deleteRatingByUser($user_id_i) {
+        try {
+            DB::delete('RATING',
+                'INSERT_USER_ID = %s',
+                $user_id_i
+            );
+        } catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
+    }
 
     //-------Public Helper functions -------------
 

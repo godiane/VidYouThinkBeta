@@ -12,9 +12,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/include/config.php';
 
 session_start();
-
 $is_successful = false;
-
 if(isset($_POST['submitted']))
 {
    if($fgmembersite->RegisterUser())
@@ -26,52 +24,50 @@ if(isset($_POST['submitted']))
 $htmlBody = <<<END
 <form method="POST" action="./register.php" role="form" id="register-form" data-toggle="validator" class="form-horizontal">
 	<fieldset>
-
 		<!-- Form Name -->
 		<legend>Register</legend>
 
-    <!-- Hidden Input -->
-    <input type="hidden" name="submitted" id="submitted" value="1" />
+        <!-- Hidden Input -->
+        <input type="hidden" name="submitted" id="submitted" value="1" />
 
-    <!-- Text input-->
+        <!-- Text input-->
 		<div class="form-group">
-  		<label class="col-md-2 control-label" for="textinput">Username</label>
-  		<div class="col-lg-6">
-  			<input id="username" name="username" type="text" maxlength="50" placeholder="user" class="form-control input-lg" required />
-  			<span class="help-block">Please enter desired username.</span>
-  		</div>
+  		    <label class="col-md-2 control-label" for="textinput">Username</label>
+  		    <div class="col-lg-6">
+      			<input id="username" name="username" type="text" maxlength="50" placeholder="user" class="form-control input-lg" required />
+      			<span class="help-block">Please enter desired username.</span>
+  		    </div>
 		</div>
 
 		<!-- Text input-->
 		<div class="form-group">
-  		<label class="col-md-2 control-label" for="email">Email</label>
-  		<div class="col-lg-6">
-  			<input id="email" name="email" maxlength="100" type="text" placeholder="user@email.com"
-          class="form-control input-lg" required />
-  			<span class="help-block">Please enter your email address.</span>
-  		</div>
+  		    <label class="col-md-2 control-label" for="email">Email</label>
+  		    <div class="col-lg-6">
+  			    <input id="email" name="email" maxlength="100" type="text" placeholder="user@email.com"
+                    class="form-control input-lg" required />
+  			    <span class="help-block">Please enter your email address.</span>
+  		    </div>
 		</div>
 
 		<!-- Password input-->
 		<div class="form-group">
-  		<label class="col-md-2 control-label" for="password">Password</label>
-  		<div class="col-lg-6">
-    		<input id="password" name="password" maxlength="50" type="password" placeholder="********" class="form-control input-lg" required />
-    		<span class="help-block">Please enter a password.</span>
-  		</div>
+  		    <label class="col-md-2 control-label" for="password">Password</label>
+  		    <div class="col-lg-6">
+    		    <input id="password" name="password" maxlength="50" type="password" placeholder="********" class="form-control input-lg" required />
+    		    <span class="help-block">Please enter a password.</span>
+  		    </div>
 		</div>
 
 		<!-- Button -->
 		<div class="form-group">
-  		<label class="col-md-2 control-label" for="register"></label>
-  		<div class="col-lg-6">
-    		<input type="submit" id="register" name="register" class="btn btn-info btn-block" />
-  		</div>
+  		    <label class="col-md-2 control-label" for="register"></label>
+  		    <div class="col-lg-6">
+    		    <input type="submit" id="register" name="register" class="btn btn-info btn-block" />
+  		    </div>
 		</div>
 	</fieldset>
 </form>
 END;
-
 ?>
 
 <!doctype html>
@@ -101,23 +97,18 @@ END;
 				<div class="page-header">
 					<h1><a href="./index.php">VidYouThink!</a> <small>Caption Search</small></h1>
 				</div>
-        <?php if (!empty($fgmembersite->GetErrorMessage())) { ?>
-          <div class="alert alert-danger" role="alert">
-            <strong>Oh snap!</strong> <?=$fgmembersite->GetErrorMessage()?>
-          </div>
-        <?php
-          } else {
-            if($is_successful) { ?>
-              <div class="alert alert-success" role="alert">
-                <strong>Thanks for registering!</strong>
-                <!-- Our confirmation email is on its way.
-                Please click the link in the email to complete the registration.
-                -->
-              </div>
-        <?php
-            }
-          }
-        ?>
+                <?php if (!empty($fgmembersite->GetErrorMessage())) { ?>
+                <div class="alert alert-danger" role="alert">
+                    <strong>Oh snap!</strong> <?=$fgmembersite->GetErrorMessage()?>
+                </div>
+                <?php } else { if($is_successful) { ?>
+                <div class="alert alert-success" role="alert">
+                    <strong>Thanks for registering!</strong>
+                    <!-- Our confirmation email is on its way.
+                    Please click the link in the email to complete the registration.
+                    -->
+                </div>
+                <?php } } ?>
 				<?=$htmlBody?>
 			</div>
 		</div>
