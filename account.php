@@ -28,24 +28,22 @@ $userT = new UserT();
 $user = $userT->getUser($_SESSION['id_of_user']);
 
 $htmlBody = <<<END
-	<div class="row">
 		<div class="col-lg-8">
-			<form method="GET" role="form" id="account-form" data-toggle="validator">
-		 		<fieldset>
-					<!-- Form Name -->
-					<legend>Account</legend>
-                    <div class="tabbable" id="tabs-762857">
-                        <ul class="nav nav-tabs">
+		 	<fieldset>
+				<!-- Form Name -->
+				<legend>Account</legend>
+                <div class="tabbable" id="tabs-762857">
+                    <ul class="nav nav-tabs">
 END;
 if (isset($_GET['edit'])) {
         $htmlBody .= <<<END
-                            <li class="nav-item">
-                                <a class="nav-link" href="#tab1" data-toggle="tab">View</a>
-                            </li>
-                            <li class="nav-item active show">
-                                <a id="edit" class="nav-link"
-                                    href="/account.php?edit=email#tab2" data-toggle="tab">Edit</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tab1" data-toggle="tab">View</a>
+                        </li>
+                        <li class="nav-item active show">
+                            <a id="edit" class="nav-link"
+                                href="/account.php?edit=email#tab2" data-toggle="tab">Edit</a>
+                        </li>
 END;
 } else {
     $htmlBody .= <<<END
@@ -59,80 +57,79 @@ END;
 END;
 }
 $htmlBody .= <<<END
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab1">
-                                <div class="container" style="padding: 20px;">
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1">
+                            <div class="container col-lg-12" style="padding: 20px;">
+                                <div class="form-group row">
+                                    <label for="username" class="col-sm-2 col-form-label">Username</label>
+                                    <div class="col-sm-10">
+END;
+$htmlBody .=                   '        <input type="text" readonly class="form-control form-control-lg"
+                                            id="usernameView" value="'. $user->get_username().'">';
+$htmlBody .= <<<END
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-10">
+END;
+$htmlBody .=                    '       <input type="text" readonly
+                                            class="form-control form-control-lg" id="emailView"
+                                            value="'. $user->get_email().'">';
+$htmlBody .= <<<END
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="password" class="col-sm-2 col-form-label">Password</label>
+                                    <div class="col-sm-10">
+END;
+$htmlBody .=                    '       <input type="password" readonly
+                                            class="form-control form-control-lg"
+                                            id="passwordView" value="********">';
+$htmlBody .= <<<END
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab2">
+                            <form method="GET" role="form" id="account-form" data-toggle="validator">
+                                <div class="container col-lg-12" style="padding: 20px;">
                                     <div class="form-group row">
                                         <label for="username" class="col-sm-2 col-form-label">Username</label>
                                         <div class="col-sm-10">
 END;
 $htmlBody .=                        '       <input type="text" readonly class="form-control form-control-lg"
-                                                id="usernameView" value="'. $user->get_username().'">';
+                                                id="username" value="'. $user->get_username().'">';
 $htmlBody .= <<<END
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="email" class="col-sm-2 col-form-label">Email</label>
                                         <div class="col-sm-10">
+                                            <input type="text"
+                                                class="form-control
+                                                form-control-lg" id="email"
 END;
-$htmlBody .=                        '       <input type="text" readonly
-                                        class="form-control form-control-lg" id="emailView"
-                                        value="'. $user->get_email().'">';
+$htmlBody .=                        '           value="'. $user->get_email().'" />';
 $htmlBody .= <<<END
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="password" class="col-sm-2 col-form-label">Password</label>
                                         <div class="col-sm-10">
-END;
-$htmlBody .=                        '       <input type="password" readonly
-                                        class="form-control form-control-lg"
-                                        id="passwordView" value="********">';
-$htmlBody .= <<<END
+                                            <input type="password"
+                                                class="form-control form-control-lg"
+                                                id="password" disabled value="********">
                                         </div>
                                     </div>
+                                    <button id="email-update" type="submit" class="btn btn-primary">Submit</button>
                                 </div>
-                            </div>
-                            <div class="tab-pane" id="tab2">
-                                <form>
-                                    <div class="container" style="padding: 20px;">
-                                        <div class="form-group row">
-                                            <label for="username" class="col-sm-2 col-form-label">Username</label>
-                                            <div class="col-sm-10">
-END;
-$htmlBody .=                        '       <input type="text" readonly class="form-control form-control-lg"
-                                                id="username" value="'. $user->get_username().'">';
-$htmlBody .= <<<END
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="email" class="col-sm-2 col-form-label">Email</label>
-                                            <div class="col-sm-10">
-                                                <input type="text"
-                                                    class="form-control
-                                                    form-control-lg" id="email"
-END;
-$htmlBody .=                        '   value="'. $user->get_email().'">';
-$htmlBody .= <<<END
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="password" class="col-sm-2 col-form-label">Password</label>
-                                            <div class="col-sm-10">
-                                                <input type="password"
-                                                    class="form-control form-control-lg"
-                                                    id="password" disabled value="********">
-                                            </div>
-                                        </div>
-                                        <button id="email-update" type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
+                            </form>
                         </div>
-					</div><!-- tab -->
-				</fieldset>
-			</form><!-- form -->
+                    </div>
+				</div><!-- tab -->
+			</fieldset>
             <br/><br/>
         </div>
         <div class="col-lg-4">
@@ -160,7 +157,6 @@ $htmlBody .= <<<END
 			    </div>
 		    </fieldset><!-- fieldset 2 -->
 	    </div><!-- col -->
-    </div><!-- row -->
 END;
 ?>
 
@@ -194,13 +190,13 @@ END;
 			<div class="col-md-12">
 				<div class="page-header">
 					<h1><a href="./index.php">VidYouThink!</a>
-            <small>Caption Search</small></h1>
+                        <small>Caption Search</small></h1>
 				</div>
-        <?php if (!empty($fgmembersite->GetErrorMessage())) { ?>
-          <div class="alert alert-danger" role="alert">
-            <strong>Oh snap!</strong> <?=$fgmembersite->GetErrorMessage()?>
-          </div>
-        <?php } ?>
+                <?php if (!empty($fgmembersite->GetErrorMessage())) { ?>
+                <div class="alert alert-danger" role="alert">
+                    <strong>Oh snap!</strong> <?=$fgmembersite->GetErrorMessage()?>
+                </div>
+                <?php } ?>
 				<?=$htmlBody?>
 			</div>
 		</div>
@@ -234,6 +230,13 @@ END;
             //location.reload(true);
             // window.location.href = "account.php?edit=email#tab2";
         });
+        /*
+        $("#email").on("click", function() {
+            if ($(this).val() != "") {
+                $(this).val("");
+            }
+        });
+        */
         $('#email-update').click(function() {
             var email = $('#email').val();
             var ajaxurl = 'update_account.php',

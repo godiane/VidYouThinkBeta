@@ -27,51 +27,47 @@ $userT = new UserT();
 $user = $userT->getUser($_SESSION['id_of_user']);
 
 $htmlBody = <<<END
-	<div class="row">
 		<div class="col-lg-8">
-			<form method="GET" role="form" id="account-form" data-toggle="validator">
-		 		<fieldset>
-					<!-- Form Name -->
-					<legend>Change Password</legend>
-                    <div class="tabbable" id="tabs-762857">
-                        <div class="container" style="padding: 20px;">
-                            <div class="form-group row">
-                                <label for="username"
-                                    class="col-sm-2 col-form-label">
-                                    Username</label>
-                                <div class="col-sm-10">
+		 	<fieldset>
+				<!-- Form Name -->
+				<legend>Change Password</legend>
+                <form method="GET" role="form" id="account-form" data-toggle="validator">
+                    <div class="container col-lg-12" style="padding: 20px;">
+                        <div class="form-group row">
+                            <label for="username" class="col-sm-2 col-form-label">
+                                Username</label>
+                            <div class="col-sm-10">
 END;
-$htmlBody .=                       '<input type="text" readonly
-                                        class="form-control form-control-lg"
-                                        id="username" value="'. $user->get_username().'">';
+$htmlBody .=        '           <input type="text" readonly
+                                    class="form-control form-control-lg"
+                                    id="username" value="'. $user->get_username().'" />';
 $htmlBody .= <<<END
-                                </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="email" class="col-sm-2 col-form-label">Email</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control
-                                        form-control-lg" id="email" disabled
-END;
-$htmlBody .=                        '   value="'. $user->get_email().'">';
-$htmlBody .= <<<END
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="password" class="col-sm-2
-                                    col-form-label">Password</label>
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control
-                                        form-control-lg" id="password"
-                                        value="********">
-                                </div>
-                            </div>
-                            <button id="password-update" type="submit"
-                                class="btn btn-primary">Submit</button>
                         </div>
-					</div><!-- tab -->
-				</fieldset>
-            </form>
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control
+                                    form-control-lg" id="email" disabled
+END;
+$htmlBody .=               '        value="'. $user->get_email().'" />';
+$htmlBody .= <<<END
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password" class="col-sm-2
+                                col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control
+                                    form-control-lg" id="password"
+                                    value="********">
+                            </div>
+                        </div>
+                        <button id="password-update" type="submit"
+                            class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+			</fieldset>
             <br/><br/>
         </div>
         <div class="col-lg-4">
@@ -99,7 +95,6 @@ $htmlBody .= <<<END
 			    </div>
 		    </fieldset><!-- fieldset 2 -->
 	    </div><!-- col -->
-    </div><!-- row -->
 END;
 ?>
 
@@ -170,6 +165,11 @@ END;
 		}
         $('#edit').click(function() {
             // Response div goes here.
+        });
+        $("#password").on("click", function() {
+            if ($(this).val() != "") {
+                $(this).val("");
+            }
         });
         $('#password-update').click(function() {
             var password = $('#password').val();
