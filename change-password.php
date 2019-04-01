@@ -5,7 +5,7 @@
  * @author DIGO
  */
 if (!file_exists(__DIR__ . '/vendor/autoload.php')) {
-  throw new \Exception('please run "composer require google/apiclient:~2.0" ' .
+    throw new \Exception('please run "composer require google/apiclient:~2.0" ' .
     'in "' . __DIR__ .'"');
 }
 
@@ -17,85 +17,13 @@ require_once __DIR__ . '/include/db/user.php';
 
 session_start();
 
-if(!$fgmembersite->CheckLogin())
-{
+if (!$fgmembersite->CheckLogin()) {
     $fgmembersite->RedirectToURL("index.php");
     exit;
 }
 
 $userT = new UserT();
 $user = $userT->getUser($_SESSION['id_of_user']);
-
-$htmlBody = <<<END
-		<div class="col-lg-8">
-		 	<fieldset>
-				<!-- Form Name -->
-				<legend>Change Password</legend>
-                <form method="GET" role="form" id="account-form" data-toggle="validator">
-                    <div class="container col-lg-12" style="padding: 20px;">
-                        <div class="form-group row">
-                            <label for="username" class="col-sm-2 col-form-label">
-                                Username</label>
-                            <div class="col-sm-10">
-END;
-$htmlBody .=        '           <input type="text" readonly
-                                    class="form-control form-control-lg"
-                                    id="username" value="'. $user->get_username().'" />';
-$htmlBody .= <<<END
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control
-                                    form-control-lg" id="email" disabled
-END;
-$htmlBody .=               '        value="'. $user->get_email().'" />';
-$htmlBody .= <<<END
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="password" class="col-sm-2
-                                col-form-label">Password</label>
-                            <div class="col-sm-10">
-                                <input type="password" class="form-control
-                                    form-control-lg" id="password"
-                                    value="********">
-                            </div>
-                        </div>
-                        <button id="password-update" type="submit"
-                            class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-			</fieldset>
-            <br/><br/>
-        </div>
-        <div class="col-lg-4">
-    		<fieldset>
-            	<legend>Welcome</legend>
-    			<div class="form-group">
-    			    <div class="col-lg-10">
-END;
-$htmlBody .= '          Hello, ' . $fgmembersite->UserFullName() . '!';
-$htmlBody .= <<<END
-                        <ul class="nav flex-column">
-                            <li class="nav-item"><a class="nav-link active"
-                                href="index.php">Home</a></li>
-                            <li class="nav-item"><a class="nav-link"
-                                href="account.php">Account</a></li>
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                href="change-password.php">
-                                Change Password</a>
-                            </li>
-                            <li class="nav-item"><a  class="nav-link"
-                                href="logout.php">Logout</a></li>
-                        </ul>
-				    </div>
-			    </div>
-		    </fieldset><!-- fieldset 2 -->
-	    </div><!-- col -->
-END;
 ?>
 
 <!doctype html>
@@ -123,22 +51,80 @@ END;
     <![endif]-->
   </head>
   <body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="page-header">
-					<h1><a href="./index.php">VidYouThink!</a>
-            <small>Caption Search</small></h1>
-				</div>
-        <?php if (!empty($fgmembersite->GetErrorMessage())) { ?>
-          <div class="alert alert-danger" role="alert">
-            <strong>Oh snap!</strong> <?=$fgmembersite->GetErrorMessage()?>
-          </div>
-        <?php } ?>
-				<?=$htmlBody?>
-			</div>
-		</div>
-	</div>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="page-header">
+                      <h1><a href="./index.php">VidYouThink!</a>
+                          <small>Caption Search</small></h1>
+                  </div>
+                  <?php if (!empty($fgmembersite->GetErrorMessage())) {
+    ?>
+                  <div class="alert alert-danger" role="alert">
+                      <strong>Oh snap!</strong> <?=$fgmembersite->GetErrorMessage()?>
+                  </div>
+                  <?php
+} ?>
+                  <div class="row">
+                      <div class="col-md-8">
+                          <div class="content">
+                              <fieldset>
+                          	   <!-- Form Name -->
+                          		<legend>Change Password</legend>
+                                  <form method="GET" role="form" id="account-form" data-toggle="validator">
+                                      <div class="container col-md-12" style="padding: 20px;">
+                                          <div class="form-group row">
+                                              <label for="username" class="col-sm-2 col-form-label">Username</label>
+                                              <div class="col-sm-10">
+                                                  <input type="text" readonly class="form-control form-control-lg"
+                                                    id="username" value="<?=$user->get_username()?>" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control form-control-lg" id="email" disabled
+                                                        value="<?=$user->get_email()?>" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                                                <div class="col-sm-10">
+                                                    <input type="password" class="form-control form-control-lg"
+                                                        id="password" value="********">
+                                                </div>
+                                            </div>
+                                            <button id="password-update" type="submit"
+                                                class="btn btn-primary">Submit</button>
+                                        </div><!-- container -->
+                                    </form>
+                                </fieldset>
+                          </div>
+                      </div><!-- col-md-8 -->
+                      <div class="col-md-4">
+                          <fieldset>
+                              <legend>Welcome</legend>
+                              <div class="form-group">
+                                  <div class="col-lg-10">Hello, <?=$fgmembersite->UserFullName()?>!<ul class="nav flex-column">
+                                      <ul>
+                                          <li class="nav-item"><a class="nav-link active"
+                                            href="index.php">Home</a></li>
+                                          <li class="nav-item"><a class="nav-link"
+                                              href="account.php">Account</a></li>
+                                          <li class="nav-item"><a class="nav-link"
+                                              href="change-password.php">
+                                              Change Password</a></li>
+                                          <li class="nav-item"><a  class="nav-link"
+                                              href="logout.php">Logout</a></li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </fieldset><!-- fieldset welcome -->
+                      </div><!-- col-lg-4 -->
+                  </div><!-- row -->
+              </div><!-- col-md-12 -->
+          </div><!-- row -->
+      </div><!-- container fluid -->
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src = "assets/js/jquery.min.js"></script>
 

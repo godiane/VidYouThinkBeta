@@ -30,39 +30,12 @@ if (!$fgmembersite->CheckLogin()) {
 
 $sh = new SearchQueryT();
 $sh_list = $sh->getTop5Queries($_SESSION['id_of_user']);
-
 $htmlBody = <<<END
-	<div class="row">
-		<div class="col-lg-8">
-			<form method="GET" role="form" id="search-form" data-toggle="validator">
-		 		<fieldset>
-					<!-- Form Name -->
-					<legend>Search</legend>
-                    <input type="hidden" name="submitted" id="submitted" value="1"/>
-					<div class="input-group input-group-lg" data-toggle="tooltip"
-                        title="Enter phrase to search in YouTube Videos. Limited to
-                        25 search results.">
-						<label class="sr-only" for="q">Search Term</label>
-						<input type="text" class="form-control input-lg" id="q" name="q"
-                            placeholder="Enter phrase to search" required />
-						<span class="input-group-btn">
-							<button class="btn btn-default btn-lg" type="submit" data-loading-text="<i ' .
-                            'class=\'fa fa-circle-o-notch fa-spin\'></i> Searching...">Go!</button>
-						</span>
-					</div><!-- input-group -->
-				</fieldset>
-			</form><!-- form -->
-            <br/><br/>
-            <div class="container-fluid">
-                <div class="row">
-                    <legend>Recent Searches
-                        <button id="clear-searches" class="text-right btn btn-xs btn-link"
-                            type="submit" />Clear</button>
-                    </legend>
-            	<div class="row">
-            		<div class="col-md-12">
+    <legend>Recent Searches
+        <button id="clear-searches" class="text-right btn btn-xs btn-link"
+            type="submit" />Clear</button>
+    </legend>
 END;
-
 $counter = 1;
 foreach ($sh_list as $sh_entry) {
     $sr = new SearchResultT();
@@ -92,72 +65,34 @@ foreach ($sh_list as $sh_entry) {
             SENTIMENT_TYPE_CAPTION
         );
     }
-    $htmlBody .= '          <div class="col-md-3"> ' .
-                 '              <div class="jumbotron jumbotron-fluid"> ' .
-                 '                  <h3 class="text-danger"> ' .
-                 '                      <a href="login-home.php?q=' . $sh_entry['QUERY'] .'"> ' .
-                                            $counter . ' ' . $sh_entry['QUERY'] .
-                 '                      </a> ' .
-                 '                  </h3> ' .
-                 '                  <p> ' .
-                 '                      <h4>Overall:</h4> '.  $overall . '<br/>' .
-                 '                      <h4>Phrase:</h4> '.  $phrase . '<br/>' .
-                 '                      <h4>Comments:</h4> '.  $comments . '<br/>' .
-                 '                      <h4>Caption:</h4> '.  $caption . '<br/>' .
-                 '                      <h4>Date:</h4> '.  $sh_entry['CREATE_TIMESTAMP'] .
-                 '                      <br/>' .
-                 '                  </p> ' .
-                 '                  <p> ';
+    $htmlBody .= '<div class="jumbotron jumbotron-fluid">' .
+                 '  <h3 class="text-danger"> ' .
+                 '      <a href="login-home.php?q=' . $sh_entry['QUERY'] .'"> ' .
+                            $counter . ' ' . $sh_entry['QUERY'] . '</a> ' .
+                 '  </h3> ' .
+                 '  <p> ' .
+                 '      <h4>Overall:</h4> '.  $overall . '<br/>' .
+                 '      <h4>Phrase:</h4> '.  $phrase . '<br/>' .
+                 '      <h4>Comments:</h4> '.  $comments . '<br/>' .
+                 '      <h4>Caption:</h4> '.  $caption . '<br/>' .
+                 '      <h4>Date:</h4> '.$sh_entry['CREATE_TIMESTAMP'].'<br/>' .
+                 '  </p> ' .
+                 '  <p> ';
     if (!empty($sr_list)) {
-        $htmlBody .=  '                 <a class="btn btn-primary btn-large"
-                                            href="/analyze.php?videoId=' .
-                                            $sr_list[0]['YT_ID'] . '&phrase='.
-                                            $sh_entry['QUERY'] .'" data-loading-text="<i ' .
-                                            'class=\'fa fa-circle-o-notch fa-spin\'></i> Loading...">Details</a> ';
+        $htmlBody .=    '<a class="btn btn-primary btn-large" href="/analyze.php?videoId='.$sr_list[0]['YT_ID'] .
+                            '&phrase='.$sh_entry['QUERY'] .'" data-loading-text="<i'.
+                            ' class=\'fa fa-circle-o-notch fa-spin\'></i> Loading...">Details</a>';
     } else {
-        $htmlBody .=   '                <a class="btn btn-secondary btn-large disabled"
-                                             role="button" aria-disabled="true"
-                                              href="#">N/A</a> ';
+        $htmlBody .=   '<a class="btn btn-secondary btn-large disabled" role="button"'.
+                        ' aria-disabled="true" href="#">N/A</a> ';
     }
-    $htmlBody .=   '                    &nbsp;<button id="clear-search" value="'.
-                                        $sh_entry['QUERY'].'" class="btn btn-danger '.
-                    '                   btn-large">Delete</button> ';
-    $htmlBody .= '                  </p> ' .
-                 '              </div> ' .
-                 '          </div>';
+    $htmlBody .=   '    &nbsp;<button id="clear-search" value="'.
+                            $sh_entry['QUERY'].'" class="btn btn-danger '.
+                            'btn-large">Delete</button> ';
+    $htmlBody .= '  </p> ' .
+                 '</div> ';
     $counter++;
 }
-    $htmlBody .= '		</div> ' .
-                 '	</div> ' .
-                '</div> ' .
-            '</div> ';
-$htmlBody .= <<<END
-		</div><!-- col -->
-    <div class="col-lg-4">
-				<fieldset>
-        	<legend>Welcome</legend>
-					<div class="form-group">
-						<div class="col-lg-10">
-END;
-$htmlBody .= 'Hello, ' . $fgmembersite->UserFullName() . '!';
-$htmlBody .= <<<END
-              <ul class="nav flex-column">
-                <li class="nav-item"><a class="nav-link active"
-                  href="index.php">Home</a></li>
-                  <li class="nav-item"><a class="nav-link"
-                    href="account.php">Account</a></li>
-                    <li class="nav-item"><a class="nav-link"
-                        href="change-password.php">
-                        Change Password</a></li>
-                <li class="nav-item"><a  class="nav-link"
-                  href="logout.php">Logout</a></li>
-						</div>
-					</div>
-				</fieldset><!-- fieldset 2 -->
-	  </div><!-- col -->
-	</div><!-- row -->
-</form>
-END;
 
 $client = new Google_Client();
 $client->setDeveloperKey(YOUTUBE_DEVELOPER_KEY);
@@ -362,19 +297,66 @@ END;
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="page-header">
-					<h1><a href="./index.php">VidYouThink!</a>
-                    <small>Caption Search</small></h1>
-				</div>
+                <div class="row">
+    				<div class="page-header">
+    					<h1><a href="./index.php">VidYouThink!</a>
+                        <small>Caption Search</small></h1>
+    				</div>
+                </div><!-- row -->
                 <?php if (!empty($fgmembersite->GetErrorMessage())) { ?>
                 <div class="alert alert-danger" role="alert">
                     <strong>Oh snap!</strong> <?=$fgmembersite->GetErrorMessage()?>
-                </div>
+                </div><!-- alert -->
                 <?php } ?>
-				<?=$htmlBody?>
-			</div>
-		</div>
-	</div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <form method="GET" role="form" id="search-form" data-toggle="validator">
+                            <fieldset>
+                                <!-- Form Name -->
+                                <legend>Search</legend>
+                                <input type="hidden" name="submitted" id="submitted" value="1"/>
+                                <div class="input-group input-group-lg" data-toggle="tooltip"
+                                    title="Enter phrase to search in YouTube Videos. Limited to
+                                    25 search results.">
+                                    <label class="sr-only" for="q">Search Term</label>
+                                    <input type="text" class="form-control input-lg" id="q" name="q"
+                                        placeholder="Enter phrase to search" required />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default btn-lg" type="submit" data-loading-text="<i ' .
+                                        'class=\'fa fa-circle-o-notch fa-spin\'></i> Searching...">Go!</button>
+                                    </span>
+                                </div><!-- input-group -->
+                            </fieldset><!--f fieldset search -->
+                        </form><!-- form -->
+                        <br/><br/>
+                        <div class="content">
+                            <?=$htmlBody?>
+                        </div>
+                    </div><!-- col-md-8 -->
+                    <div class="col-md-4">
+                        <fieldset>
+                            <legend>Welcome</legend>
+                            <div class="form-group">
+                                <div class="col-lg-10">Hello, <?=$fgmembersite->UserFullName()?>!<ul class="nav flex-column">
+                                    <ul>
+                                        <li class="nav-item"><a class="nav-link active"
+                                          href="index.php">Home</a></li>
+                                        <li class="nav-item"><a class="nav-link"
+                                            href="account.php">Account</a></li>
+                                        <li class="nav-item"><a class="nav-link"
+                                            href="change-password.php">
+                                            Change Password</a></li>
+                                        <li class="nav-item"><a  class="nav-link"
+                                            href="logout.php">Logout</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </fieldset><!-- fieldset welcome -->
+                    </div><!-- col-lg-4 -->
+                </div><!-- row -->
+			</div><!-- col-md-12 -->
+		</div><!-- row -->
+	</div><!-- container fluid -->
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src = "assets/js/jquery.min.js"></script>
 

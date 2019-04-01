@@ -28,135 +28,103 @@ $userT = new UserT();
 $user = $userT->getUser($_SESSION['id_of_user']);
 
 $htmlBody = <<<END
-		<div class="col-lg-8">
-		 	<fieldset>
-				<!-- Form Name -->
-				<legend>Account</legend>
-                <div class="tabbable" id="tabs-762857">
-                    <ul class="nav nav-tabs">
+	<fieldset>
+	    <!-- Form Name -->
+		<legend>Account</legend>
+        <div class="tabbable" id="tabs-762857">
+            <ul class="nav nav-tabs">
 END;
 if (isset($_GET['edit'])) {
-        $htmlBody .= <<<END
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tab1" data-toggle="tab">View</a>
-                        </li>
-                        <li class="nav-item active show">
-                            <a id="edit" class="nav-link"
-                                href="/account.php?edit=email#tab2" data-toggle="tab">Edit</a>
-                        </li>
+    $htmlBody .= <<<END
+                <li class="nav-item">
+                    <a class="nav-link" href="#tab1" data-toggle="tab">View</a>
+                </li>
+                <li class="nav-item active show">
+                    <a id="edit" class="nav-link"
+                        href="/account.php?edit=email#tab2" data-toggle="tab">Edit</a>
+                </li>
 END;
 } else {
     $htmlBody .= <<<END
-                        <li class="nav-item active show">
-                            <a class="nav-link" href="#tab1" data-toggle="tab">View</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="edit" class="nav-link"
-                                href="/account.php?edit=email#tab2" data-toggle="tab">Edit</a>
-                        </li>
+                <li class="nav-item active show">
+                    <a class="nav-link" href="#tab1" data-toggle="tab">View</a>
+                </li>
+                <li class="nav-item">
+                    <a id="edit" class="nav-link"
+                        href="/account.php?edit=email#tab2" data-toggle="tab">Edit</a>
+                </li>
 END;
 }
 $htmlBody .= <<<END
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tab1">
-                            <div class="container col-lg-12" style="padding: 20px;">
-                                <div class="form-group row">
-                                    <label for="username" class="col-sm-2 col-form-label">Username</label>
-                                    <div class="col-sm-10">
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <div class="container col-md-12" style="padding: 20px;">
+                        <div class="form-group row">
+                            <label for="username" class="col-sm-2 col-form-label">Username</label>
+                            <div class="col-sm-10">
 END;
-$htmlBody .=                   '        <input type="text" readonly class="form-control form-control-lg"
-                                            id="usernameView" value="'. $user->get_username().'">';
+$htmlBody .=                '    <input type="text" readonly class="form-control form-control-lg"
+                                        id="usernameView" value="'. $user->get_username().'">';
 $htmlBody .= <<<END
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="email" class="col-sm-2 col-form-label">Email</label>
-                                    <div class="col-sm-10">
-END;
-$htmlBody .=                    '       <input type="text" readonly
-                                            class="form-control form-control-lg" id="emailView"
-                                            value="'. $user->get_email().'">';
-$htmlBody .= <<<END
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="password" class="col-sm-2 col-form-label">Password</label>
-                                    <div class="col-sm-10">
-END;
-$htmlBody .=                    '       <input type="password" readonly
-                                            class="form-control form-control-lg"
-                                            id="passwordView" value="********">';
-$htmlBody .= <<<END
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                        <div class="tab-pane" id="tab2">
-                            <form method="GET" role="form" id="account-form" data-toggle="validator">
-                                <div class="container col-lg-12" style="padding: 20px;">
-                                    <div class="form-group row">
-                                        <label for="username" class="col-sm-2 col-form-label">Username</label>
-                                        <div class="col-sm-10">
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
 END;
-$htmlBody .=                        '       <input type="text" readonly class="form-control form-control-lg"
-                                                id="username" value="'. $user->get_username().'">';
+$htmlBody .=                '   <input type="text" readonly
+                                    class="form-control form-control-lg" id="emailView"
+                                    value="'. $user->get_email().'">';
 $htmlBody .= <<<END
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="email" class="col-sm-2 col-form-label">Email</label>
-                                        <div class="col-sm-10">
-                                            <input type="text"
-                                                class="form-control
-                                                form-control-lg" id="email"
-END;
-$htmlBody .=                        '           value="'. $user->get_email().'" />';
-$htmlBody .= <<<END
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="password" class="col-sm-2 col-form-label">Password</label>
-                                        <div class="col-sm-10">
-                                            <input type="password"
-                                                class="form-control form-control-lg"
-                                                id="password" disabled value="********">
-                                        </div>
-                                    </div>
-                                    <button id="email-update" type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
+                            </div>
                         </div>
-                    </div>
-				</div><!-- tab -->
-			</fieldset>
-            <br/><br/>
-        </div>
-        <div class="col-lg-4">
-    		<fieldset>
-            	<legend>Welcome</legend>
-    			<div class="form-group">
-    			    <div class="col-lg-10">
+                        <div class="form-group row">
+                            <label for="password" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" readonly
+                                    class="form-control form-control-lg"
+                                    id="passwordView" value="********">
+                            </div>
+                        </div>
+                    </div><!-- container -->
+                </div><!-- tab-pane -->
+                <div class="tab-pane" id="tab2">
+                    <form method="GET" role="form" id="account-form" data-toggle="validator">
+                        <div class="container col-md-12" style="padding: 20px;">
+                            <div class="form-group row">
+                                <label for="username" class="col-sm-2 col-form-label">Username</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control form-control-lg"
 END;
-$htmlBody .= '          Hello, ' . $fgmembersite->UserFullName() . '!';
+$htmlBody .=                           ' id="username" value="'. $user->get_username().'">';
 $htmlBody .= <<<END
-                        <ul class="nav flex-column">
-                            <li class="nav-item"><a class="nav-link active"
-                                href="index.php">Home</a></li>
-                            <li class="nav-item"><a class="nav-link"
-                                href="account.php">Account</a></li>
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                href="change-password.php">
-                                Change Password</a>
-                            </li>
-                            <li class="nav-item"><a  class="nav-link"
-                                href="logout.php">Logout</a></li>
-                        </ul>
-				    </div>
-			    </div>
-		    </fieldset><!-- fieldset 2 -->
-	    </div><!-- col -->
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control form-control-lg" id="email"
+END;
+$htmlBody .=                            ' value="'. $user->get_email().'" />';
+$htmlBody .= <<<END
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control form-control-lg"
+                                        id="password" disabled value="********">
+                                </div>
+                            </div>
+                            <button id="email-update" type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div><!-- tab-pane -->
+            </div><!-- tab-content -->
+        </div><!-- tab -->
+	</fieldset>
+<br/><br/>
 END;
 ?>
 
@@ -197,10 +165,36 @@ END;
                     <strong>Oh snap!</strong> <?=$fgmembersite->GetErrorMessage()?>
                 </div>
                 <?php } ?>
-				<?=$htmlBody?>
-			</div>
-		</div>
-	</div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="content">
+                            <?=$htmlBody?>
+                        </div>
+                    </div><!-- col-md-8 -->
+                    <div class="col-md-4">
+                        <fieldset>
+                            <legend>Welcome</legend>
+                            <div class="form-group">
+                                <div class="col-lg-10">Hello, <?=$fgmembersite->UserFullName()?>!<ul class="nav flex-column">
+                                    <ul>
+                                        <li class="nav-item"><a class="nav-link active"
+                                          href="index.php">Home</a></li>
+                                        <li class="nav-item"><a class="nav-link"
+                                            href="account.php">Account</a></li>
+                                        <li class="nav-item"><a class="nav-link"
+                                            href="change-password.php">
+                                            Change Password</a></li>
+                                        <li class="nav-item"><a  class="nav-link"
+                                            href="logout.php">Logout</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </fieldset><!-- fieldset welcome -->
+                    </div><!-- col-lg-4 -->
+                </div><!-- row -->
+            </div><!-- col-md-12 -->
+		</div><!-- row -->
+	</div><!-- container fluid -->
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src = "assets/js/jquery.min.js"></script>
 

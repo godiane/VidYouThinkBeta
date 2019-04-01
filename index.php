@@ -22,51 +22,6 @@ if($fgmembersite->CheckLogin())
        exit;
   }
 }
-
-$htmlBody = <<<END
-	<div class="row">
-		<div class="col-lg-6">
-			<legend>Welcome</legend>
-			<div class="input-group input-group-lg" data-toggle="tooltip" title="Welcome">
-				Please login to access functionality.
-			</div><!-- input-group -->
-		</div><!-- col -->
-		<div class="col-lg-6">
-			<form method="POST" action="./index.php" role="form" id="login-form" data-toggle="validator" class="form-horizontal" accept-charset="UTF-8">
-				<!-- Form Name -->
-				<fieldset>
-        	<legend>Login</legend>
-          <input type="hidden" name="submitted" id="submitted" value="1"/>
-					<div class="form-group">
-						<div class="col-lg-10">
-							<input id="username" name="username" type="text" placeholder="Please enter username." class="form-control" required />
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-lg-10">
-							<input id="password" name="password" type="password" placeholder="Please enter password." class="form-control" required />
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-lg-10">
-							<div class="checkbox">
-								<label>
-									<input type="checkbox"> Remember me
-								</label>
-							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-lg-10">
-							<input type="submit" id="login" name="login" class="btn btn-success btn-block" />
-						</div>
-                        <a href="./register.php" class="btn" type="button">Not a member? Register!</a>
-					</div>
-				</fieldset><!-- fieldset 2 -->
-			</form><!-- form -->
-	  </div><!-- col -->
-	</div><!-- row -->
-END;
 ?>
 
 <!doctype html>
@@ -94,18 +49,63 @@ END;
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="page-header">
-					<h1><a href="./index.php">VidYouThink!</a> <small>Caption Search</small></h1>
-				</div>
-        <?php if (!empty($fgmembersite->GetErrorMessage())) { ?>
-          <div class="alert alert-danger" role="alert">
-            <strong>Oh snap!</strong> <?=$fgmembersite->GetErrorMessage()?>
-          </div>
-        <?php } ?>
-				<?=$htmlBody?>
-			</div>
-		</div>
-	</div>
+                <div class="row">
+    				<div class="page-header">
+    					<h1><a href="./index.php">VidYouThink!</a>
+                        <small>Caption Search</small></h1>
+    				</div>
+                </div><!-- row -->
+                <?php if (!empty($fgmembersite->GetErrorMessage())) { ?>
+                <div class="alert alert-danger" role="alert">
+                    <strong>Oh snap!</strong> <?=$fgmembersite->GetErrorMessage()?>
+                </div><!-- alert -->
+                <?php } ?>
+                <div class="row">
+                    <div class="col-md-8">
+    			        <legend>Welcome</legend>
+    			        <div class="input-group input-group-lg" data-toggle="tooltip" title="Welcome">
+    				        Please login to access functionality.
+    			        </div><!-- input-group -->
+    		        </div><!-- col -->
+    		       <div class="col-md-4">
+        			   <!-- Form Name -->
+        			   <fieldset>
+                            <form method="POST" action="./index.php" role="form" id="login-form" data-toggle="validator" class="form-horizontal" accept-charset="UTF-8">
+                                <legend>Login</legend>
+
+                                <input type="hidden" name="submitted" id="submitted" value="1"/>
+        					    <div class="form-group">
+            						<div class="col-lg-10">
+            							<input id="username" name="username" type="text" placeholder="Please enter username." class="form-control" required />
+            						</div>
+        					    </div>
+        					    <div class="form-group">
+        						    <div class="col-lg-10">
+        							    <input id="password" name="password" type="password" placeholder="Please enter password." class="form-control" required />
+        						    </div>
+        					    </div>
+        					    <div class="form-group">
+        						    <div class="col-lg-10">
+            							<div class="checkbox">
+            								<label>
+            									<input type="checkbox"> Remember me
+            								</label>
+            							</div>
+        						    </div>
+        					    </div>
+        					    <div class="form-group">
+        						    <div class="col-lg-10">
+        							    <input type="submit" id="login" name="login" class="btn btn-success btn-block" />
+        						    </div>
+                                    <a href="./register.php" class="btn" type="button">Not a member? Register!</a>
+                                </div>
+                            </form>
+                        </fieldset>
+    	            </div><!-- col-md-6 -->
+    	        </div><!-- row -->
+    	    </div><!-- col-lg-12 -->
+		</div><!-- row -->
+	</div><!-- container-fluid-->
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src = "assets/js/jquery.min.js"></script>
 
