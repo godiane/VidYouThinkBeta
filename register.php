@@ -107,7 +107,7 @@ END;
                     <script type="text/javascript">
                     function Redirect()
                     {
-                        window.location="/index.php";
+                        window.location="index.php";
                     }
                     setTimeout('Redirect()', 5000);
                     </script>
