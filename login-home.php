@@ -39,8 +39,10 @@ END;
 $counter = 1;
 foreach ($sh_list as $sh_entry) {
     $sr = new SearchResultT();
+    $r = new RatingT();
 
     $sr_list = $sr->getTopSearchResult($sh_entry['ID']);
+    $rating = '0';
     $overall = 'N/A';
     $phrase = 'N/A';
     $comments = 'N/A';
@@ -64,13 +66,16 @@ foreach ($sh_list as $sh_entry) {
             $sr_list[0]['YT_ID'],
             SENTIMENT_TYPE_CAPTION
         );
+        $rating = $r->GetRatingByVideoId($sr_list[0]['YT_ID']);
     }
+
     $htmlBody .= '<div class="jumbotron jumbotron-fluid">' .
                  '  <h3 class="text-danger"> ' .
                  '      <a href="login-home.php?q=' . $sh_entry['QUERY'] .'"> ' .
                             $counter . ' ' . $sh_entry['QUERY'] . '</a> ' .
                  '  </h3> ' .
                  '  <p> ' .
+                 '      <h4>Rating:</h4> '.  $rating . '<br/>' .
                  '      <h4>Overall:</h4> '.  $overall . '<br/>' .
                  '      <h4>Phrase:</h4> '.  $phrase . '<br/>' .
                  '      <h4>Comments:</h4> '.  $comments . '<br/>' .
@@ -170,12 +175,10 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
                 $video_i->InsertVideoIntoDB();
 
                 $rating_i->set_video_id($video_i->get_yt_id());
-                // TODO
-                $rating_i->set_rating('0');
-
                 $rating_i->set_overall_view($videosResponse->items[0]->statistics->viewCount);
                 $rating_i->set_likes($videosResponse->items[0]->statistics->likeCount);
                 $rating_i->set_dislikes($videosResponse->items[0]->statistics->dislikeCount);
+                $rating_i->set_rating($rating_i->get_likes()-$rating_i->get_dislikes());
                 $rating_i->set_insert_user_id($_SESSION['id_of_user']);
                 $rating_i->set_search_query_id($_SESSION['search_query_id']);
                 $rating_i->InsertRatingIntoDB();
@@ -274,12 +277,12 @@ END;
   <head>
 	<meta charset = "utf-8">
     <meta http-equiv = "X-UA-Compatible" content = "IE = edge">
-    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>VidYouThink Caption Search</title>
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 	<!-- Optional theme -->
-	<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" />
 	<link rel="stylesheet" href="assets/css/site.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media
@@ -322,8 +325,8 @@ END;
                                     <input type="text" class="form-control input-lg" id="q" name="q"
                                         placeholder="Enter phrase to search" required />
                                     <span class="input-group-btn">
-                                        <button class="btn btn-default btn-lg" type="submit" data-loading-text="<i ' .
-                                        'class=\'fa fa-circle-o-notch fa-spin\'></i> Searching...">Go!</button>
+                                        <button class="btn btn-default btn-lg" type="submit"
+                                            data-loading-text="Searching...">Go!</button>
                                     </span>
                                 </div><!-- input-group -->
                             </fieldset><!--f fieldset search -->
@@ -357,13 +360,13 @@ END;
 			</div><!-- col-md-12 -->
 		</div><!-- row -->
 	</div><!-- container fluid -->
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src = "assets/js/jquery.min.js"></script>
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js"></script>
 	<script>
 		$(document).ready(function(){
 			$('[data-toggle="tooltip"]').tooltip();

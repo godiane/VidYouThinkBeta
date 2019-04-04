@@ -172,12 +172,10 @@ class RatingT
     //-------Main Operations ----------------------
     /** Insert into RATING table **/
     function InsertRatingIntoDB() {
-      // TODO SanitizeForSQL
-      $uniqueId = uniqid('vyt',true);
-
+        $uniqueId = uniqid('vyt',true);
         try {
             DB::insertUpdate('RATING', array(
-                'ID' => $uniqueId,
+                'ID' => $field_val1,
                 'VIDEO_ID' => $this->video_id,
                 'RATING' => str_replace(',', '', $this->rating),
                 'OVERALL_VIEW' => str_replace(',', '', $this->overall_view),
@@ -188,6 +186,23 @@ class RatingT
             ));
         }
         catch (MeekroDBException $e) {
+            $this->HandleDBError($e->getMessage());
+            return false;
+        }
+        return true;
+    } // END FUNCTION
+
+    function GetRatingByVideoId($yt_id_i) {
+        try {
+            $field_val1 = $this->get_utils()->sanitize_for_sql($yt_id_i);
+            $query     = "SELECT RATING FROM RATING WHERE VIDEO_ID=%s";
+            $result    = DB::queryFirstField($query, $field_val1);
+
+            if(DB::count() > 0) {
+              return $result;
+            }
+            return "";
+        } catch (MeekroDBException $e) {
             $this->HandleDBError($e->getMessage());
             return false;
         }

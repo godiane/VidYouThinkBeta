@@ -89,7 +89,8 @@ $user = $userT->getUser($_SESSION['id_of_user']);
                                             </div>
                                             <div class="form-group row">
                                                 <label for="password" class="col-sm-2 col-form-label">Password</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-10" data-toggle="tooltip"
+                                                    title="Enter new password - 6-14 characters only.">
                                                     <input type="password" class="form-control form-control-lg"
                                                         id="password" value="********">
                                                 </div>

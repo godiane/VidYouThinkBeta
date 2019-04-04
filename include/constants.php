@@ -41,7 +41,6 @@
 	// LOCAL
  	define('CA_CERT_LOCATION', '/Users/godiane/Projects/beta/VidYouThinkPHP/ssl/certs/cacert.pem');
 
-
 	define('CAPTION_LANGUAGE', 'en');
 
 	define('SRT_STATE_SUBNUMBER', 0);

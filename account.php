@@ -31,7 +31,7 @@ $htmlBody = <<<END
 	<fieldset>
 	    <!-- Form Name -->
 		<legend>Account</legend>
-        <div class="tabbable" id="tabs-762857">
+        <div class="tabbable" id="tabs-762857" data-toggle="tooltip" title="View/Edit Account Details">
             <ul class="nav nav-tabs">
 END;
 if (isset($_GET['edit'])) {
@@ -101,7 +101,7 @@ $htmlBody .=                           ' id="username" value="'. $user->get_user
 $htmlBody .= <<<END
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row" data-toggle="tooltip" title="Edit new email address">
                                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control form-control-lg" id="email"

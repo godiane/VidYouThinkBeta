@@ -31,7 +31,7 @@ $htmlBody = <<<END
         <input type="hidden" name="submitted" id="submitted" value="1" />
 
         <!-- Text input-->
-		<div class="form-group">
+		<div class="form-group" data-toggle="tooltip" title="Enter desired username - must be alphanumeric between 2-16 characters.">
   		    <label class="col-md-2 control-label" for="textinput">Username</label>
   		    <div class="col-lg-6">
       			<input id="username" name="username" type="text" maxlength="50" placeholder="user" class="form-control input-lg" required />
@@ -40,7 +40,7 @@ $htmlBody = <<<END
 		</div>
 
 		<!-- Text input-->
-		<div class="form-group">
+		<div class="form-group" data-toggle="tooltip" title="Enter valid email address.">
   		    <label class="col-md-2 control-label" for="email">Email</label>
   		    <div class="col-lg-6">
   			    <input id="email" name="email" maxlength="100" type="text" placeholder="user@email.com"
@@ -50,7 +50,7 @@ $htmlBody = <<<END
 		</div>
 
 		<!-- Password input-->
-		<div class="form-group">
+		<div class="form-group" data-toggle="tooltip" title="Enter desired password - must be between 6-14 characters.">
   		    <label class="col-md-2 control-label" for="password">Password</label>
   		    <div class="col-lg-6">
     		    <input id="password" name="password" maxlength="50" type="password" placeholder="********" class="form-control input-lg" required />
@@ -104,9 +104,15 @@ END;
                 <?php } else { if($is_successful) { ?>
                 <div class="alert alert-success" role="alert">
                     <strong>Thanks for registering!</strong>
-                    <!-- Our confirmation email is on its way.
-                    Please click the link in the email to complete the registration.
-                    -->
+                    <script type="text/javascript">
+                    function Redirect()
+                    {
+                        window.location="/index.php";
+                    }
+                    setTimeout('Redirect()', 5000);
+                    </script>
+                    You will be redirected to <a href="/index.php">login page</a> in 5 seconds.
+                    Else, click <a href="/index.php">here</a>.
                 </div>
                 <?php } } ?>
 				<?=$htmlBody?>
