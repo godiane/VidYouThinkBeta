@@ -175,7 +175,7 @@ class RatingT
         $uniqueId = uniqid('vyt',true);
         try {
             DB::insertUpdate('RATING', array(
-                'ID' => $field_val1,
+                'ID' => $uniqueId,
                 'VIDEO_ID' => $this->video_id,
                 'RATING' => str_replace(',', '', $this->rating),
                 'OVERALL_VIEW' => str_replace(',', '', $this->overall_view),
