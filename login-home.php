@@ -84,12 +84,13 @@ foreach ($sh_list as $sh_entry) {
                  '  </p> ' .
                  '  <p> ';
     if (!empty($sr_list)) {
-        $htmlBody .=    '<a class="btn btn-primary btn-large" href="/analyze.php?videoId='.$sr_list[0]['YT_ID'] .
-                            '&phrase='.$sh_entry['QUERY'] .'" data-loading-text="<i'.
-                            ' class=\'fa fa-circle-o-notch fa-spin\'></i> Loading...">Details</a>';
+
+        $htmlBody .=    '<a href="analyze.php?videoId='.$sr_list[0]['YT_ID'] .
+                            '&phrase='.$sh_entry['QUERY'] .'"><button class="btn btn-primary btn-large" data-loading-text="<span class='.
+                            '\'glyphicon glyphicon-refresh glyphicon-refresh-animate\'></span> Loading...">Details</button></a>';
     } else {
-        $htmlBody .=   '<a class="btn btn-secondary btn-large disabled" role="button"'.
-                        ' aria-disabled="true" href="#">N/A</a> ';
+        $htmlBody .=   '<button class="btn btn-secondary btn-large disabled" role="button"'.
+                        ' aria-disabled="true" href="#">N/A</button> ';
     }
     $htmlBody .=   '    &nbsp;<button id="clear-search" value="'.
                             $sh_entry['QUERY'].'" class="btn btn-danger '.
@@ -209,8 +210,8 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
                 $videos .= '				<br/><br/>';
                 $videos .= '				<a href="analyze.php?videoId=' . $video_i->get_yt_id()
                     . '&phrase=' . urlencode($query) . '"><button type="button" ' .
-                    'class="btn btn-success btn-lg" data-loading-text="<i ' .
-                    'class=\'fa fa-circle-o-notch fa-spin\'></i> Analyzing...">' .
+                    'class="btn btn-success btn-lg" data-loading-text="<span class='.
+                    '\'glyphicon glyphicon-refresh glyphicon-refresh-animate\'></span> Analyzing...">' .
                     'Analyze</button>';
                 $videos .= '				</a>';
                 $videos .= '			</div>';
@@ -325,8 +326,8 @@ END;
                                     <input type="text" class="form-control input-lg" id="q" name="q"
                                         placeholder="Enter phrase to search" required />
                                     <span class="input-group-btn">
-                                        <button class="btn btn-default btn-lg" type="submit"
-                                            data-loading-text="Searching...">Go!</button>
+                                        <button class="btn btn-sm btn-success" type="submit"
+                                            data-loading-text="<span class='glyphicon glyphicon-refresh glyphicon-refresh-animate'></span> Searching...">Go!</button>
                                     </span>
                                 </div><!-- input-group -->
                             </fieldset><!--f fieldset search -->
@@ -367,9 +368,19 @@ END;
     <script src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js"></script>
-	<script>
+    <script>
 		$(document).ready(function(){
 			$('[data-toggle="tooltip"]').tooltip();
+            $('button[data-loading-text]')
+            .on('click', function () {
+                var btn = $(this)
+                btn.button('loading');
+                /*
+                setTimeout(function () {
+                    btn.button('reset')
+                }, 3000)
+                */
+            });
 		});
 		$('#search-form').validator().on('submit', function (e) {
 		  if (e.isDefaultPrevented()) {
