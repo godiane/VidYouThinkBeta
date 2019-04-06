@@ -58,6 +58,7 @@ $youtube = new Google_Service_YouTube($client);
 
 // Check if an auth token exists for the required scopes
 $tokenSessionKey = 'token-' . $client->prepareScopes();
+
 if (isset($_GET['code'])) {
 	if (strval($_SESSION['state']) !== strval($_GET['state'])) {
 		die('The session state did not match.');
@@ -65,22 +66,17 @@ if (isset($_GET['code'])) {
 
 	$client->authenticate($_GET['code']);
 	$_SESSION[$tokenSessionKey] = $client->getAccessToken();
-  // header('Location: ' . $redirect);
-  // header('Location: ' . $redirect  . '?' . $_SERVER['QUERY_STRING']);
 	header('Location: ' . $redirect . '?' . $_SESSION['query']);
 }
 
 if (isset($_SESSION[$tokenSessionKey])) {
-	/*
-	$client->refreshToken(YOUTUBE_REFRESH_TOKEN);
-	*/
 	$client->setAccessToken($_SESSION[$tokenSessionKey]);
-  // TODO Implement refresing Access Token
 	if ($client->isAccessTokenExpired()) {
 	    $currentTokenData = json_decode($_SESSION[$tokenSessionKey]);
 	    if (isset($currentTokenData->refresh_token)) {
 	        $client->refreshToken($currentTokenData->refresh_token);
 	    }
+        $_SESSION[$tokenSessionKey] = $client->getAccessToken();
 	}
 }
 
@@ -92,8 +88,11 @@ if ($client->getAccessToken()) {
 	// This code executes if the user enters an action in the form
 	// and submits the form. Otherwise, the page displays the form above.
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-		$videoId = isset($_GET['videoId']) ? $_GET['videoId'] : null;
-		$phrase = isset($_GET['phrase']) ? urldecode($_GET['phrase']) : null;
+        $jsonStringDecode = $utils->base64UrlDecode($_SESSION['state']);
+        $stateArr = json_decode($jsonStringDecode);
+
+		$videoId = isset($_GET['videoId']) ? $_GET['videoId'] : $stateArr->videoId;
+		$phrase = isset($_GET['phrase']) ? urldecode($_GET['phrase']) : urldecode($stateArr->phrase);
 
 		try {
 			// FIXME
@@ -378,16 +377,23 @@ if ($client->getAccessToken()) {
 			if ($e->getCode() == '401') {
 				unset($_SESSION[$tokenSessionKey]);
 				// If the user hasn't authorized the app, initiate the OAuth flow
-				$state = mt_rand();
-				$client->setState($state);
-				$_SESSION['state'] = $state;
+                $state = mt_rand();
+                if (!empty($_SERVER['QUERY_STRING'])) {
+                    $_SESSION['query'] = $_SERVER['QUERY_STRING'];
+                    $queryArr = explode('&', $_SESSION['query']);
+                    $videoIdArr = explode('=', $queryArr[0]);
+                    $phraseArr = explode('=', $queryArr[1]);
+                    $jsonArr = array($videoIdArr[0] => $videoIdArr[1], $phraseArr[0] => $phraseArr[1]);
+                    $jsonString = json_encode($jsonArr);
+                    $state = $utils->base64UrlEncode($jsonString);
+                }
+                $client->setState($state);
+                $_SESSION['state'] = $state;
                 $_SESSION['query'] = $_SERVER['QUERY_STRING'];
-                // echo $_SESSION['query'];
-                //echo $_SERVER['QUERY_STRING'];
 
 				$authUrl = $client->createAuthUrl();
 				$htmlBody .= '<div class="alert alert-danger"><h3>Authorization Required</h3>' .
-				'<p>You need to <a href="' . $authUrl . '">authorize access</a> before proceeding.<p></div>';
+				'<p>You will need to <a href="'.$authUrl.'">authorize access</a> before proceeding.</p></div>';
 			} else {
 				$htmlBody .= sprintf('<div class="alert alert-danger"><strong>'. SERVICE_ERROR_MSG .'</strong> '.
 						'<code>%s</code></div>', htmlspecialchars($e->getMessage()));
@@ -402,23 +408,33 @@ if ($client->getAccessToken()) {
 	}
 	$_SESSION[$tokenSessionKey] = $client->getAccessToken();
 } elseif (YOUTUBE_OAUTH2_CLIENT_ID == 'REPLACE_ME') {
-  $htmlBody = <<<END
-  <h3>Client Credentials Required</h3>
-  <p>
-    You need to set <code>\YOUTUBE_OAUTH2_CLIENT_ID</code> and
-    <code>\YOUTUBE_OAUTH2_CLIENT_ID</code> before proceeding.
-  <p>
+    $htmlBody = <<<END
+        <h3>Client Credentials Required</h3>
+        <p>
+            You need to set <code>\YOUTUBE_OAUTH2_CLIENT_ID</code> and
+            <code>\YOUTUBE_OAUTH2_CLIENT_ID</code> before proceeding.
+        </p>
 END;
 } else {
-  // If the user hasn't authorized the app, initiate the OAuth flow
-  $state = mt_rand();
-  $client->setState($state);
-  $_SESSION['state'] = $state;
+    // If the user hasn't authorized the app, initiate the OAuth flow
+    $jsonString = '';
+    $state = mt_rand();
+    if (!empty($_SERVER['QUERY_STRING'])) {
+        $_SESSION['query'] = $_SERVER['QUERY_STRING'];
+        $queryArr = explode('&', $_SESSION['query']);
+        $videoIdArr = explode('=', $queryArr[0]);
+        $phraseArr = explode('=', $queryArr[1]);
+        $jsonArr = array($videoIdArr[0] => $videoIdArr[1], $phraseArr[0] => $phraseArr[1]);
+        $jsonString = json_encode($jsonArr);
+        $state = $utils->base64UrlEncode($jsonString);
+    }
+    $client->setState($state);
+    $_SESSION['state'] = $state;
+    $authUrl = $client->createAuthUrl();
 
-  $authUrl = $client->createAuthUrl();
-  $htmlBody = <<<END
-  <h3>Authorization Required</h3>
-  <p>You need to <a href="$authUrl">authorize access</a> before proceeding.<p>
+    $htmlBody = <<<END
+        <h3>Authorization Required</h3>
+        <p>You need to <a href="$authUrl">authorize access</a> before proceeding.</p>
 END;
 }
 

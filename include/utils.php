@@ -69,6 +69,16 @@ class Utils
     {
         return addslashes($str);
     } // END FUNCTION
+
+    function base64UrlEncode($inputStr)
+    {
+        return strtr(base64_encode($inputStr), '+/=', '-_,');
+    }
+
+    function base64UrlDecode($inputStr)
+    {
+        return base64_decode(strtr($inputStr, '-_,', '+/='));
+    }
 }
 
 ?>
