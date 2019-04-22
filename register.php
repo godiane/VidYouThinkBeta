@@ -35,7 +35,7 @@ $htmlBody = <<<END
   		    <label class="col-md-2 control-label" for="textinput">Username</label>
   		    <div class="col-lg-6">
       			<input id="username" name="username" type="text" maxlength="50" placeholder="user" class="form-control input-lg" required />
-      			<span class="help-block">Please enter desired username.</span>
+      			<span class="help-block">Please enter desired username - must be alphanumeric between 2-16 characters.</span>
   		    </div>
 		</div>
 
@@ -45,7 +45,7 @@ $htmlBody = <<<END
   		    <div class="col-lg-6">
   			    <input id="email" name="email" maxlength="100" type="text" placeholder="user@email.com"
                     class="form-control input-lg" required />
-  			    <span class="help-block">Please enter your email address.</span>
+  			    <span class="help-block">Please enter your valid email address.</span>
   		    </div>
 		</div>
 
@@ -54,7 +54,7 @@ $htmlBody = <<<END
   		    <label class="col-md-2 control-label" for="password">Password</label>
   		    <div class="col-lg-6">
     		    <input id="password" name="password" maxlength="50" type="password" placeholder="********" class="form-control input-lg" required />
-    		    <span class="help-block">Please enter a password.</span>
+    		    <span class="help-block">Please enter a password - must be between 6-14 characters.</span>
   		    </div>
 		</div>
 

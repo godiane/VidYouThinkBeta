@@ -298,9 +298,13 @@ if ($client->getAccessToken()) {
 				$htmlBody .= '										<th>Comment</th>';
 				$htmlBody .= '									</tr>';
 				$htmlBody .= '								</thead>';
-				$htmlBody .= "								<tbody><tr>";
-				$htmlBody .= "									<td>" . $commentHTML . "</td>";
-				$htmlBody .= '								</tr></tbody>';
+				$htmlBody .= "								<tbody>";
+                if (!empty($commentHTML)) {
+                    $htmlBody .= $commentHTML;
+                } else {
+                    $htmlBody .= '<tr class="bg-danger"><td colspan="4" class="text-center">Video has no comments.</td></tr>';
+                }
+				$htmlBody .= '								</tbody>';
 				$htmlBody .= '							</table>';
 				$htmlBody .= '						</div>';
 				$htmlBody .= '					</div>';

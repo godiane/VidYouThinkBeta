@@ -170,8 +170,8 @@ class SearchQueryT
     } // END FUNCTION
 
     function IsSearchUnique($user_id_input, $query_input) {
-      if (!$this->IsFieldUnique($this->user_id, 'USER_ID', 'SEARCH_QUERY')
-        && !$this->IsFieldUnique($this->query, 'QUERY', 'SEARCH_QUERY')) {
+      if (!($this->IsFieldUnique($this->user_id, 'USER_ID', 'SEARCH_QUERY')
+        && $this->IsFieldUnique($this->query, 'QUERY', 'SEARCH_QUERY'))) {
           return false;
       }
       return true;
@@ -179,15 +179,15 @@ class SearchQueryT
 
     function SaveSearchToDatabase()
     {
-        if (!$this->IsSearchUnique($this->user_id, $this->query)) {
+        //if (!$this->IsSearchUnique($this->user_id, $this->query)) {
             // TODO get the query from DB and just get all details from DB/json
             // echo $this->get_search_query_id($this->user_id, $this->query);
-        } else {
+        //} else {
             if (!$this->InsertSearchQueryIntoDB()) {
                 $this->HandleError("Inserting to Database failed.");
                 return false;
             }
-        }
+        //}
         return true;
     } // END FUNCTION
 
