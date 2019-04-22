@@ -31,7 +31,11 @@ if (!$fgmembersite->CheckLogin()) {
 $sh = new SearchQueryT();
 $sh_list = $sh->getTop5Queries($_SESSION['id_of_user']);
 $htmlBody = <<<END
-    <legend>Recent Searches
+    <legend>
+END;
+$htmlBody .= count($sh_list) . " ";
+$htmlBody .= <<<END
+    Recent Searches
         <button id="clear-searches" class="text-right btn btn-xs btn-link"
             type="submit" />Clear</button>
     </legend>
@@ -324,7 +328,7 @@ END;
                                     25 search results.">
                                     <label class="sr-only" for="q">Search Term</label>
                                     <input type="text" class="form-control input-lg" id="q" name="q"
-                                        placeholder="Enter phrase to search" required />
+                                        placeholder="Enter phrase to search in YouTube Videos. Limited to 25 search results." required />
                                     <span class="input-group-btn">
                                         <button class="btn btn-sm btn-success" type="submit"
                                             data-loading-text="<span class='glyphicon glyphicon-refresh glyphicon-refresh-animate'></span> Searching...">Go!</button>
