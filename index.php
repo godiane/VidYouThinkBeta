@@ -64,7 +64,10 @@ if($fgmembersite->CheckLogin())
                     <div class="col-md-8">
     			        <legend>Welcome</legend>
     			        <div class="input-group input-group-lg" data-toggle="tooltip" title="Welcome">
-    				        Please login to access functionality.
+					VidYouThink is a time-saving, web-based mechanism for YouTube researchers to get insights on 
+					a particular phrase mentioned in YouTube videos.<br/><br/>	
+					Users need a Google Account to use the sentiment analysis functionality.<br/><br/>
+					Ready to test? <a href="./register.php">Sign up!</a> Or login, if you already have an account!
     			        </div><!-- input-group -->
     		        </div><!-- col -->
     		       <div class="col-md-4">
