@@ -52,7 +52,7 @@ if($fgmembersite->CheckLogin())
                 <div class="row">
     				<div class="page-header">
     					<h1><a href="./index.php">VidYouThink!</a>
-                        <small>Caption Search</small></h1>
+                        <small>Caption Search - BETA</small></h1>
     				</div>
                 </div><!-- row -->
                 <?php if (!empty($fgmembersite->GetErrorMessage())) { ?>
@@ -64,10 +64,24 @@ if($fgmembersite->CheckLogin())
                     <div class="col-md-8">
     			        <legend>Welcome</legend>
     			        <div class="input-group input-group-lg" data-toggle="tooltip" title="Welcome">
+						
+
 					VidYouThink is a time-saving, web-based mechanism for YouTube researchers to get insights on 
-					a particular phrase mentioned in YouTube videos.<br/><br/>	
+					a particular phrase mentioned in YouTube videos.<br/><br/>
+					This is done via phrase search and sentiment analysis focused on Closed-Captioned YouTube 
+					videos using Closed Captions, Viewer Feedback, and Comments - to get a general sentiment based on a given search query.<br/><br/>
 					Users need a Google Account to use the sentiment analysis functionality.<br/><br/>
-					Ready to test? <a href="./register.php">Sign up!</a> Or login, if you already have an account!
+					<ul>
+						<li>Users (YouTube researchers) can register and login on the site.</li>
+						<li>Registered users can login, manage their account – change email and password, and search videos through YouTube.</li>
+						<li>Search through available Closed Captions in YouTube (transcript provided by channel owner) using YouTube Search API.</li>
+						<li>Get a general sentiment of a phrase, and check whether the phrase context is clear in YouTube videos, and the 
+							reactions that go with it via Sentiment Analysis API - Google Account authentication is required to do so.</li>
+						<li>Present the results in tabular form.</li>
+						<li>Users can review their search history, clear a few or all their search histories.</li>
+					</ul>
+
+					Ready to test? <a href="./register.php">Sign up</a> - or <a href="#login-form">login</a>, if you already have an account!
     			        </div><!-- input-group -->
     		        </div><!-- col -->
     		       <div class="col-md-4">
