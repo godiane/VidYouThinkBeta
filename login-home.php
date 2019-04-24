@@ -78,15 +78,28 @@ foreach ($sh_list as $sh_entry) {
                  '      <a href="login-home.php?q=' . $sh_entry['QUERY'] .'"> ' .
                             $counter . ' ' . $sh_entry['QUERY'] . '</a> ' .
                  '  </h3> ' .
-                 '  <p> ' .
-                 '      <h4>Rating:</h4> '.  $rating . '<br/>' .
-                 '      <h4>Overall:</h4> '.  $overall . '<br/>' .
-                 '      <h4>Phrase:</h4> '.  $phrase . '<br/>' .
-                 '      <h4>Comments:</h4> '.  $comments . '<br/>' .
-                 '      <h4>Caption:</h4> '.  $caption . '<br/>' .
-                 '      <h4>Date:</h4> '.$sh_entry['CREATE_TIMESTAMP'].'<br/>' .
-                 '  </p> ' .
-                 '  <p> ';
+                 '  <table class="table"> ' .
+                 '      <thead> ' .
+                 '          <tr>' .
+                 '              <th><h4>Rating</h4></th>' .
+                 '              <th><h4>Overall</h4></th>' .
+                 '              <th><h4>Phrase</h4></th>' .
+                 '              <th><h4>Comments</h4></th>' .
+                 '              <th><h4>Caption</h4></th>' .
+                 '              <th><h4>Date</h4></th>' .
+                 '          </tr>' .
+                 '      </thead> ' .
+                 '      <tbody> ' .
+                 '          <tr> ' .
+                 '              <td>'.  $rating . '</td>' .
+                 '              <td>'.  $overall . '</td>' .
+                 '              <td>'.  $phrase . '</td>' .
+                 '              <td>'.  $comments . '</td>' .
+                 '              <td>'.  $caption . '</td>' .
+                 '              <td>'.$sh_entry['CREATE_TIMESTAMP'].'</td>' .
+                 '          </tr>' .
+                 '      </tbody> ' .
+                 '  </table> ';
     if (!empty($sr_list)) {
 
         $htmlBody .=    '<a href="analyze.php?videoId='.$sr_list[0]['YT_ID'] .
@@ -99,8 +112,7 @@ foreach ($sh_list as $sh_entry) {
     $htmlBody .=   '    &nbsp;<button id="clear-search" value="'.
                             $sh_entry['QUERY'].'" class="btn btn-danger '.
                             'btn-large">Delete</button> ';
-    $htmlBody .= '  </p> ' .
-                 '</div> ';
+    $htmlBody .= '</div> ';
     $counter++;
 }
 
@@ -307,8 +319,8 @@ END;
 			<div class="col-md-12">
                 <div class="row">
     				<div class="page-header">
-    					<h1><a href="./index.php">VidYouThink!</a>
-                        <small>Caption Search</small></h1>
+                        <h1><a href="./index.php">VidYouThink!</a>
+                        <small>Caption Search - BETA</small></h1>
     				</div>
                 </div><!-- row -->
                 <?php if (!empty($fgmembersite->GetErrorMessage())) { ?>

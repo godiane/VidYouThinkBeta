@@ -56,7 +56,7 @@ $user = $userT->getUser($_SESSION['id_of_user']);
               <div class="col-md-12">
                   <div class="page-header">
                       <h1><a href="./index.php">VidYouThink!</a>
-                          <small>Caption Search</small></h1>
+                      <small>Caption Search - BETA</small></h1>
                   </div>
                   <?php if (!empty($fgmembersite->GetErrorMessage())) {
     ?>

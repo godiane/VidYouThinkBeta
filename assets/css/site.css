@@ -52,3 +52,8 @@
     from { transform: scale(1) rotate(0deg);}
     to { transform: scale(1) rotate(360deg);}
 }
+
+.carousel-inner .item img {
+    margin: 0px auto;
+    text-align: center;
+}

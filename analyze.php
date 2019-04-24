@@ -475,7 +475,8 @@ if(isset($_SERVER['HTTP_REFERER'])) {
 			<div class="row">
 				<div class="col-md-12">
 					<div class="page-header">
-						<h1><a href="./index.php">VidYouThink!</a> <small>Caption Search</small></h1>
+                        <h1><a href="./index.php">VidYouThink!</a>
+                        <small>Caption Search - BETA</small></h1>
 					</div>
 				<div class="row">
 					<div class="col-md-12 text-right">

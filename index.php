@@ -62,28 +62,73 @@ if($fgmembersite->CheckLogin())
                 <?php } ?>
                 <div class="row">
                     <div class="col-md-8">
-    			        <legend>Welcome</legend>
-    			        <div class="input-group input-group-lg" data-toggle="tooltip" title="Welcome">
-						
-
-					VidYouThink is a time-saving, web-based mechanism for YouTube researchers to get insights on 
-					a particular phrase mentioned in YouTube videos.<br/><br/>
-					This is done via phrase search and sentiment analysis focused on Closed-Captioned YouTube 
-					videos using Closed Captions, Viewer Feedback, and Comments - to get a general sentiment based on a given search query.<br/><br/>
-					Users need a Google Account to use the sentiment analysis functionality.<br/><br/>
-					<ul>
-						<li>Users (YouTube researchers) can register and login on the site.</li>
-						<li>Registered users can login, manage their account – change email and password, and search videos through YouTube.</li>
-						<li>Search through available Closed Captions in YouTube (transcript provided by channel owner) using YouTube Search API.</li>
-						<li>Get a general sentiment of a phrase, and check whether the phrase context is clear in YouTube videos, and the 
-							reactions that go with it via Sentiment Analysis API - Google Account authentication is required to do so.</li>
-						<li>Present the results in tabular form.</li>
-						<li>Users can review their search history, clear a few or all their search histories.</li>
-					</ul>
-
-					Ready to test? <a href="./register.php">Sign up</a> - or <a href="#login-form">login</a>, if you already have an account!
-    			        </div><!-- input-group -->
-    		        </div><!-- col -->
+                        <div class="jumbotron">
+        			        <h2>About VidYouThink!</h2>
+                            <div class="carousel slide" id="myCarousel" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-slide-to="0" data-target="#myCarousel" class="active">
+                                    </li>
+                                    <li data-slide-to="1" data-target="#myCarousel">
+                                    </li>
+                                    <li data-slide-to="2" data-target="#myCarousel">
+                                    </li>
+                                    <li data-slide-to="3" data-target="#myCarousel">
+                                    </li>
+                                    <li data-slide-to="4" data-target="#myCarousel">
+                                    </li>
+                                    <li data-slide-to="5" data-target="#myCarousel">
+                                    </li>
+                                </ol>
+                                <div class="carousel-inner" role="listbox" style="max-width:900px; height:400px !important;">
+                                    <div class="item active">
+                                        <img class="d-block w-100" alt="Captions" src="assets/img/captions.png" />
+                                    </div>
+                                    <div class="item">
+                                        <img class="d-block w-100" alt="Comments" src="assets/img/comments.png" />
+                                    </div><!-- col -->
+                                    <div class="item">
+                                        <img class="d-block w-100" alt="Phrase" src="assets/img/phrase.png" />
+                                    </div><!-- col -->
+                                    <div class="item">
+                                        <img class="d-block w-100" alt="Results" src="assets/img/results.png" />
+                                    </div><!-- col -->
+                                    <div class="item">
+                                        <img class="d-block w-100" alt="Searches" src="assets/img/searches.png" />
+                                    </div><!-- col -->
+                                    <div class="item">
+                                        <img class="d-block w-100" alt="Sentiment" src="assets/img/sentiment.png" />
+                                    </div><!-- col -->
+                                </div><!-- carousel inner -->
+                                <!-- Left and right controls -->
+                                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div><!-- carousel slide -->
+                            <br/><br/>
+        			        <div class="input-group input-group-lg" data-toggle="tooltip" title="Welcome">
+            					VidYouThink is a time-saving, web-based mechanism for YouTube researchers to get insights on
+            					a particular phrase mentioned in YouTube videos.<br/><br/>
+            					This is done via phrase search and sentiment analysis focused on Closed-Captioned YouTube
+            					videos using Closed Captions, Viewer Feedback, and Comments - to get a general sentiment based on a given search query.<br/><br/>
+            					Users need a Google Account to use the sentiment analysis functionality.<br/><br/>
+            					<ul>
+            						<li>Users (YouTube researchers) can register and login on the site.</li>
+            						<li>Registered users can login, manage their account – change email and password, and search videos through YouTube.</li>
+            						<li>Search through available Closed Captions in YouTube (transcript provided by channel owner) using YouTube Search API.</li>
+            						<li>Get a general sentiment of a phrase, and check whether the phrase context is clear in YouTube videos, and the
+            							reactions that go with it via Sentiment Analysis API - Google Account authentication is required to do so.</li>
+            						<li>Present the results in tabular form.</li>
+            						<li>Users can review their search history, clear a few or all their search histories.</li>
+            					</ul>
+            					Ready to test? <a href="./register.php">Sign up</a> - or <a href="#login-form">login</a>, if you already have an account!
+        			        </div><!-- input-group -->
+                        </div><!-- jumbotron -->
+                    </div><!--  col md 8 -->
     		       <div class="col-md-4">
         			   <!-- Form Name -->
         			   <fieldset>
@@ -118,7 +163,7 @@ if($fgmembersite->CheckLogin())
                                 </div>
                             </form>
                         </fieldset>
-    	            </div><!-- col-md-6 -->
+    	            </div><!-- col-md-4 -->
     	        </div><!-- row -->
     	    </div><!-- col-lg-12 -->
 		</div><!-- row -->

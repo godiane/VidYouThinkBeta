@@ -95,7 +95,8 @@ END;
 		<div class="row">
 			<div class="col-md-12">
 				<div class="page-header">
-					<h1><a href="./index.php">VidYouThink!</a> <small>Caption Search</small></h1>
+                    <h1><a href="./index.php">VidYouThink!</a>
+                    <small>Caption Search - BETA</small></h1>
 				</div>
                 <?php if (!empty($fgmembersite->GetErrorMessage())) { ?>
                 <div class="alert alert-danger" role="alert">
