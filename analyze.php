@@ -442,10 +442,15 @@ END;
 END;
 }
 
-$previous = "javascript:history.go(-1)";
-if(isset($_SERVER['HTTP_REFERER'])) {
-	$previous = $_SERVER['HTTP_REFERER'];
-}
+$_SESSION['query'] = $_SERVER['QUERY_STRING'];
+$queryArr = explode('&', $_SESSION['query']);
+$phraseArr = explode('=', $queryArr[1]);
+$phrase = substr($phraseArr[1], 3, -3);
+$previous = "login-home.php?q=" . $phrase;
+
+//if(isset($_SERVER['HTTP_REFERER'])) {
+//	$previous = $_SERVER['HTTP_REFERER'];
+//}
 ?>
 
 <!doctype html>
