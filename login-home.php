@@ -73,7 +73,10 @@ foreach ($sh_list as $sh_entry) {
         $rating = $r->GetRatingByVideoId($sr_list[0]['YT_ID']);
     }
 
-    $htmlBody .= '<div class="jumbotron jumbotron-fluid">' .
+    $htmlBody .= '<div class="jumbotron jumbotron-fluid" data-toggle="tooltip"
+        title="For each search history, the details of video with the highest
+        rating (likes-dislikes) will be listed (maximum of 5). If the caption
+        is unavailable, user will not be able to get the searched query’s sentiment.">' .
                  '  <h3 class="text-danger"> ' .
                  '      <a href="login-home.php?q=' . $sh_entry['QUERY'] .'"> ' .
                             $counter . ' ' . $sh_entry['QUERY'] . '</a> ' .
@@ -336,8 +339,8 @@ END;
                                 <legend>Search</legend>
                                 <input type="hidden" name="submitted" id="submitted" value="1"/>
                                 <div class="input-group input-group-lg" data-toggle="tooltip"
-                                    title="Enter phrase to search in YouTube Videos. Limited to
-                                    25 search results.">
+                                    title="Enter phrase to search in YouTube Videos. Limited to English videos
+                                    viewable in Philippines with captions, maximum of 25 search results.">
                                     <label class="sr-only" for="q">Search Term</label>
                                     <input type="text" class="form-control input-lg" id="q" name="q"
                                         placeholder="Enter phrase to search in YouTube Videos. Limited to 25 search results." required />
